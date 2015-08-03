@@ -25,27 +25,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.3375">
-              <caret line="303" column="22" selection-start-line="303" selection-start-column="22" selection-end-line="303" selection-end-column="22" />
+            <state vertical-scroll-proportion="4.4329076">
+              <caret line="324" column="44" selection-start-line="324" selection-start-column="44" selection-end-line="324" selection-end-column="44" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1438615466000" expanded="true" signature="4902:4988" placeholder="//..." />
+                <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1438617161000" expanded="true" signature="4902:4988" placeholder="//..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="boris.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="boris.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/boris.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.046511628">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state vertical-scroll-proportion="-14.196428">
+              <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -73,8 +73,8 @@
         <option value="$PROJECT_DIR$/js/index.js" />
         <option value="$PROJECT_DIR$/js/search.js" />
         <option value="$PROJECT_DIR$/js/grid.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/boris.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -281,7 +281,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12168675" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11325301" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -401,25 +401,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/css/boris.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.3375">
-          <caret line="303" column="22" selection-start-line="303" selection-start-column="22" selection-end-line="303" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1438615466000" expanded="true" signature="4902:4988" placeholder="//..." />
-          </folding>
+        <state vertical-scroll-proportion="-14.196428">
+          <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/boris.css">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.046511628">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding />
+        <state vertical-scroll-proportion="4.4329076">
+          <caret line="324" column="44" selection-start-line="324" selection-start-column="44" selection-end-line="324" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1438617161000" expanded="true" signature="4902:4988" placeholder="//..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,7 +1,7 @@
 .mdl-card{
     min-height: 45px;
     width: 100%;
-
+    margin-top: 15px;
 }
 
 .material-icons-header{
@@ -36,15 +36,6 @@
     margin-right: auto;
 }
 
-.cardContainer {
-    margin-top: 20px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    height: 600px;
-    width: 100%;
-    overflow: scroll;
-}
 
 @media (min-width:600px) {
     .cardContainer {
@@ -52,24 +43,21 @@
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
-        height: 600px;
         width: 100%;
         overflow: scroll;
     }
 
     .cardColumnContainer {
         width: 32%;
-        margin:auto;
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: space-between;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom: 20px;
     }
 }
 
 @media (max-width:599px) {
     .cardContainer {
         margin-top: 20px;
-        height: 600px;
         width: 100%;
         overflow: scroll;
     }
