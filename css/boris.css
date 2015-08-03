@@ -1,45 +1,20 @@
-.mdl-card{
-    min-height: 45px;
-    margin-top: 10px;
-
-}
-
-.mdl-card-normal {
-    height: 48.2%;
-}
-
-.mdl-card-vertical {
-    height: 100%;
-}
-
-.material-icons-header{
-    font-size: 38px;
-
-}
-
-.mdl-layout__header-row .mdl-navigation__link{
-    padding: 0 3px;
-}
-
-.mdl-data-table td{
-    font-size: 15px;
-    height: 24px;
-    padding: 4px 4px 0;
-    vertical-align: inherit;
-
-}
-
-.mdl-data-table tbody tr{
-    height: 24px;
-}
-
-.material-icons{
-    color:grey;
-}
+.toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
+    color: white; }
 
 
-.mainContainer {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-}
+.autocompletedemoCustomTemplate .autocomplete-custom-template li {
+    border-bottom: 1px solid #ccc;
+    height: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    white-space: normal; }
+.autocompletedemoCustomTemplate .autocomplete-custom-template li:last-child {
+    border-bottom-width: 0; }
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title, .autocompletedemoCustomTemplate .autocomplete-custom-template .item-metadata {
+    display: block;
+    line-height: 2; }
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title md-icon {
+    height: 18px;
+    width: 18px; }
+
+
