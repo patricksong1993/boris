@@ -1,0 +1,29 @@
+.mdl-card{
+    min-height: 45px;
+
+}
+
+.material-icons{
+    font-size: 38px;
+
+}
+
+.mdl-layout__header-row .mdl-navigation__link{
+    padding: 0 3px;
+}
+
+.mdl-data-table td{
+    font-size: 15px;
+    height: 24px;
+    padding: 4px 4px 0;
+    vertical-align: inherit;
+
+}
+
+.mdl-data-table tbody tr{
+    height: 24px;
+}
+
+.material-icons{
+    color:grey;
+}
