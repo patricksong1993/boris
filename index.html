@@ -113,11 +113,17 @@
     <link rel="stylesheet" href="bower_components/material-design-lite/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.blue-deep_purple.min.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/searchJ.js"></script>
     <!--<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="css/boris.css">
     <meta charset="UTF-8">
     <title></title>
+
+
 </head>
 <body>
 
@@ -139,8 +145,8 @@
 
         <div class="mainContainer">
             <div class="mdl-card mdl-card--border mdl-shadow--8dp" style="width:100%;margin: auto;height:70px ;margin-top: 15px;/* margin: auto; */">
-                <div id="searchBar" class="mdl-textfield mdl-js-textfield textfield-demo" style="padding: 0px 0; width: 98%;margin:auto;" onclick="searchPop()" >
-                    <input class="mdl-textfield__input" type="text" id="sample1" style="height: 30px;font-size: 26px;color: darkgray;text-align: center;" o/>
+                <div id="searchBar" class="mdl-textfield mdl-js-textfield" style="padding: 0px 0; width: 98%;margin:auto;" onclick="searchPop()" >
+                    <input id="tags" class="mdl-textfield__input" type="text" id="sample1" style="height: 30px;font-size: 26px;color: darkgray;text-align: center;" o/>
                     <label class="mdl-textfield__label" for="sample1" style="height: 40px;top: 20px;font-size: 26px;text-align: center;">  </label>
                 </div>
             </div>
