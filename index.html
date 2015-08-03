@@ -7,47 +7,38 @@
     <link rel="stylesheet" href="css/boris.css">
 </head>
 
-<body>
-
-
-
-
-
-
-<div ng-app="MyApp" ng-controller="AppCtrl" >
-
-    <md-content>
-
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <md-button class="md-icon-button" aria-label="Settings">
-                    <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-                </md-button>
-                <h2>
-                    <span>Boris</span>
-                </h2>
-                <span flex=""></span>
-                <md-button class="md-icon-button" aria-label="Favorite">
-                    <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
-                </md-button>
-                <md-button class="md-icon-button" aria-label="More">
-                    <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
-                </md-button>
-            </div>
-        </md-toolbar>
-
-
-    </md-content>
-</div>
-
-
+<body ng-app="MyApp" >
 
 
 
 <div>
+    <div ng-controller="AppCtrl" >
+
+        <md-content>
+
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>
+                        <span>Boris</span>
+                    </h2>
+                    <span flex=""></span>
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="More">
+                        <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
 
 
-    <div ng-controller="DemoCtrl as ctrl" layout="column" ng-cloak="" class="autocompletedemoCustomTemplate" ng-app="MyApp" style="">
+        </md-content>
+    </div>
+</div>
+
+
+<div>
+    <div ng-controller="DemoCtrl as ctrl" layout="column" ng-cloak="" class="autocompletedemoCustomTemplate">
         <md-content layout-padding="" layout="column">
             <form ng-submit="$event.preventDefault()">
                 <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Pick an Angular repository" md-menu-class="autocomplete-custom-template">
@@ -69,10 +60,7 @@
             </form>
         </md-content>
     </div>
-
 </div>
-
-
 
 
 
