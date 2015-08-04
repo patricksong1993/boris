@@ -27,7 +27,7 @@ public class Technology {
 	private String title;
 	@Column(name = "description")
 	private String description;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technology")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technologyRelatedTo")
 	private List<Article> relatedArticles;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technologyOrganizedFor")
 	private List<Event> eventsForTechnology;
