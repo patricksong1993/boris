@@ -12,9 +12,9 @@ import javax.persistence.Table;
 public class Article {
 
 	@Id
-	@Column(name="id")
+	@Column(name="refId")
 	@GeneratedValue(strategy=GenerationType.AUTO)  
-	private long id;
+	private long refId;
 	@Column(name="link")
 	private String link;
 	@Column(name="source")
@@ -23,10 +23,10 @@ public class Article {
 	private String title;
 
 	public long getId() {
-		return id;
+		return refId;
 	}
 	public void setId(long id) {
-		this.id = id;
+		this.refId = id;
 	}
 	public String getLink() {
 		return link;

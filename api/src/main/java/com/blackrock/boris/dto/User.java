@@ -31,11 +31,11 @@ public class User {
 	@JoinColumn(name="user_ref_id", nullable=false)
 	private Team team;
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "user_technology", joinColumns = { 
+	@JoinTable(name = "user_subscription", joinColumns = { 
 			@JoinColumn(name = "user_ref_id", nullable = false, updatable = false) }, 
-			inverseJoinColumns = { @JoinColumn(name = "technology_ref_id", 
+			inverseJoinColumns = { @JoinColumn(name = "subscription_ref_id", 
 					nullable = false, updatable = false) })
-	private List<Technology> technologies;
+	private List<Subscription> technologiesSubscribedTo;
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "user_event", joinColumns = { 
 			@JoinColumn(name = "user_ref_id", nullable = false, updatable = false) }, 
