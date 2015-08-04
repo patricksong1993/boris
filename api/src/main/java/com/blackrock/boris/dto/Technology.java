@@ -13,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,7 +30,7 @@ public class Technology {
 	@Column(name = "description")
 	private String description;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technology")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technologyRelatedTo")
 	private List<Article> relatedArticles;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technologyOrganizedFor")
@@ -44,8 +43,8 @@ public class Technology {
 					nullable = false, updatable = false) })
 	private List<Team> teamsUsingTechnology;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	private Subscription subscriptionForTechnology;
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "technologiesSubscribedTo")
+	private List<User> usersSubscribedToTechnology;
 
 	public long getRefId() {
 		return refId;

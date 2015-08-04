@@ -21,7 +21,7 @@ public class Division {
 	private long refId;
 	@Column(name = "divisionName")
 	private String divisionName;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "team")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "divisionTeamWorksIn")
 	List<Team> teamsInDivision;
 
 	public String getDivisionName() {

@@ -13,11 +13,16 @@ import org.json.JSONObject;
 
 public class GitHubImporter implements TechnologyImporter {
     private final static Logger logger = Logger.getLogger(GitHubImporter.class.getName());
+    private final static String BASE_URL = "https://api.github.com/search/repositories?";
+    private final static String QUERY = "q=";
+    private final static String LANGUAGE = "+language:";
+    private final static String CREATED = ""; //"+created:2015-07-21";
+    private final static String CREDENTIALS = "&client_id=5904eecf5394f99575a7&client_secret=f7a1bc3cc26c7b38e41b95720c9c39c244f063e8";
 
     private String url;
 
-    public GitHubImporter() {
-        this.url = "https://api.github.com/search/repositories?q=language:java&order=desc&sort=stars&client_id=5904eecf5394f99575a7&client_secret=f7a1bc3cc26c7b38e41b95720c9c39c244f063e8";
+    public GitHubImporter(String query, String language) {
+        this.url = BASE_URL + QUERY + query + LANGUAGE + language + CREATED + CREDENTIALS;
     }
 
     @Override
@@ -31,13 +36,16 @@ public class GitHubImporter implements TechnologyImporter {
 
                        for (int i = 0; i < items.length(); i++) {
                            JSONObject item = items.getJSONObject(i);
-
+                           System.out.println(item.get("html_url"));
                            Technology technology = new Technology();
                            technology.setTitle("name");
                            technology.setDescription("description");
 
                            Article article = new Article();
-                           article.setTitle("ciao");
+                           article.setTitle("GitHub Repository");
+                           article.setLink(item.get("html_url").toString());
+                           article.setSource("github.com");
+                           article.setTechnologyRelatedTo(technology);
                        }
                    }
 
@@ -54,6 +62,6 @@ public class GitHubImporter implements TechnologyImporter {
     }
 
     public static void main(String[] args) {
-        new GitHubImporter().importTechnologies();
+        new GitHubImporter("search", "java").importTechnologies();
     }
 }
