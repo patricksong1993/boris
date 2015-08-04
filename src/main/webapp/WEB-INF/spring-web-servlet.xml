@@ -14,7 +14,7 @@
 
     <context:component-scan base-package="com.blackrock.boris.controllers" />
 
-    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+<!--     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <property name="mediaTypes">
             <map>
                 <entry key="html" value="text/html"/>
@@ -36,7 +36,27 @@
             </list>
         </property>
     </bean>
-
+ -->
+ 	
+ 	 <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/html/" />
+        <property name="suffix" value=".html" />
+    </bean>
+     
+    <!-- Configure to plugin JSON as request and response in method handler -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="jsonMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+     
+    <!-- Configure bean to convert JSON to POJO and vice versa -->
+    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+    </bean> 
+    
     <mvc:resources mapping="/resources/**" location="/resources/" />
 
     <mvc:annotation-driven />

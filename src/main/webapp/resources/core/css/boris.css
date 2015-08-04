@@ -42,7 +42,7 @@
 
 @media (min-width:600px) {
     .cardContainer {
-        margin-top: 20px;
+        margin-top: 10px;
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
@@ -60,7 +60,7 @@
 
 @media (max-width:599px) {
     .cardContainer {
-        margin-top: 20px;
+        margin-top: 10px;
         width: 100%;
         overflow: scroll;
     }

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/material-design-lite/material.js"></script>
-    <script src="bower_components/angularjs/angular.js"></script>
-    <link rel="stylesheet" href="bower_components/material-design-lite/material.css">
+    <script src="../../../resources/core/bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../../resources/core/bower_components/material-design-lite/material.js"></script>
+    <link rel="stylesheet" href="../../../resources/core/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="../../../resources/core/bower_components/material-design-lite/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.blue-deep_purple.min.css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -12,24 +12,33 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <script src="js/searchJ.js"></script>
-    <script src="js/collapse.js"></script>
+    <script src="../../../resources/core/js/searchJ.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-    <link rel="stylesheet" href="css/boris.css">
+    <link rel="stylesheet" href="../../../resources/core/css/boris.css">
     <meta charset="UTF-8">
     <title>Bower</title>
 </head>
-<body>
+<body ng-app="MyApp">
 
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-            <img src="img/logo_white.png" alt="Boris_logo" style="height: 30px;">
+            <img src="../../../resources/core/img/logo_white.png" alt="Boris_logo" style="height: 30px;">
 
             <div class="mdl-layout-spacer"></div>
-                <div id="searchBar" class="mdl-textfield mdl-js-textfield textfield-demo" style="padding: 0px 0; width: 70%;margin:auto;background-color: white;" onclick="searchPop()" >
-                    <input id="tags" class="mdl-textfield__input" type="text" id="sample1" style="height: 30px;font-size: 20px;color: darkgray;text-align: center;" placeholder="Search.."/>
-                </div>
+
+            <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="width: 75%;">
+                <form ng-submit="$event.preventDefault()">
+                    <md-autocomplete  ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
+                        <md-item-template>
+                            <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                        </md-item-template>
+                        <md-not-found>
+                            No matches found for "{{ctrl.searchText}}".
+                        </md-not-found>
+                    </md-autocomplete>
+                </form>
+            </div>
 
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation ">
@@ -386,5 +395,13 @@
     </main>
 
 </div>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-messages.min.js'></script>
+<script src='http://cdn.rawgit.com/angular/bower-material/v0.10.0/angular-material.js'></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js'></script>
+<script src="../../../resources/core/js/autocompleteSearch.js"></script>
 </body>
 </html>
