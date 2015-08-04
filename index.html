@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/boris.css">
 
     <meta charset="UTF-8">
-    <title>Bower</title>
+    <title>Boris</title>
 </head>
 <body ng-app="MyApp">
 
@@ -34,24 +34,28 @@
                 <div class="mdl-layout-spacer"></div>
                 <nav class="mdl-navigation ">
 
-                    <a id ="add" class="mdl-navigation__link material-icons material-icons-header" href="">add_circle</a>
                     <div class="mdl-tooltip" for="add">
-                        Add
+                        Add Article/Event
                     </div>
                     <a id="subscriptionFeed" class="mdl-navigation__link material-icons material-icons-header" href="">assignment</a>
                     <div class="mdl-tooltip" for="subscriptionFeed">
                         Subscription Feed
                     </div>
+
                     <div class="mdl-tooltip" for="godMode">
                         God Mode
                     </div>
 
+                    <div ng-controller="addArticleControl" class="">
+                        <a id="addArticle" class="material-icons material-icons-header mdl-navigation__link" ng-click="showAdvanced($event)" flex flex-md="100">
+                            add_circle
+                        </a>
+                    </div>
 
-                    <div ng-controller="godModeControl" class="">
+                    <div ng-controller="addArticleControl" class="">
                         <a id="godMode" class="material-icons material-icons-header mdl-navigation__link" ng-click="showAdvanced($event)" flex flex-md="100">
                             flash_on
                         </a>
-
                     </div>
 
 
@@ -99,11 +103,11 @@
                         </md-dialog>
                         </script>
 
-                    <script type="text/ng-template" id="dialog2.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
+                    <script type="text/ng-template" id="dialog2.tmpl.html"><md-dialog aria-label="Mango (Fruit)" style="width: 90%">
                     <form>
                         <md-toolbar>
                             <div class="md-toolbar-tools">
-                                <h2>Mango </h2>
+                                <h2>Add</h2>
                                 <span flex></span>
                                 <md-button class="md-icon-button" ng-click="answer('not applicable')">
                                     <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
@@ -113,6 +117,72 @@
                         <md-dialog-content>
                             <div>
 
+                                <div>
+                                    <md-content class="md-padding">
+                                        <md-tabs md-dynamic-height md-border-bottom>
+                                            <md-tab label="add technology">
+                                                <md-content class="md-padding">
+                                                    <div ng-controller="DemoCtrl" layout="column" class="inputdemoBasicUsage" ng-app="MyApp">
+
+
+
+                                                        <md-content layout-padding="">
+                                                            <form name="userForm">
+
+
+
+                                                                <div layout="" layout-sm="column" style="display: flex; flex-flow: column;">
+                                                                    <md-input-container flex="">
+                                                                        <label>Title</label>
+                                                                        <input ng-model="user.firstName">
+                                                                    </md-input-container>
+
+
+                                                                    <md-input-container flex>
+                                                                        <label>Description</label>
+                                                                        <textarea ng-model="user.biography"></textarea>
+                                                                    </md-input-container>
+
+
+                                                                    <div ng-controller="CustomInputDemoCtrl as ctrl" layout="column" class="chipsdemoCustomInputs" ng-app="MyApp">
+                                                                        <md-content class="md-padding" layout="column">
+                                                                            <md-chips ng-model="ctrl.selectedVegetables" md-autocomplete-snap="" md-require-match="">
+                                                                                <md-autocomplete md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" placeholder="Add a category">
+                                                                                    <span md-highlight-text="ctrl.searchText">{{item.name}}</span>
+                                                                                </md-autocomplete>
+                                                                                <md-chip-template>
+                                                                                    <span>
+                                                                                      <strong>{{$chip.name}}</strong>
+                                                                                    </span>
+                                                                                </md-chip-template>
+                                                                            </md-chips>
+                                                                        </md-content>
+                                                                    </div>
+                                                                </div>
+
+                                                            </form>
+                                                        </md-content>
+
+                                                    </div>
+
+
+                                                </md-content>
+                                            </md-tab>
+                                            <md-tab label="Add Article">
+                                                <md-content class="md-padding">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+                                                    <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+                                                    <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                                                </md-content>
+                                            </md-tab>
+                                            <md-tab label="Add Event">
+                                                <md-content class="md-padding">
+                                                    <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                                                </md-content>
+                                            </md-tab>
+                                        </md-tabs>
+                                    </md-content>
+                                </div>
                             </div>
                         </md-dialog-content>
 
@@ -122,10 +192,10 @@
                             </md-button>
                             <span flex></span>
                             <md-button ng-click="answer('not useful')" class="md-primary">
-                                Not Useful
+                                Cancel
                             </md-button>
                             <md-button ng-click="answer('useful')" class="md-primary">
-                                Useful
+                                Add
                             </md-button>
                         </div>
                     </form>
@@ -146,7 +216,7 @@
 
                     <div class="mdl-card mdl-card--border mdl-shadow--8dp mdl-card-searchBar">
                         <div id="searchBar" class="mdl-textfield mdl-js-textfield mdl-textfield-index" onclick="searchPop()" >
-                            <input id="tags" class="mdl-textfield__input mdl-textfield__input-index" type="text" id="sample1" placeholder="Search"/>
+                            <input id="tags" class="mdl-textfield__input mdl-textfield__input-index" type="text" id="sample1"/>
                             <label class="mdl-textfield__label mdl-textfield__label-index" for="sample1"></label>
                         </div>
                     </div>
@@ -155,13 +225,10 @@
                 <div class="cardColumnContainer">
 
                     <div class="mdl-card mdl-shadow--8dp">
-
-
                         <div class="" style="padding-left: 10px">
                             <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
                         </div>
                             <div class="mdl-card__title" style="padding-top:0px">
-
                                 <h2 class="mdl-card__title-text" >AngularJS</h2>
                             </div>
                         <div class="mdl-card__supporting-text">
@@ -180,172 +247,12 @@
                         </div>
                     </div>
 
-                    <div class="mdl-card mdl-shadow--8dp">
-                        <div class="mdl-card__title" style="padding:5px;margin:auto;">
-
-                            <h2 class="mdl-card__title-text mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray;">Distributed Databases</h2>
-                        </div>
-                        <div class="mdl-card mdl-shadow--8dp mdl-card" style="margin-top: 5px;">
-                        <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text mdl-button mdl-js-button mdl-js-ripple-effect"> Cassandra  </h2>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            Apache Cassandra is an open source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. Cassandra offers robust support for clusters spanning multiple datacenters,
-                            with asynchronous masterless replication allowing low latency operations for all clients.
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                Read More ...
-                            </a>
-                        </div>
-                        <div class="mdl-card__menu">
-                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                                <i class="material-icons">favorite_border</i>
-                            </button>
-                        </div>
-                        </div>
-                    </div>
-
                 </div>
 
                 <div class="cardColumnContainer">
-
-                    <div class="mdl-card mdl-shadow--8dp" >
-                        <div class="mdl-card__title" style="padding:5px;margin:auto;">
-
-                            <h2 class="mdl-card__title-text mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray;"> Programming</h2>
-                        </div>
-                        <div class="mdl-card mdl-shadow--8dp mdl-card" style="margin-top: 5px;">
-                        <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text mdl-button mdl-js-button mdl-js-ripple-effect"> Java 8 </h2>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            Java 8 was released on 18 March 2014,[173][174] and included some features that were planned for Java 7 but later deferred.
-                            Work on features was organized in terms of JDK Enhancement Proposals (JEPs).
-
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                Read More ...
-                            </a>
-                        </div>
-                        <div class="mdl-card__menu">
-                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                                <i class="material-icons">favorite_border</i>
-                            </button>
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="mdl-card mdl-shadow--8dp">
-                        <div class="mdl-card__title" style="padding:5px;margin:auto;">
-
-                            <h2 class="mdl-card__title-text mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray;"> Scripting Languages </h2>
-                        </div>
-                        <div class="mdl-card mdl-shadow--8dp mdl-card" style="margin-top: 5px;">
-                        <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text mdl-button mdl-js-button mdl-js-ripple-effect"> Python </h2>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            Python is a widely used general-purpose, high-level programming language.[19][20][21] Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than would be possible in languages such as C++ or Java.
-                            The language provides constructs intended to enable clear programs on both a small and large scale.[24]
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                Read More ...
-                            </a>
-                        </div>
-                        <div class="mdl-card__menu">
-                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                                <i class="material-icons">favorite_border</i>
-                            </button>
-                        </div>
-                        </div>
-                    </div>
-
-
                 </div>
 
                 <div class="cardColumnContainer">
-
-                    <div class="mdl-card mdl-shadow--8dp" >
-                        <div class="mdl-card__title" style="padding:5px;margin:auto;">
-
-                            <h2 class="mdl-card__title-text mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray;">Web Framework</h2>
-                        </div>
-                        <div class="mdl-card mdl-shadow--8dp mdl-card" style="margin-top: 5px;">
-                        <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text mdl-button mdl-js-button mdl-js-ripple-effect"> Angular Material </h2>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            The Angular Material project is an implementation of Material Design in Angular.js. This project provides a set of reusable, well-tested, and accessible UI components based on the Material Design system.
-                            Similar to the Polymer project's Paper elements collection, Angular Material is supported internally at Google by the Angular.js, Material Design UX and other product teams.
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                Read More ...
-                            </a>
-                        </div>
-                        <div class="mdl-card__menu">
-                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                                <i class="material-icons">favorite_border</i>
-                            </button>
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="mdl-card mdl-shadow--8dp">
-                        <div class="mdl-card__title" style="padding:5px;margin:auto;">
-
-                            <h2 class="mdl-card__title-text mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray;"> Version Control </h2>
-                        </div>
-                        <div class="mdl-card mdl-shadow--8dp mdl-card" style="margin-top: 5px;">
-                        <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text mdl-button mdl-js-button mdl-js-ripple-effect"> Git </h2>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            Git (/ɡɪt/[4]) is a distributed revision control system with an emphasis on speed,[5] data integrity,[6] and support for distributed, non-linear workflows.[7] Git was initially designed and developed by Linus Torvalds for Linux kernel development in 2005,
-                            and has since become one of the most widely adopted version control system for software development.[8]
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                Read More ...
-                            </a>
-                        </div>
-                        <div class="mdl-card__menu">
-                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                                <i class="material-icons">favorite_border</i>
-                            </button>
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="mdl-card mdl-shadow--8dp">
-                        <div class="mdl-card__title" style="padding:5px;margin:auto;">
-
-                            <h2 class="mdl-card__title-text mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray;"> Machine Learning </h2>
-                        </div>
-                        <div class="mdl-card mdl-shadow--8dp mdl-card" style="margin-top: 5px;">
-                        <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text mdl-button mdl-js-button mdl-js-ripple-effect"> Wolfram Language </h2>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            Designed for the new generation of programmers, the Wolfram Language has a vast depth of built-in algorithms and knowledge, all automatically accessible through its elegant unified symbolic language. Scalable for programs from tiny to huge, with immediate deployment locally and in the cloud, the Wolfram Language builds on
-                            clear principles—and 25+ years of development—to create what promises to be the world's most productive programming language.
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                Read More ...
-                            </a>
-                        </div>
-                        <div class="mdl-card__menu">
-                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                                <i class="material-icons">favorite_border</i>
-                            </button>
-                        </div>
-                        </div>
-                    </div>
-
                 </div>
 
 
@@ -365,5 +272,8 @@
     <script src='http://cdn.rawgit.com/angular/bower-material/v0.10.0/angular-material.js'></script>
     <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js'></script>
     <script src="js/dialog.js"></script>
+    <script src="js/add.js"></script>
+    <script src="js/tag.js"></script>
+
 </body>
 </html>

@@ -67,7 +67,7 @@ function DialogController($scope, $mdDialog) {
 
 angular.module('MyApp')
 
-    .controller('godModeControl', function($scope, $mdDialog) {
+    .controller('addArticleControl', function($scope, $mdDialog) {
         $scope.alert = '';
 
         //$scope.showAlert = function(ev) {
