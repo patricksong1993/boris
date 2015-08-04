@@ -1,3 +1,7 @@
 .idea/*
 
+
 database.property
+
+*.class
+api/.settings/*
