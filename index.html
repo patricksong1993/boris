@@ -51,7 +51,6 @@
                         <a id="godMode" class="material-icons material-icons-header mdl-navigation__link" ng-click="showAdvanced($event)" flex flex-md="100">
                             flash_on
                         </a>
-
                     </div>
 
 
@@ -59,77 +58,71 @@
                         <a id="accountSet" class="material-icons material-icons-header mdl-navigation__link" ng-click="showAdvanced($event)" flex flex-md="100">
                             account_circle
                         </a>
-
                     </div>
 
-
-
-
-
-                        <script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
+                        <script type="text/ng-template" id="dialog1.tmpl.html">
+                            <md-dialog aria-label="Account Settings">
                         <form>
                             <md-toolbar>
                                 <div class="md-toolbar-tools">
-                                    <h2>Mango (Fruit)</h2>
+                                    <h2>Account Settings</h2>
                                     <span flex></span>
                                     <md-button class="md-icon-button" ng-click="answer('not applicable')">
                                         <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
                                     </md-button>
                                 </div>
                             </md-toolbar>
-                            <md-dialog-content>
-                                <div>
 
-                                </div>
-                            </md-dialog-content>
+                            <!--<md-dialog-content>-->
+                                <!--<div>-->
 
-                            <div class="md-actions" layout="row">
-                                <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" hide show-md>
-                                    More on Wikipedia
-                                </md-button>
-                                <span flex></span>
+                                <!--</div>-->
+                            <!--</md-dialog-content>-->
+
+                            <div class="md-actions" layout="column">
                                 <md-button ng-click="answer('not useful')" class="md-primary">
-                                    Not Useful
+                                    Preferences
                                 </md-button>
                                 <md-button ng-click="answer('useful')" class="md-primary">
-                                    Useful
+                                    Sign Out
                                 </md-button>
                             </div>
                         </form>
                         </md-dialog>
                         </script>
 
-                    <script type="text/ng-template" id="dialog2.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
-                    <form>
-                        <md-toolbar>
-                            <div class="md-toolbar-tools">
-                                <h2>Mango </h2>
-                                <span flex></span>
-                                <md-button class="md-icon-button" ng-click="answer('not applicable')">
-                                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
-                                </md-button>
-                            </div>
-                        </md-toolbar>
-                        <md-dialog-content>
-                            <div>
+                    <script type="text/ng-template" id="dialog2.tmpl.html">
+                        <md-dialog aria-label="Mango (Fruit)">
+                            <form>
+                                <md-toolbar>
+                                    <div class="md-toolbar-tools">
+                                        <h2>Mango </h2>
+                                        <span flex></span>
+                                        <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                                            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                                        </md-button>
+                                    </div>
+                                </md-toolbar>
+                                <md-dialog-content>
+                                    <div>
 
-                            </div>
-                        </md-dialog-content>
+                                    </div>
+                                </md-dialog-content>
 
-                        <div class="md-actions" layout="row">
-                            <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" hide show-md>
-                                More on Wikipedia
-                            </md-button>
-                            <span flex></span>
-                            <md-button ng-click="answer('not useful')" class="md-primary">
-                                Not Useful
-                            </md-button>
-                            <md-button ng-click="answer('useful')" class="md-primary">
-                                Useful
-                            </md-button>
-                        </div>
-                    </form>
-                    </md-dialog>
+                                <div class="md-actions" layout="row">
+                                    <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" hide show-md>
+                                        More on Wikipedia
+                                    </md-button>
+                                    <span flex></span>
+                                    <md-button ng-click="answer('not useful')" class="md-primary">
+                                        Not Useful
+                                    </md-button>
+                                    <md-button ng-click="answer('useful')" class="md-primary">
+                                        Useful
+                                    </md-button>
+                                </div>
+                            </form>
+                        </md-dialog>
                     </script>
 
 
