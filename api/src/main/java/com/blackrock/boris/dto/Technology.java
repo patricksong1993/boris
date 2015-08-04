@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -19,22 +21,31 @@ public class Technology {
 	
 	@Id
 	@Column(name = "ref_id")
+	@GeneratedValue(strategy=GenerationType.AUTO)  
 	private long refId;
+
 	@Column(name = "title")
 	private String title;
+
 	@Column(name = "description")
 	private String description;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technology")
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technologyRelatedTo")
 	private List<Article> relatedArticles;
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technologyOrganizedFor")
 	private List<Event> eventsForTechnology;
+
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "team_technology", joinColumns = { 
 			@JoinColumn(name = "team_ref_id", nullable = false, updatable = false) }, 
 			inverseJoinColumns = { @JoinColumn(name = "technology_ref_id", 
 					nullable = false, updatable = false) })
 	private List<Team> teamsUsingTechnology;
-	
+
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "technologiesSubscribedTo")
+	private List<User> usersSubscribedToTechnology;
+
 	public long getRefId() {
 		return refId;
 	}

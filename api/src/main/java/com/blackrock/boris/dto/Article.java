@@ -1,32 +1,34 @@
 package com.blackrock.boris.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "articles")
 public class Article {
 
 	@Id
-	@Column(name="id")
+	@Column(name="refId")
 	@GeneratedValue(strategy=GenerationType.AUTO)  
-	private long id;
+	private long refId;
+
 	@Column(name="link")
 	private String link;
+
 	@Column(name="source")
 	private String source;
+
 	@Column(name="title")
 	private String title;
 
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "technology_ref_id", nullable = false)
+	private Technology technologyRelatedTo;
+
 	public long getId() {
-		return id;
+		return refId;
 	}
 	public void setId(long id) {
-		this.id = id;
+		this.refId = id;
 	}
 	public String getLink() {
 		return link;
@@ -46,7 +48,7 @@ public class Article {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-
-
+    public void setTechnologyRelatedTo(Technology technologyRelatedTo) {
+        this.technologyRelatedTo = technologyRelatedTo;
+    }
 }

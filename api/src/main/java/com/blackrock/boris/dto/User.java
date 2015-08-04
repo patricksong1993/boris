@@ -23,19 +23,23 @@ public class User {
 	@Column(name = "ref_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)  
 	private long id;
+
 	@Column(name = "username")
 	private String username;
+
 	@Column(name = "full_name")
 	private String fullName;
+
 	@ManyToOne(cascade=CascadeType.ALL) 
 	@JoinColumn(name="user_ref_id", nullable=false)
 	private Team team;
+
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "user_technology", joinColumns = { 
 			@JoinColumn(name = "user_ref_id", nullable = false, updatable = false) }, 
 			inverseJoinColumns = { @JoinColumn(name = "technology_ref_id", 
 					nullable = false, updatable = false) })
-	private List<Technology> technologies;
+	private List<Technology> technologiesSubscribedTo;
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "user_event", joinColumns = { 
 			@JoinColumn(name = "user_ref_id", nullable = false, updatable = false) }, 
