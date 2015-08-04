@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.blackrock.boris.dto.Technology;
 import com.blackrock.boris.exceptions.BorisInternalException;
@@ -16,7 +17,8 @@ public class TechnologyController {
 
     private TechnologyService technologyService;
 
-    @RequestMapping(value = "toptechnologies", method = RequestMethod.GET)
+    @RequestMapping(value = "/toptechnologies", method = RequestMethod.GET)
+    @ResponseBody
     public List<Technology> getTopTechnologies() throws BorisInternalException {
         List<Technology> trendingTechnologies = technologyService.getTrendingTechnologies();
 

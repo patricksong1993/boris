@@ -14,7 +14,11 @@
     <!--  <bean id="mainController" class="com.blackrock.boris.controllers.MainController">
             <property name="technologyService" ref="technologyService" />
       </bean> -->
-
+	
+	 <bean id="technologyController" class="com.blackrock.boris.controllers.TechnologyController">
+        <property name="technologyService" ref="technologyService" />
+    </bean>
+    
     <bean id="technologyService" class="com.blackrock.boris.services.TechnologyService">
         <property name="technologyDao" ref="technologyDao" />
     </bean>

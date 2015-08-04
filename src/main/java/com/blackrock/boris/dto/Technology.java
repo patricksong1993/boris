@@ -15,6 +15,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table( name = "technology")
 public class Technology {
@@ -30,20 +33,24 @@ public class Technology {
 	@Column(name = "description")
 	private String description;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technologyRelatedTo")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany( mappedBy = "technologyRelatedTo")
 	private List<Article> relatedArticles;
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technologyOrganizedFor")
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany( mappedBy = "technologyOrganizedFor")
 	private List<Event> eventsForTechnology;
-
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "team_technology", joinColumns = { 
 			@JoinColumn(name = "team_ref_id", nullable = false, updatable = false) }, 
 			inverseJoinColumns = { @JoinColumn(name = "technology_ref_id", 
 					nullable = false, updatable = false) })
 	private List<Team> teamsUsingTechnology;
-
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "technologiesSubscribedTo")
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@ManyToMany(mappedBy = "technologiesSubscribedTo")
 	private List<User> usersSubscribedToTechnology;
 
 	public long getRefId() {

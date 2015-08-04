@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name = "divisions")
 public class Division {
@@ -19,9 +22,12 @@ public class Division {
 	@Column(name = "ref_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)  
 	private long refId;
+	
 	@Column(name = "divisionName")
 	private String divisionName;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "divisionTeamWorksIn")
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany( mappedBy = "divisionTeamWorksIn")
 	List<Team> teamsInDivision;
 
 	public String getDivisionName() {

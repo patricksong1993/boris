@@ -2,6 +2,9 @@ package com.blackrock.boris.dto;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name = "articles")
 public class Article {
@@ -19,8 +22,9 @@ public class Article {
 
 	@Column(name="title")
 	private String title;
-
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@ManyToOne( cascade = CascadeType.ALL)
 	@JoinColumn(name = "technology_ref_id", nullable = false)
 	private Technology technologyRelatedTo;
 

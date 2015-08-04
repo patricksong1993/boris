@@ -15,6 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name = "teams")
 public class Team {
@@ -22,12 +25,18 @@ public class Team {
 	@Column(name = "ref_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)  
 	private long refId;
+	
 	@Column (name = "name")
 	private String name;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "team")
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(mappedBy = "team")
 	private List<User> teamMembers;
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "teamsUsingTechnology")
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@ManyToMany( mappedBy = "teamsUsingTechnology")
 	private List<Technology> technologiesUsed;
+	
 	@ManyToOne(cascade=CascadeType.ALL) 
 	@JoinColumn(name="division_ref_id", nullable=false)
 	private Division divisionTeamWorksIn;
