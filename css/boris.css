@@ -1,3 +1,22 @@
+
+
+/*Search Bar*/
+.mdl-textfield__input-index {
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    height: 30px;
+    font-size: 26px;
+    color: #111111;
+    text-align: center;
+}
+
+.mdl-textfield__label-index {
+    height: 40px;
+    top: 20px;
+    font-size: 26px;
+    text-align: center;
+}
+
+
 .mdl-card{
     min-height: 45px;
     width: 100%;
