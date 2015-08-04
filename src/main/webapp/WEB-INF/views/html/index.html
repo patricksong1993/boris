@@ -25,7 +25,7 @@
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
 
-            <img src="img/logo_white.png" alt="Boris_logo" style="height: 30px;">
+            <img src="../../../resources/core/img/logo_white.png" alt="Boris_logo" style="height: 30px;">
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation ">
 
@@ -241,12 +241,26 @@
     <main class="mdl-layout__content">
         <div class="mainContainer">
 
-            <div class="mdl-card mdl-card--border mdl-shadow--8dp mdl-card-searchBar">
-                <div id="searchBar" class="mdl-textfield mdl-js-textfield mdl-textfield-index" onclick="searchPop()" >
-                    <input id="tags" class="mdl-textfield__input mdl-textfield__input-index" type="text" id="sample1"/>
-                    <label class="mdl-textfield__label mdl-textfield__label-index" for="sample1"></label>
+            <!--<div class="mdl-card mdl-card&#45;&#45;border mdl-shadow&#45;&#45;8dp mdl-card-searchBar">-->
+                <!--<div id="searchBar" class="mdl-textfield mdl-js-textfield mdl-textfield-index" onclick="searchPop()" >-->
+                    <!--<input id="tags" class="mdl-textfield__input mdl-textfield__input-index" type="text" id="sample1"/>-->
+                    <!--<label class="mdl-textfield__label mdl-textfield__label-index" for="sample1"></label>-->
+                <!--</div>-->
+
+            <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="margin-top: 15px">
+                        <form ng-submit="$event.preventDefault()">
+                            <md-autocomplete  ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
+                                <md-item-template>
+                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    No matches found for "{{ctrl.searchText}}".
+                                </md-not-found>
+                            </md-autocomplete>
+                        </form>
                 </div>
-            </div>
+
+            <!--</div>-->
 
             <div class="cardContainer">
                 <div class="cardColumnContainer">
@@ -274,13 +288,202 @@
                         </div>
                     </div>
 
+                    <div class="mdl-card mdl-shadow--8dp">
+                        <div class="" style="padding-left: 10px">
+                            <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
+                        </div>
+                        <div class="mdl-card__title" style="padding-top:0px">
+                            <h2 class="mdl-card__title-text" >AngularJS</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            In software development, AngularJS (commonly referred to as "Angular") is an open-source web application framework maintained by Google and by a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications.
+                            It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model-view-viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications.
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                Read More ...
+                            </a>
+                        </div>
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">favorite_border</i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mdl-card mdl-shadow--8dp">
+                        <div class="" style="padding-left: 10px">
+                            <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
+                        </div>
+                        <div class="mdl-card__title" style="padding-top:0px">
+                            <h2 class="mdl-card__title-text" >AngularJS</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            In software development, AngularJS (commonly referred to as "Angular") is an open-source web application framework maintained by Google and by a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications.
+                            It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model-view-viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications.
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                Read More ...
+                            </a>
+                        </div>
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">favorite_border</i>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="cardColumnContainer">
+
+                    <div class="mdl-card mdl-shadow--8dp">
+                        <div class="" style="padding-left: 10px">
+                            <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
+                        </div>
+                        <div class="mdl-card__title" style="padding-top:0px">
+                            <h2 class="mdl-card__title-text" >AngularJS</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            In software development, AngularJS (commonly referred to as "Angular") is an open-source web application framework maintained by Google and by a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications.
+                            It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model-view-viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications.
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                Read More ...
+                            </a>
+                        </div>
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">favorite_border</i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mdl-card mdl-shadow--8dp">
+                        <div class="" style="padding-left: 10px">
+                            <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
+                        </div>
+                        <div class="mdl-card__title" style="padding-top:0px">
+                            <h2 class="mdl-card__title-text" >AngularJS</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            In software development, AngularJS (commonly referred to as "Angular") is an open-source web application framework maintained by Google and by a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications.
+                            It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model-view-viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications.
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                Read More ...
+                            </a>
+                        </div>
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">favorite_border</i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mdl-card mdl-shadow--8dp">
+                        <div class="" style="padding-left: 10px">
+                            <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
+                        </div>
+                        <div class="mdl-card__title" style="padding-top:0px">
+                            <h2 class="mdl-card__title-text" >AngularJS</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            In software development, AngularJS (commonly referred to as "Angular") is an open-source web application framework maintained by Google and by a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications.
+                            It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model-view-viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications.
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                Read More ...
+                            </a>
+                        </div>
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">favorite_border</i>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="cardColumnContainer">
+
+                    <div class="mdl-card mdl-shadow--8dp">
+                        <div class="" style="padding-left: 10px">
+                            <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
+                        </div>
+                        <div class="mdl-card__title" style="padding-top:0px">
+                            <h2 class="mdl-card__title-text" >AngularJS</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            In software development, AngularJS (commonly referred to as "Angular") is an open-source web application framework maintained by Google and by a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications.
+                            It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model-view-viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications.
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                Read More ...
+                            </a>
+                        </div>
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">favorite_border</i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mdl-card mdl-shadow--8dp">
+                        <div class="" style="padding-left: 10px">
+                            <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
+                        </div>
+                        <div class="mdl-card__title" style="padding-top:0px">
+                            <h2 class="mdl-card__title-text" >AngularJS</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            In software development, AngularJS (commonly referred to as "Angular") is an open-source web application framework maintained by Google and by a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications.
+                            It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model-view-viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications.
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                Read More ...
+                            </a>
+                        </div>
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">favorite_border</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mdl-card mdl-shadow--8dp">
+                        <div class="" style="padding-left: 10px">
+                            <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
+                        </div>
+                        <div class="mdl-card__title" style="padding-top:0px">
+                            <h2 class="mdl-card__title-text" >AngularJS</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            In software development, AngularJS (commonly referred to as "Angular") is an open-source web application framework maintained by Google and by a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications.
+                            It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model-view-viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications.
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                Read More ...
+                            </a>
+                        </div>
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">favorite_border</i>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
+
+
+
+
 
 
 
@@ -301,6 +504,8 @@
 <script src="../../../resources/core/js/dialog.js"></script>
 <script src="../../../resources/core/js/add.js"></script>
 <script src="../../../resources/core/js/tag.js"></script>
+<script src="../../../resources/core/js/autocompleteSearch.js"></script>
+
 
 </body>
 </html>
