@@ -1,8 +1,5 @@
 package com.blackrock.boris.dao;
 
-import javax.transaction.Transaction;
-
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,20 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.blackrock.boris.dto.Article;
+import com.blackrock.boris.exceptions.BorisInternalException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring-hibernate.xml" })
-public class ArticlesDaoTest {
+@ContextConfiguration(locations = { "classpath:spring-main.xml" })
+public class TechnologyDaoTest {
+	
 	@Autowired
-	SessionFactory sessionFactory;
-
+	TechnologyDao technologyDao;
+	
 	@Test
-	public void test(){
-		Article ar = new Article();
-		ar.setId(123456);
-		ar.setTitle("ciao");
-		
-		
+	public void getTrendingTechnologies() throws BorisInternalException{
+		technologyDao.getTrendingTechnologies();
 	}
 }
