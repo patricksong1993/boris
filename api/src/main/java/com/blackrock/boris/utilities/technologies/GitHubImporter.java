@@ -1,6 +1,7 @@
 package com.blackrock.boris.utilities.technologies;
 
 import com.blackrock.boris.dao.ArticlesDao;
+import com.blackrock.boris.dao.TechnologyDao;
 import com.blackrock.boris.dto.Article;
 import com.blackrock.boris.dto.Technology;
 import com.blackrock.boris.exceptions.BorisInternalException;
@@ -26,12 +27,18 @@ public class GitHubImporter implements TechnologyImporter {
     private String url;
     private ArticlesDao articlesDao;
 
+    private TechnologyDao technologyDao;
+
     public GitHubImporter(String query, String language) {
         this.url = BASE_URL + QUERY + query + LANGUAGE + language + CREATED + CREDENTIALS;
     }
 
     public void setArticlesDao(ArticlesDao articlesDao) {
         this.articlesDao = articlesDao;
+    }
+
+    public void setTechnologyDao(TechnologyDao technologyDao) {
+        this.technologyDao = technologyDao;
     }
 
     @Override
@@ -47,8 +54,8 @@ public class GitHubImporter implements TechnologyImporter {
                            JSONObject item = items.getJSONObject(i);
 
                            Technology technology = new Technology();
-                           technology.setTitle("name");
-                           technology.setDescription("description");
+                           technology.setTitle(item.get("name").toString());
+                           technology.setDescription(item.get("description").toString());
 
                            Article article = new Article();
                            article.setTitle("GitHub Repository");
@@ -57,6 +64,7 @@ public class GitHubImporter implements TechnologyImporter {
                            article.setTechnologyRelatedTo(technology);
 
                            try {
+                               technologyDao.addTechnology(technology);
                                articlesDao.addArticle(article);
                            } catch (BorisInternalException e) {
                                e.printStackTrace();
@@ -80,8 +88,11 @@ public class GitHubImporter implements TechnologyImporter {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-main.xml");
 
         ArticlesDao articlesDao = (ArticlesDao) context.getBean("articlesDao");
+        TechnologyDao technologyDao = (TechnologyDao) context.getBean("technologyDao");
+
         GitHubImporter gitHubImporter = new GitHubImporter("search", "java");
         gitHubImporter.setArticlesDao(articlesDao);
+        gitHubImporter.setTechnologyDao(technologyDao);
 
         gitHubImporter.importTechnologies();
     }
