@@ -8,9 +8,7 @@ import com.blackrock.boris.dto.Article;
 public class ArticlesDao {
 
 	public void addArticle(Article article){
-		Session session = HibernateUtil.getSessionFactory().openSession();
 
-		session.save(article);
 	}
 
 	public static void main(String[] args) {
