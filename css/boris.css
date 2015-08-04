@@ -1,6 +1,13 @@
 
 
 /*Search Bar*/
+
+.mdl-textfield-index {
+    padding: 0px 0;
+    width: 98%;
+    margin:auto;
+}
+
 .mdl-textfield__input-index {
     font-family: "Roboto","Helvetica","Arial",sans-serif;
     height: 30px;
