@@ -24,7 +24,7 @@
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
 
-                <span class="mdl-layout-title">Title</span>
+                <img src="img/logo_white.png" alt="Boris_logo" style="height: 30px;">
                 <div class="mdl-layout-spacer"></div>
                 <nav class="mdl-navigation ">
 
@@ -50,14 +50,12 @@
         <main class="mdl-layout__content">
         <div class="mainContainer">
 
-            <div style="display: flex; flex-flow: row; margin-top: 15px">
-                    <div class="mdl-card mdl-card--border mdl-shadow--8dp" style="width:100%;margin: auto;height:70px ;margin-top: px;">
-                        <div id="searchBar" class="mdl-textfield mdl-js-textfield" style="padding: 0px 0; width: 98%;margin:auto;" onclick="searchPop()" >
-                            <input id="tags" class="mdl-textfield__input mdl-textfield__input-index" type="text" id="sample1"/>
-                            <label class="mdl-textfield__label mdl-textfield__label-index" for="sample1">  </label>
+                    <div class="mdl-card mdl-card--border mdl-shadow--8dp mdl-card-searchBar">
+                        <div id="searchBar" class="mdl-textfield mdl-js-textfield mdl-textfield-index" onclick="searchPop()" >
+                            <input id="tags" class="mdl-textfield__input mdl-textfield__input-index" type="text" id="sample1" placeholder="Search"/>
+                            <label class="mdl-textfield__label mdl-textfield__label-index" for="sample1"></label>
                         </div>
                     </div>
-            </div>
 
             <div class="cardContainer">
                 <div class="cardColumnContainer">
