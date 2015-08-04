@@ -1,14 +1,6 @@
 package com.blackrock.boris.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "articles")
@@ -18,13 +10,17 @@ public class Article {
 	@Column(name="refId")
 	@GeneratedValue(strategy=GenerationType.AUTO)  
 	private long refId;
+
 	@Column(name="link")
 	private String link;
+
 	@Column(name="source")
 	private String source;
+
 	@Column(name="title")
 	private String title;
-	@ManyToOne(fetch = FetchType.LAZY)
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "technology_ref_id", nullable = false)
 	private Technology technologyRelatedTo;
 

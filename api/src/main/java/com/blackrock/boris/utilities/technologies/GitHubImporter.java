@@ -1,7 +1,9 @@
 package com.blackrock.boris.utilities.technologies;
 
+import com.blackrock.boris.dao.ArticlesDao;
 import com.blackrock.boris.dto.Article;
 import com.blackrock.boris.dto.Technology;
+import com.blackrock.boris.exceptions.BorisInternalException;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -10,6 +12,8 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class GitHubImporter implements TechnologyImporter {
     private final static Logger logger = Logger.getLogger(GitHubImporter.class.getName());
@@ -20,9 +24,14 @@ public class GitHubImporter implements TechnologyImporter {
     private final static String CREDENTIALS = "&client_id=5904eecf5394f99575a7&client_secret=f7a1bc3cc26c7b38e41b95720c9c39c244f063e8";
 
     private String url;
+    private ArticlesDao articlesDao;
 
     public GitHubImporter(String query, String language) {
         this.url = BASE_URL + QUERY + query + LANGUAGE + language + CREATED + CREDENTIALS;
+    }
+
+    public void setArticlesDao(ArticlesDao articlesDao) {
+        this.articlesDao = articlesDao;
     }
 
     @Override
@@ -36,7 +45,7 @@ public class GitHubImporter implements TechnologyImporter {
 
                        for (int i = 0; i < items.length(); i++) {
                            JSONObject item = items.getJSONObject(i);
-                           System.out.println(item.get("html_url"));
+
                            Technology technology = new Technology();
                            technology.setTitle("name");
                            technology.setDescription("description");
@@ -46,6 +55,12 @@ public class GitHubImporter implements TechnologyImporter {
                            article.setLink(item.get("html_url").toString());
                            article.setSource("github.com");
                            article.setTechnologyRelatedTo(technology);
+
+                           try {
+                               articlesDao.addArticle(article);
+                           } catch (BorisInternalException e) {
+                               e.printStackTrace();
+                           }
                        }
                    }
 
@@ -62,6 +77,12 @@ public class GitHubImporter implements TechnologyImporter {
     }
 
     public static void main(String[] args) {
-        new GitHubImporter("search", "java").importTechnologies();
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-main.xml");
+
+        ArticlesDao articlesDao = (ArticlesDao) context.getBean("articlesDao");
+        GitHubImporter gitHubImporter = new GitHubImporter("search", "java");
+        gitHubImporter.setArticlesDao(articlesDao);
+
+        gitHubImporter.importTechnologies();
     }
 }
