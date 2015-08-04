@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/material-design-lite/material.js"></script>
+    <script src="bower_components/angularjs/angular.js"></script>
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.blue-deep_purple.min.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="js/searchJ.js"></script>
+    <script src="js/collapse.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" href="css/boris.css">
+    <meta charset="UTF-8">
+    <title>Bower</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <img src="img/logo_white.png" alt="Boris_logo" style="height: 30px;">
+
+            <div class="mdl-layout-spacer"></div>
+                <div id="searchBar" class="mdl-textfield mdl-js-textfield textfield-demo" style="padding: 0px 0; width: 70%;margin:auto;background-color: white;" onclick="searchPop()" >
+                    <input id="tags" class="mdl-textfield__input" type="text" id="sample1" style="height: 30px;font-size: 20px;color: darkgray;text-align: center;" placeholder="Search.."/>
+                </div>
+
+            <div class="mdl-layout-spacer"></div>
+            <nav class="mdl-navigation ">
+
+                <a id ="add" class="mdl-navigation__link material-icons material-icons-header" href="">add_circle</a>
+                <div class="mdl-tooltip" for="add">
+                    Add
+                </div>
+                <a id="subscriptionFeed" class="mdl-navigation__link material-icons material-icons-header" href="">dashboard</a>
+                <div class="mdl-tooltip" for="subscriptionFeed">
+                    Subscription Feed
+                </div>
+                <a id="godMode" class="mdl-navigation__link material-icons material-icons-header" href="">flash_on</a>
+                <div class="mdl-tooltip" for="godMode">
+                    God Mode
+                </div>
+                <a id= "accountSet" class="mdl-navigation__link material-icons material-icons-header" href="">account_circle</a>
+                <div class="mdl-tooltip" for="accountSet">
+                    Account Settings
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="mdl-layout__content">
+        <div class="mainContainer">
+
+            <div class="mdl-card mdl-shadow--8dp">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text mdl-card__title-text-tech"> Cassandra</h2>
+                </div>
+                <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="hideTech()">
+                        <i id="techButton" class="material-icons mdl-js-ripple-effect">keyboard_arrow_down</i>
+                    </button>
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" >
+                        <i  class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                    </button>
+                </div>
+                <div id="tech" style=" display: initial;">
+                <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech">
+                            Apache Cassandra is an open source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. Cassandra offers robust support for clusters spanning multiple datacenters, with asynchronous masterless replication allowing low latency operations for all clients.
+                            Cassandra also places a high value on performance. In 2012, University of Toronto researchers studying NoSQL systems concluded that "In terms of scalability, there is a clear winner throughout our experiments. Cassandra achieves the highest throughput for the maximum number of nodes in all experiments" although "this comes at the price of high write and read latencies."
+                            Cassandra's data model is a partitioned row store with tunable consistency. Rows are organized into tables; the first component of a table's primary key is the partition key; within a partition, rows are clustered by the remaining columns of the key.[4] Other columns may be indexed separately from the primary key.
+                            Tables may be created, dropped, and altered at runtime without blocking updates and queries.Cassandra does not support joins or subqueries. Rather, Cassandra emphasizes denormalization through features like collections.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  style="float: right;">
+                        More...
+                    </a>
+                </div>
+                </div>
+
+            </div>
+
+            <div class="mdl-card mdl-card--border mdl-shadow--8dp" >
+                <div class="mdl-card__title">
+                    <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px;">group</span>
+                    <h2 class="mdl-card__title-text" style="font-size: 34px;">Teams </h2>
+                </div>
+                <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="hideTeams()">
+                        <i id="teamButton" class="material-icons mdl-js-ripple-effect">keyboard_arrow_left</i>
+                    </button>
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                        <i class="material-icons mdl-js-ripple-effect">mode_edit</i>
+                    </button>
+                </div>
+                <div id="Teams" style="display: none;">
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;background-color: whitesmoke;margin-bottom:8px;">
+                    <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">APG-CTP-Compliance</td>
+                        <td class="mdl-data-table__cell">
+			      	<span>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">chat</a>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">description</a>
+						<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">info</a>
+
+			      	</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">APG-CCP-CDI</td>
+                        <td class="mdl-data-table__cell">
+			      	<span>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">chat</a>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">description</a>
+						<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">info</a>
+
+			      	</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="float: right;">
+                        More...
+                    </a>
+                </div>
+                </div>
+
+            </div>
+
+            <div class="mdl-card mdl-card--border mdl-shadow--8dp" >
+                <div class="mdl-card__title">
+                    <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px;">event</span>
+                    <h2 class="mdl-card__title-text" style="font-size: 34px;">Events</h2>
+                </div>
+                <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="hideEvents()" >
+                        <i id="eventButton" class="material-icons mdl-js-ripple-effect">keyboard_arrow_left</i>
+                    </button>
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                        <i class="material-icons mdl-js-ripple-effect">insert_invitation</i>
+                    </button>
+                </div>
+                <div id="Events" style="display: none;">
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;background-color: whitesmoke;margin-bottom:8px;">
+                    <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Geek Weekly| Talk on Technology |Draper's Garden FL 01-C02</td>
+                        <td class="mdl-data-table__cell">
+			      	<span>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">event</a>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">people</a>
+			      	</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Sophia Carson</td>
+                        <td class="mdl-data-table__cell">
+			      	<span>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">event</a>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">people</a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="float: right;">
+                        More...
+                    </a>
+                </div>
+                </div>
+            </div>
+
+            <div class="mdl-card mdl-card--border mdl-shadow--8dp" >
+                <div class="mdl-card__title">
+                    <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px;">subtitles</span>
+                    <h2 class="mdl-card__title-text" style="font-size: 34px;">Articles </h2>
+                </div>
+                <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                        <i class="material-icons mdl-js-ripple-effect">mode_edit</i>
+                    </button>
+                </div>
+                <div class="cardContainer">
+                    <div class="cardColumnContainer">
+
+                        <div class="mdl-card mdl-shadow--8dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Web Components</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pelle
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mdl-card mdl-shadow--8dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Distributed Databases</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="cardColumnContainer">
+
+                        <div class="mdl-card mdl-shadow--8dp" >
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Programming</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mdl-card mdl-shadow--8dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Scripting Languages</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="cardColumnContainer">
+
+                        <div class="mdl-card mdl-shadow--8dp" >
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Web Framework</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mdl-card mdl-shadow--8dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Version Control</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mdl-card mdl-shadow--8dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Welcome</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="float: right;">
+                        More...
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </main>
+
+</div>
+</body>
+</html>
