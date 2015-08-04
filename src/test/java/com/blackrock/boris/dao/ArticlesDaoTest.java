@@ -1,8 +1,5 @@
 package com.blackrock.boris.dao;
 
-import javax.transaction.Transaction;
-
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,15 +12,13 @@ import com.blackrock.boris.dto.Article;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring-hibernate.xml" })
 public class ArticlesDaoTest {
-	@Autowired
-	SessionFactory sessionFactory;
+    @Autowired
+    SessionFactory sessionFactory;
 
-	@Test
-	public void test(){
-		Article ar = new Article();
-		ar.setId(123456);
-		ar.setTitle("ciao");
-		
-		
-	}
+    @Test
+    public void test(){
+        Article ar = new Article();
+        ar.setId(123456);
+        ar.setTitle("ciao");
+    }
 }
