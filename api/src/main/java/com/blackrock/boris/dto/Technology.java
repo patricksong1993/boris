@@ -6,11 +6,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +22,7 @@ public class Technology {
 	
 	@Id
 	@Column(name = "ref_id")
+	@GeneratedValue(strategy=GenerationType.AUTO)  
 	private long refId;
 	@Column(name = "title")
 	private String title;
@@ -34,7 +38,8 @@ public class Technology {
 			inverseJoinColumns = { @JoinColumn(name = "technology_ref_id", 
 					nullable = false, updatable = false) })
 	private List<Team> teamsUsingTechnology;
-	
+	@OneToOne(fetch = FetchType.LAZY)
+	private Subscription subscriptionForTechnology;
 	public long getRefId() {
 		return refId;
 	}
