@@ -16,14 +16,14 @@ public class TechnologyController {
 
     private TechnologyService technologyService;
 
-    @RequestMapping(value = "toptechnologies", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/", method = RequestMethod.GET)
     public List<Technology> getTopTechnologies() throws BorisInternalException {
         List<Technology> trendingTechnologies = technologyService.getTrendingTechnologies();
 
         return trendingTechnologies;
     }
 
-    @RequestMapping(value = "tech/forName", method = RequestMethod.GET)
+    @RequestMapping(value = "/tech/forName", method = RequestMethod.GET)
     public Technology getTechnologyForName(@PathVariable("technologyName") String technologyName) throws BorisInternalException {
         Technology technology = technologyService.getTechnologyForName(technologyName);
 
