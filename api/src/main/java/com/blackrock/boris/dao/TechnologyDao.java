@@ -14,7 +14,9 @@ import com.blackrock.boris.exceptions.BorisInternalException;
 public class TechnologyDao {
 	
 	private static final Logger log = Logger.getLogger(TechnologyDao.class);
+	
 	private SessionFactory sessionFactory;
+	
 	public List<Technology> getTrendingTechnologies() throws BorisInternalException {
 		Session session = null;
     	Transaction tx = null;
@@ -46,7 +48,6 @@ public class TechnologyDao {
     		}
     	}
 	}
-
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
