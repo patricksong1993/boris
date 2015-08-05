@@ -38,7 +38,7 @@ public class TechnologyService {
     public void postTechnology(String title, String description) throws BorisInternalException {
         Technology technology = new Technology();
         technology.setTitle(title);
-        technology.setDescription(description);
+        technology.setDescription(description.getBytes());
 
         technologyDao.addTechnology(technology);
     }

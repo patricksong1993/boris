@@ -5,9 +5,9 @@
     'use strict';
     angular
         .module('MyApp')
-        .controller('SearchCtrl', DemoCtrl);
+        .controller('SearchCtrl', ['$timeout','$q','$log','$http',DemoCtrl]);
 
-    function DemoCtrl ($timeout, $q, $log) {
+    function DemoCtrl ($timeout, $q, $log,$http) {
         var self = this;
 
         self.simulateQuery = false;
@@ -51,6 +51,33 @@
          * Build `states` list of key/value pairs
          */
         function loadAll() {
+<<<<<<< HEAD
+        	var allTechnologies = []	;
+        	$http.get('/boris/technologies').success(function(response) {
+        		angular.forEach(response, function(value, key) {
+        			var technology = {};
+        			technology.id = value.refId;
+        			technology.title = value.title;
+        			allTechnologies.push(technology);
+        			});
+        		
+        		var result = []	;
+        		angular.forEach(allTechnologies, function(value, key) {
+        			if( value.title != null){
+        			var toAdd =  {
+                            value: value.title.toLowerCase(),
+                            display: value.title
+                        };
+        			result.push(toAdd);
+        			}
+        			});
+        		self.states = result;
+        		
+        		}).error(function(data, status, headers, config) {
+                    alert(status);
+                });
+         
+=======
             var allStates = 'AngularJS, Material Design, Polymer, JAVA 8, ZooKeeper, D3, Guava, JQuery';
 
             return allStates.split(/, +/g).map( function (state) {
@@ -59,6 +86,7 @@
                     display: state
                 };
             });
+>>>>>>> a2db1687aa910797e86d1e7466e442231f5c13c7
         }
 
         /**

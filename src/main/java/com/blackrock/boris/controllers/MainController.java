@@ -12,9 +12,10 @@ public class MainController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
-		return "static/index.html";
+		return "index";
 	}
 
+	
 	@RequestMapping(value = "/hello/{name:.+}", method = RequestMethod.GET)
 	public ModelAndView hello(@PathVariable("name") String name) {
 
