@@ -31,7 +31,7 @@ public class Technology {
 	private String title;
 
 	@Column(name = "description")
-	private String description;
+	private byte[] description;
 
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany( mappedBy = "technologyRelatedTo")
@@ -44,8 +44,8 @@ public class Technology {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "team_technology", joinColumns = { 
-			@JoinColumn(name = "team_ref_id", nullable = false, updatable = false) }, 
-			inverseJoinColumns = { @JoinColumn(name = "technology_ref_id", 
+			@JoinColumn(name = "technology_ref_id", nullable = false, updatable = false) }, 
+			inverseJoinColumns = { @JoinColumn(name = "team_ref_id", 
 					nullable = false, updatable = false) })
 	private List<Team> teamsUsingTechnology;
 	
@@ -65,10 +65,10 @@ public class Technology {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getDescription() {
+	public byte[] getDescription() {
 		return description;
 	}
-	public void setDescription(String description) {
+	public void setDescription(byte[] description) {
 		this.description = description;
 	}
 	public List<Article> getRelatedArticles() {
