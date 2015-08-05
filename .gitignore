@@ -7,4 +7,5 @@ database.property
 api/.settings/*
 *.log
 *.iml
+.DS_Store
 
