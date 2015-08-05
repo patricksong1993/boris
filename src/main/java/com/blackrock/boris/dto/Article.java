@@ -23,6 +23,9 @@ public class Article {
 	@Column(name="title")
 	private String title;
 	
+	@Column(name="summary")
+	private String summary;
+	
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToOne( cascade = CascadeType.ALL)
 	@JoinColumn(name = "technology_ref_id", nullable = false)
@@ -55,4 +58,10 @@ public class Article {
     public void setTechnologyRelatedTo(Technology technologyRelatedTo) {
         this.technologyRelatedTo = technologyRelatedTo;
     }
+	public String getSummary() {
+		return summary;
+	}
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
 }

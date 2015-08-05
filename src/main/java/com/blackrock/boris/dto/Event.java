@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table (name = "events")
@@ -25,7 +26,9 @@ public class Event {
 	private String place;
 	@Column (name = "date")
 	private Date date;
-
+	@Transient
+	private String readableDate;
+	
 	@OneToOne(fetch = FetchType.LAZY)
 	private Technology technologyOrganizedFor;
 
@@ -52,5 +55,11 @@ public class Event {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	public void setReadableDate(String readableDate) {
+		this.readableDate = readableDate;
+	}
+	public String getReadableDate() {
+		return readableDate;
 	}
 }
