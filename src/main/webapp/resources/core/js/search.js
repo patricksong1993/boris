@@ -5,7 +5,7 @@
         .module('MyApp')
         .controller('DemoCtrl', DemoCtrl);
 
-    function DemoCtrl ($timeout, $q, $log) {
+    function DemoCtrl ($timeout, $q, $log,$http) {
         var self = this;
 
         self.simulateQuery = false;
@@ -13,7 +13,7 @@
 
         self.repos         = loadAll();
         self.querySearch   = querySearch;
-        self.selectedItemChange = selectedItemChange;
+        self.selectedItemChange loadAll= selectedItemChange;
         self.searchTextChange   = searchTextChange;
 
         // ******************************
@@ -48,40 +48,18 @@
          * Build `components` list of key/value pairs
          */
         function loadAll() {
-            var repos = [
-                {
-                    'name'      : 'Cassandra',
-                    'url'       : 'https://github.com/angular/angular.js',
-                    'watchers'  : '3,623',
-                    'forks'     : '16,175',
-                },
-                {
-                    'name'      : 'Spark',
-                    'url'       : 'https://github.com/angular/angular',
-                    'watchers'  : '469',
-                    'forks'     : '760',
-                },
-                {
-                    'name'      : 'Spring',
-                    'url'       : 'https://github.com/angular/material',
-                    'watchers'  : '727',
-                    'forks'     : '1,241',
-                },
-                {
-                    'name'      : 'AngularJS',
-                    'url'       : 'https://github.com/angular/bower-material',
-                    'watchers'  : '42',
-                    'forks'     : '84',
-                },
-                {
-                    'name'      : 'Angular Material',
-                    'url'       : 'https://github.com/angular/material-start',
-                    'watchers'  : '81',
-                    'forks'     : '303',
-                }
-            ];
+        	var repos = []	;
+        	$http.get('/technologies').success(function(response) {
+        		angular.forEach(response, function(value, key) {
+        			var technology = {};
+        			technology.id = value.refId;
+        			technology.title = value.title;
+        			alert(technology.title);
+        			repos.push(technology);
+        			});
+        		});
             return repos.map( function (repo) {
-                repo.value = repo.name.toLowerCase();
+                repo.value = repo.title.toLowerCase();
                 return repo;
             });
         }

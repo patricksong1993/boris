@@ -25,7 +25,7 @@ public class Article {
 
     @Column(name = "summary")
     private String summary;
-	
+
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToOne( cascade = CascadeType.ALL)
 	@JoinColumn(name = "technology_ref_id", nullable = false)

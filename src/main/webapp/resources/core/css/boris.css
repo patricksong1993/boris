@@ -1,10 +1,7 @@
-
-
-
-.mdl-card{
+.mdl-card {
     min-height: 45px;
     width: 100%;
-    margin-top: 8px;
+    margin-top: 14px;
 }
 
 .material-icons-header{
@@ -56,6 +53,13 @@
         margin-right:auto;
         margin-bottom: 20px;
     }
+
+    .cardColumnContainer-tech {
+        width: 48%;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom: 20px;
+    }
 }
 
 @media (max-width:599px) {
@@ -72,10 +76,9 @@
 }
 
 .mdl-card__title-text-tech{
-    font-size: 32px;
-    margin: auto;
+    font-size: 20px;
     font-weight: 400;
-
+    margin-right: 7%;
 }
 
 .mdl-card__supporting-text-tech{
@@ -116,7 +119,6 @@
     text-align: center;
 }
 
-
 .md-toolbar-tools {
-    background: grey;
+    background: rgb(33,150,243);
 }

@@ -20,6 +20,10 @@ public class Event {
 	private Date date;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@Transient
+	private String readableDate;
+	
+	@OneToOne(fetch = FetchType.LAZY)
 	private Technology technologyOrganizedFor;
 
 	public long getId() {
@@ -45,5 +49,11 @@ public class Event {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	public void setReadableDate(String readableDate) {
+		this.readableDate = readableDate;
+	}
+	public String getReadableDate() {
+		return readableDate;
 	}
 }

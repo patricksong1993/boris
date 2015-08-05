@@ -14,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -32,7 +33,9 @@ public class Technology {
 
 	@Column(name = "description")
 	private String description;
-
+	
+	@Transient
+	private String readableDescription;
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany( mappedBy = "technologyRelatedTo")
 	private List<Article> relatedArticles;
@@ -88,5 +91,11 @@ public class Technology {
 	}
 	public void setTeamsUsingTechnology(List<Team> teamsUsingTechnology) {
 		this.teamsUsingTechnology = teamsUsingTechnology;
+	}
+	public String getReadableDescription() {
+		return readableDescription;
+	}
+	public void setReadableDescription(String readableDescription) {
+		this.readableDescription = readableDescription;
 	}
 }
