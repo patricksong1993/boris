@@ -52,22 +52,293 @@
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation ">
 
-                <a id ="add" class="mdl-navigation__link material-icons material-icons-header" href="">add_circle</a>
-                <div class="mdl-tooltip" for="add">
-                    Add
+                <div ng-controller="addArticleControl" class="">
+                    <a id="addArticle" class="material-icons material-icons-header mdl-navigation__link" ng-click="showAdvanced($event)" flex flex-md="100">
+                        add_circle
+                    </a>
                 </div>
-                <a id="subscriptionFeed" class="mdl-navigation__link material-icons material-icons-header" href="">dashboard</a>
-                <div class="mdl-tooltip" for="subscriptionFeed">
-                    Subscription Feed
+                <div class="mdl-tooltip" for="addArticle">
+                    Add Article/ Technology
                 </div>
-                <a id="godMode" class="mdl-navigation__link material-icons material-icons-header" href="">flash_on</a>
-                <div class="mdl-tooltip" for="godMode">
-                    God Mode
-                </div>
-                <a id= "accountSet" class="mdl-navigation__link material-icons material-icons-header" href="">account_circle</a>
+                <script type="text/ng-template" id="dialog2.tmpl.html"><md-dialog aria-label="Mango (Fruit)" style="width: 90%">
+                <form>
+                    <md-toolbar>
+                        <div class="md-toolbar-tools">
+                            <h2>Add</h2>
+                            <span flex></span>
+                            <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                                <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                            </md-button>
+                        </div>
+                    </md-toolbar>
+                    <md-dialog-content>
+                        <div>
+
+                            <div>
+                                <md-content class="md-padding">
+                                    <md-tabs md-dynamic-height md-border-bottom>
+                                        <md-tab label="add technology">
+                                            <md-content class="md-padding">
+                                                <div ng-controller="DemoCtrl" layout="column" class="inputdemoBasicUsage" ng-app="MyApp">
+
+
+
+                                                    <md-content layout-padding="">
+                                                        <form name="userForm">
+
+
+
+                                                            <div layout="" layout-sm="column" style="display: flex; flex-flow: column;">
+                                                                <md-input-container flex="">
+                                                                    <label>Title</label>
+                                                                    <input ng-model="user.firstName">
+                                                                </md-input-container>
+
+
+                                                                <md-input-container flex>
+                                                                    <label>Description</label>
+                                                                    <textarea ng-model="user.biography"></textarea>
+                                                                </md-input-container>
+
+
+                                                                <div ng-controller="CustomInputDemoCtrl as ctrl"    class="chipsdemoCustomInputs" ng-app="MyApp">
+                                                                    <md-chips ng-model="ctrl.selectedVegetables" md-autocomplete-snap="" md-require-match="">
+                                                                        <md-autocomplete md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" placeholder="Add a category">
+                                                                            <span md-highlight-text="ctrl.searchText">{{item.name}}</span>
+                                                                        </md-autocomplete>
+                                                                        <md-chip-template>
+                                                                                        <span>
+                                                                                          <strong>{{$chip.name}}</strong>
+                                                                                        </span>
+                                                                        </md-chip-template>
+                                                                    </md-chips>
+                                                                </div>
+                                                            </div>
+
+                                                        </form>
+                                                    </md-content>
+
+                                                </div>
+
+
+                                            </md-content>
+                                        </md-tab>
+                                        <md-tab label="Add Article">
+                                            <md-content layout-padding="">
+                                                <form name="userForm">
+
+
+
+                                                    <div layout="" layout-sm="column" style="display: flex; flex-flow: column;">
+                                                        <md-input-container flex="">
+                                                            <label>Title</label>
+                                                            <input ng-model="user.firstName">
+                                                        </md-input-container>
+
+
+                                                        <md-input-container flex>
+                                                            <label>Description</label>
+                                                            <textarea ng-model="user.biography"></textarea>
+                                                        </md-input-container>
+
+
+                                                        <div ng-controller="CustomInputDemoCtrl as ctrl"    class="chipsdemoCustomInputs" ng-app="MyApp">
+                                                            <md-chips ng-model="ctrl.selectedVegetables" md-autocomplete-snap="" md-require-match="">
+                                                                <md-autocomplete md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" placeholder="Add a category">
+                                                                    <span md-highlight-text="ctrl.searchText">{{item.name}}</span>
+                                                                </md-autocomplete>
+                                                                <md-chip-template>
+                                                                                        <span>
+                                                                                          <strong>{{$chip.name}}</strong>
+                                                                                        </span>
+                                                                </md-chip-template>
+                                                            </md-chips>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </md-content>
+
+                            </div>
+
+
+                            </md-content>
+                            </md-tab>
+                            <md-tab label="Add Event">
+                                <md-content class="md-padding">
+                                    <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                                </md-content>
+                            </md-tab>
+                            </md-tabs>
+                            </md-content>
+                        </div>
+                        </div>
+                    </md-dialog-content>
+
+                    <div class="md-actions" layout="row">
+                        <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" hide show-md>
+                            More on Wikipedia
+                        </md-button>
+                        <span flex></span>
+                        <md-button ng-click="answer('not useful')" class="md-primary">
+                            Cancel
+                        </md-button>
+                        <md-button ng-click="answer('useful')" class="md-primary">
+                            Add
+                        </md-button>
+                    </div>
+                </form>
+                </md-dialog>
+                </script>
                 <div class="mdl-tooltip" for="accountSet">
                     Account Settings
                 </div>
+
+
+                <!-- Right aligned menu below button -->
+                <a id="demo-menu-lower-right" class="mdl-navigation__link material-icons material-icons-header" href="">notifications</a>
+
+                <div class="mdl-menu mdl-menu--notification mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                    <div class="mdl-card mdl-shadow--2dp ">
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">redo</i>
+                            </button>
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">close</i>
+                            </button>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            New Article Added to Cassandra
+                        </div>
+                    </div>
+                    <div class="mdl-card mdl-shadow--2dp ">
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">redo</i>
+                            </button>
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">close</i>
+                            </button>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            New Article Added to Cassandra
+                        </div>
+                    </div>
+                    <div class="mdl-card mdl-shadow--2dp ">
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">redo</i>
+                            </button>
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">close</i>
+                            </button>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            New Article Added to Cassandra
+                        </div>
+                    </div>
+                    <div class="mdl-card mdl-shadow--2dp ">
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">redo</i>
+                            </button>
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">close</i>
+                            </button>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            New Article Added to Cassandra
+                        </div>
+                    </div>
+                    <div class="mdl-card mdl-shadow--2dp ">
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">redo</i>
+                            </button>
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">close</i>
+                            </button>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            New Article Added to Cassandra
+                        </div>
+                    </div>
+                    <div class="mdl-card mdl-shadow--2dp ">
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">redo</i>
+                            </button>
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">close</i>
+                            </button>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            New Article Added to Cassandra
+                        </div>
+                    </div>
+                    <div class="mdl-card mdl-shadow--2dp ">
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">redo</i>
+                            </button>
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">close</i>
+                            </button>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            New Article Added to Cassandra
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-tooltip" for="subscriptionFeed">
+                    Subscription Feed
+                </div>
+
+                <div ng-controller="addArticleControl" class="">
+                    <a id="godMode" class="material-icons material-icons-header mdl-navigation__link" ng-click="showAdvanced($event)" flex flex-md="100">
+                        flash_on
+                    </a>
+                </div>
+                <div class="mdl-tooltip" for="godMode">
+                    God Mode
+                </div>
+                <div ng-controller="accountSetControl" class="">
+                    <a id="accountSet" class="material-icons material-icons-header mdl-navigation__link" ng-click="showAdvanced($event)" flex flex-md="100">
+                        account_circle
+                    </a>
+                </div>
+                <script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
+                <form>
+                    <md-toolbar>
+                        <div class="md-toolbar-tools">
+                            <h2>Account Setting</h2>
+                            <span flex></span>
+                            <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                                <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                            </md-button>
+                        </div>
+                    </md-toolbar>
+                    <md-dialog-content>
+                        <div>
+
+                        </div>
+                    </md-dialog-content>
+
+                    <div class="md-actions" layout="column">
+
+                        <md-button ng-click="answer('not useful')" class="md-primary">
+                            Preferences
+                        </md-button>
+                        <md-button ng-click="answer('useful')" class="md-primary">
+                            SignOut
+                        </md-button>
+                    </div>
+                </form>
+                </md-dialog>
+                </script>
+
             </nav>
         </div>
     </header>
@@ -158,27 +429,30 @@
                         <i id="eventButton" class="material-icons mdl-js-ripple-effect">keyboard_arrow_left</i>
                    </button>
 
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-controller="addCalendarControl" ng-click="showAdvanced($event)" flex flex-md="100" >
-                        <i class="material-icons mdl-js-ripple-effect">insert_invitation</i>
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="hideEvents()">
+                        <i id="eventButton"class="material-icons mdl-js-ripple-effect">insert_invitation</i>
                    </button>
 
                 </div>
                 <div id="Events" style="display: none;">
-
-
                     <div style="display: flex; flex-flow: row wrap; justify-content: space-around">
-
-
                         <div style="width: 48%; margin-bottom: 1%">
 
-                            <div class="calendar-container transition">
+                            <div class="calendar-container transition" >
                                 <!-- YEAR -->
                                 <div class="view-year">
-                                    <div class="title transition">
+                                    <div class="title transition" style="display: flex;justify-content: space-between;align-items: center;">
                                         2015
-                                        <md-button class="md-icon-button" ng-click="answer('not applicable')">
-                                            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
-                                        </md-button>
+                                        <!-- Right aligned menu below button -->
+                                        <button id="demo-menu-lower-right1" class="mdl-button mdl-js-button mdl-button--icon">
+                                            <i class="material-icons">more_vert</i>
+                                        </button>
+
+                                        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                                            for="demo-menu-lower-right1">
+                                            <li class="mdl-menu__item">Add Event</li>
+                                            <li class="mdl-menu__item">View Events on a Day</li>
+                                        </ul>
                                     </div>
                                     <div class="grid" >
                                         <div id="jan" class="month-item transition"><span class="centred">JAN</span></div>
@@ -1097,28 +1371,26 @@
                                     </div>
                                 </div>
                             </div>
-
-
-                        </div>
-
+                            </div>
                         <div>
                             <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;background-color: whitesmoke;margin-bottom:8px;">
                                 <tbody>
                                 <tr>
                                     <td class="mdl-data-table__cell--non-numeric">Geek Weekly| Talk on Technology |Draper's Garden FL 01-C02</td>
                                     <td class="mdl-data-table__cell">
-			      	<span>
-			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">event</a>
-			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">people</a>
-			      	</span>
+                                        <span>
+                                            <a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">event</a>
+                                            <a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">people</a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="mdl-data-table__cell--non-numeric">Sophia Carson</td>
                                     <td class="mdl-data-table__cell">
-			      	<span>
-			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">event</a>
-			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">people</a>
+                                        <span>
+                                            <a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">event</a>
+                                            <a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">people</a>
+                                            </span>
                                     </td>
                                 </tr>
 
@@ -1144,9 +1416,66 @@
                     <h2 class="mdl-card__title-text" style="font-size: 34px;">Articles </h2>
                 </div>
                 <div class="mdl-card__menu">
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                        <i class="material-icons mdl-js-ripple-effect">mode_edit</i>
-                    </button>
+                    <div ng-controller="addNewArticleControl" class="">
+                        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="showAdvanced($event)">
+                            <i class="material-icons mdl-js-ripple-effect">mode_edit</i>
+                        </button>
+                    </div>
+                    <script type="text/ng-template" id="dialog4.tmpl.html"><md-dialog aria-label="Mango (Fruit)" style="width: 90%">
+                    <form>
+                        <md-toolbar>
+                            <div class="md-toolbar-tools">
+                                <h2>Add New Article</h2>
+                                <span flex></span>
+                                <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                                </md-button>
+                            </div>
+                        </md-toolbar>
+                        <md-dialog-content>
+                            <div>
+                                <div>
+                                    <md-content class="md-padding">
+                                        <md-content class="md-padding">
+                                            <div ng-controller="DemoCtrl" layout="column" class="inputdemoBasicUsage" ng-app="MyApp">
+
+
+
+                                                <md-content layout-padding="">
+                                                    <form name="userForm">
+
+
+
+                                                        <div layout="" layout-sm="column" style="display: flex; flex-flow: column;">
+                                                            <md-input-container flex="">
+                                                                <label>Link</label>
+                                                                <input ng-model="user.firstName" class="add-tech-title">
+                                                            </md-input-container>
+
+                                                        </div>
+
+                                                    </form>
+                                                </md-content>
+
+                                            </div>
+
+
+
+                                        </md-content>
+                                </div>
+                            </div>
+                        </md-dialog-content>
+                        <div class="md-actions" layout="row">
+
+                            <md-button ng-click="answer('useful')" class="md-primary">
+                                Add
+                            </md-button>
+                        </div>
+                    </form>
+                    </md-dialog>
+                    </script>
+
+
                 </div>
                 <div class="cardContainer">
                     <div class="cardColumnContainer-tech">
@@ -1409,5 +1738,8 @@
 <script src="../../../resources/core/js/dialog.js"></script>
 <script src="../../../resources/core/js/loadCalendar.js"></script>
 <script src="../../../resources/core/js/collapse.js"></script>
+<script src="../../../resources/core/js/tag.js"></script>
+<script src="../../../resources/core/js/add.js"></script>
+
 </body>
 </html>
