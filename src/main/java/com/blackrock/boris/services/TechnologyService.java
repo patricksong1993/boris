@@ -15,6 +15,12 @@ public class TechnologyService {
         return trendingTech;
     }
 
+    public List<Technology> getTechnologies() throws BorisInternalException {
+        List<Technology> technologies = technologyDao.getTechnologies();
+
+        return technologies;
+    }
+
     public Technology getTechnologyForName(String technologyName) throws BorisInternalException {
         Technology technology = technologyDao.getTechnologyForName(technologyName);
 

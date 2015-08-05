@@ -17,7 +17,7 @@ public class TechnologyController {
 
     private TechnologyService technologyService;
 
-    @RequestMapping(value = "/toptechnologies", method = RequestMethod.GET)
+    @RequestMapping(value = "/technologies/trending", method = RequestMethod.GET)
     @ResponseBody
     public List<Technology> getTopTechnologies() throws BorisInternalException {
         List<Technology> trendingTechnologies = technologyService.getTrendingTechnologies();
@@ -25,11 +25,9 @@ public class TechnologyController {
         return trendingTechnologies;
     }
 
-    @RequestMapping(value = "/tech/forName", method = RequestMethod.GET)
-    public Technology getTechnologyForName(@PathVariable("technologyName") String technologyName) throws BorisInternalException {
-        Technology technology = technologyService.getTechnologyForName(technologyName);
-
-        return technology;
+    @RequestMapping(value = "/technologies", method = RequestMethod.GET)
+    public Technology getTechnologies() throws BorisInternalException {
+        
     }
 
     public void setTechnologyService(TechnologyService technologyService) {
