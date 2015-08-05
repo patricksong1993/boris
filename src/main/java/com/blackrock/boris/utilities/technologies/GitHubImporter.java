@@ -55,7 +55,7 @@ public class GitHubImporter implements TechnologyImporter {
 
                            Technology technology = new Technology();
                            technology.setTitle(item.get("name").toString());
-                           technology.setDescription(item.get("description").toString());
+                           technology.setDescription(item.get("description").toString().getBytes());
 
                            Article article = new Article();
                            article.setTitle("GitHub Repository");
