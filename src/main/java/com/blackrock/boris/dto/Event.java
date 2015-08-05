@@ -25,8 +25,10 @@ public class Event {
 	private String place;
 	@Column (name = "date")
 	private Date date;
+
 	@OneToOne(fetch = FetchType.LAZY)
 	private Technology technologyOrganizedFor;
+
 	public long getId() {
 		return id;
 	}
