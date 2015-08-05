@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/material-design-lite/material.js"></script>
+    <script src="bower_components/angularjs/angular.js"></script>
+
+    
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.blue-deep_purple.min.css" />
+
+    <script src="js/jquery.min.js"></script>
+    <!--calendar imports -->
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/calendar/style.css"/>
+    <link rel="stylesheet" href="css/calendar/animate.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1">
+
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="js/searchJ.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/app.js"></script>
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" href="css/boris.css">
+    <meta charset="UTF-8">
+    <title>Bower</title>
+
+    <style>
+div#overlay {
+    display: none;
+    z-index: 2;
+    background: #000;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+}
+div#specialBox {
+    display: none;
+    position: relative;
+    z-index: 3;
+    margin: 150px auto 0px auto;
+    width: 500px; 
+    height: 300px;
+    background: rgba(255, 255, 255, 0);
+    color: #000;
+}
+div#wrapper {
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    padding-left:24px;
+}
+</style>
+<script>
+function toggleOverlay(){
+    var overlay = document.getElementById('overlay');
+    var specialBox = document.getElementById('specialBox');
+    overlay.style.opacity = .8;
+    if(overlay.style.display == "block"){
+        overlay.style.display = "none";
+        specialBox.style.display = "none";
+    } else {
+        overlay.style.display = "block";
+        specialBox.style.display = "block";
+    }
+}
+</script>
+
+<script>
+
+ $(function(){
+       $(".specialBox").load("calendarImport.html"); 
+    });
+
+</script>
+
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">Title</span>
+            <div class="mdl-layout-spacer"></div>
+                <div id="searchBar" class="mdl-textfield mdl-js-textfield textfield-demo" style="padding: 0px 0; width: 70%;margin:auto;background-color: white;" onclick="searchPop()" >
+                    <input id="tags" class="mdl-textfield__input" type="text" id="sample1" style="height: 40px;font-size: 20px;color: darkgray;text-align: center;" o/>
+                    <label class="mdl-textfield__label" for="sample1" style="height: 40px;top: 20px;font-size: 20px;text-align: center;">  </label>
+                </div>
+
+            <div class="mdl-layout-spacer"></div>
+            <nav class="mdl-navigation ">
+
+                <a id ="add" class="mdl-navigation__link material-icons material-icons-header" href="">add_circle</a>
+                <div class="mdl-tooltip" for="add">
+                     Add 
+                </div>
+                <a id="subscriptionFeed" class="mdl-navigation__link material-icons material-icons-header" href="">dashboard</a>
+                <div class="mdl-tooltip" for="subscriptionFeed">
+                    Subscription Feed
+                </div>
+                <a id="godMode" class="mdl-navigation__link material-icons material-icons-header" href="">flash_on</a>
+                <div class="mdl-tooltip" for="godMode">
+                    God Mode
+                </div>
+                <a id= "accountSet" class="mdl-navigation__link material-icons material-icons-header" href="">account_circle</a>
+                <div class="mdl-tooltip" for="accountSet">
+                    Account Settings
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="mdl-layout__content">
+        <div class="mainContainer">
+
+
+
+
+<!-- End Special Centered Box -->
+<!-- Start Normal Page Content -->
+
+
+            <div class="mdl-card mdl-shadow--8dp">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text mdl-card__title-text-tech"> Cassandra</h2>
+                </div>
+                <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="hideTech()">
+                        <i id="techButton" class="material-icons mdl-js-ripple-effect">keyboard_arrow_down</i>
+                    </button>
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" >
+                        <i  class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                    </button>
+                </div>
+                <div id="tech" style=" display: initial;">
+                <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech">
+                            Apache Cassandra is an open source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. Cassandra offers robust support for clusters spanning multiple datacenters, with asynchronous masterless replication allowing low latency operations for all clients.
+                            Cassandra also places a high value on performance. In 2012, University of Toronto researchers studying NoSQL systems concluded that "In terms of scalability, there is a clear winner throughout our experiments. Cassandra achieves the highest throughput for the maximum number of nodes in all experiments" although "this comes at the price of high write and read latencies."
+                            Cassandra's data model is a partitioned row store with tunable consistency. Rows are organized into tables; the first component of a table's primary key is the partition key; within a partition, rows are clustered by the remaining columns of the key.[4] Other columns may be indexed separately from the primary key.
+                            Tables may be created, dropped, and altered at runtime without blocking updates and queries.Cassandra does not support joins or subqueries. Rather, Cassandra emphasizes denormalization through features like collections.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  style="float: right;">
+                        More...
+                    </a>
+                </div>
+                </div>
+
+            </div>
+
+            <div class="mdl-card mdl-card--border mdl-shadow--8dp" >
+                <div class="mdl-card__title">
+                    <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px;">group</span>
+                    <h2 class="mdl-card__title-text" style="font-size: 34px;">Teams </h2>
+                </div>
+                <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="hideTeams()">
+                        <i id="teamButton" class="material-icons mdl-js-ripple-effect">keyboard_arrow_left</i>
+                    </button>
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                        <i class="material-icons mdl-js-ripple-effect">mode_edit</i>
+                    </button>
+                </div>
+                <div id="Teams" style="display: none;">
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;background-color: whitesmoke;margin-bottom:8px;">
+                    <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">APG-CTP-Compliance</td>
+                        <td class="mdl-data-table__cell">
+			      	<span>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">chat</a>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">description</a>
+						<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">info</a>
+
+			      	</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">APG-CCP-CDI</td>
+                        <td class="mdl-data-table__cell">
+			      	<span>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">chat</a>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">description</a>
+						<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">info</a>
+
+			      	</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="float: right;">
+                        More...
+                    </a>
+                </div>
+                </div>
+
+            </div>
+
+            <div class="mdl-card mdl-card--border mdl-shadow--8dp" >
+                <div class="mdl-card__title">
+                    <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px;">event</span>
+                    <h2 class="mdl-card__title-text" style="font-size: 34px;">Events</h2>
+                </div>
+                <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="hideEvents()" >
+                        <i id="eventButton" class="material-icons mdl-js-ripple-effect">keyboard_arrow_left</i>
+                    </button>
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onmousedown="toggleOverlay()">
+                        <i class="material-icons mdl-js-ripple-effect">insert_invitation</i>
+                    </button>
+                </div>
+                <div id="Events" style="display: none;">
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;background-color: whitesmoke;margin-bottom:8px;">
+                    <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Geek Weekly| Talk on Technology |Draper's Garden FL 01-C02</td>
+                        <td class="mdl-data-table__cell">
+			      	<span>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">event</a>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">people</a>
+			      	</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Sophia Carson</td>
+                        <td class="mdl-data-table__cell">
+			      	<span>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">event</a>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">people</a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="float: right;">
+                        More...
+                    </a>
+                </div>
+                </div>
+            </div>
+
+            <div class="mdl-card mdl-card--border mdl-shadow--8dp" >
+                <div class="mdl-card__title">
+                    <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px;">subtitles</span>
+                    <h2 class="mdl-card__title-text" style="font-size: 34px;">Articles </h2>
+                </div>
+                <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                        <i class="material-icons mdl-js-ripple-effect">mode_edit</i>
+                    </button>
+                </div>
+                <div class="cardContainer">
+                    <div class="cardColumnContainer">
+
+                        <div class="mdl-card mdl-shadow--8dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Web Components</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pelle
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mdl-card mdl-shadow--8dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Distributed Databases</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="cardColumnContainer">
+
+                        <div class="mdl-card mdl-shadow--8dp" >
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Programming</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mdl-card mdl-shadow--8dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Scripting Languages</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="cardColumnContainer">
+
+                        <div class="mdl-card mdl-shadow--8dp" >
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Web Framework</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mdl-card mdl-shadow--8dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Version Control</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mdl-card mdl-shadow--8dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Welcome</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Mauris sagittis pellentesque lacus eleifend lacinia...
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    More Info...
+                                </a>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="float: right;">
+                        More...
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </main>
+
+</div>
+
+<!-- Start Overlay -->
+<div id="overlay"></div>
+<!-- End Overlay -->
+<!-- Start Special Centered Box -->
+<div id="specialBox">
+  <!-- display the calendar in here.
+  <button onmousedown="toggleOverlay()">Close Overlay</button> -->
+
+
+<!-- calendar html in here-->
+
+
+<!-- CALENDAR CONTAINER -->
+    <div class="calendar-container transition">
+        <!-- YEAR -->
+        <div class="view-year">
+            <div class="title transition">
+                2015
+            </div>
+            <div class="grid" >
+                <div id="jan" class="month-item transition"><span class="centred">JAN</span></div>
+                <div id="feb" class="month-item transition"><span class="centred">FEB</span></div>
+                <div id="mar" class="month-item transition"><span class="centred">MAR</span></div>
+                <div id="apr" class="month-item transition"><span class="centred">APR</span></div>
+                <div id="may" class="month-item transition"><span class="centred">MAY</span></div>
+                <div id="jun" class="month-item transition"><span class="centred">JUN</span></div>
+                <div id="jul" class="month-item transition"><span class="centred">JUL</span></div>
+                <div id="aug" class="month-item transition"><span class="centred current">AUG</span></div>
+                <div id="sep" class="month-item transition"><span class="centred">SEP</span></div>
+                <div id="oct" class="month-item transition"><span class="centred">OCT</span></div>
+                <div id="nov" class="month-item transition"><span class="centred">NOV</span></div>
+                <div id="dec" class="month-item transition"><span class="centred">DEC</span></div>
+            </div>
+        </div>
+        
+        <!-- MONTH jan -->
+        <div id="jan-month" class="view-month">
+            <div class="title active transition">
+                <div class="go-back-month transition"><span></span></div>
+                <span class="month-name">January</span>
+                <span class="date-year">2015</span>
+            </div>
+            <div class="grid">
+                <!-- WEEK ROW -->
+                <div class="row week">
+                    <div class="cell"><span>M</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>W</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>F</span></div>
+                    <div class="cell"><span>S</span></div>
+                    <div class="cell"><span>S</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>29</span></div>
+                    <div class="cell past"><span>30</span></div>
+                    <div class="cell past"><span>31</span></div>
+                    <div class="cell clickable"><span>1</span></div>
+                    <div class="cell clickable"><span>2</span></div>
+                    <div class="cell clickable"><span>3</span></div>
+                    <div class="cell clickable"><span>4</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>5</span></div>
+                    <div class="cell clickable"><span>6</span></div>
+                    <div class="cell clickable"><span>7</span></div>
+                    <div class="cell clickable"><span>8</span></div>
+                    <div class="cell clickable"><span>9</span></div>
+                    <div class="cell clickable"><span>10</span></div>
+                    <div class="cell clickable"><span>11</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>12</span></div>
+                    <div class="cell clickable"><span>12</span></div>
+                    <div class="cell clickable"><span>14</span></div>
+                    <div class="cell clickable"><span>15</span></div>
+                    <div class="cell clickable"><span>16</span></div>
+                    <div class="cell clickable"><span>17</span></div>
+                    <div class="cell clickable"><span>18</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>19</span></div>
+                    <div class="cell clickable"><span>20</span></div>
+                    <div class="cell clickable"><span>21</span></div>
+                    <div class="cell clickable"><span>22</span></div>
+                    <div class="cell clickable"><span>23</span></div>
+                    <div class="cell clickable"><span>24</span></div>
+                    <div class="cell clickable"><span>25</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>26</span></div>
+                    <div class="cell clickable"><span>27</span></div>
+                    <div class="cell clickable"><span>28</span></div>
+                    <div class="cell clickable"><span>29</span></div>
+                    <div class="cell clickable"><span>30</span></div>
+                    <div class="cell clickable"><span>31</span></div>
+                    <div class="cell past"><span>1</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>2</span></div>
+                    <div class="cell past"><span>3</span></div>
+                    <div class="cell past"><span>4</span></div>
+                    <div class="cell past"><span>5</span></div>
+                    <div class="cell past"><span>6</span></div>
+                    <div class="cell past"><span>7</span></div>
+                    <div class="cell past"><span>8</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MONTH FEB -->
+        <div id="feb-month" class="view-month">
+            <div class="title active transition">
+                <div class="go-back-month transition"><span></span></div>
+                <span class="month-name">February</span>
+                <span class="date-year">2015</span>
+            </div>
+            <div class="grid">
+                <!-- WEEK ROW -->
+                <div class="row week">
+                    <div class="cell"><span>M</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>W</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>F</span></div>
+                    <div class="cell"><span>S</span></div>
+                    <div class="cell"><span>S</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>25</span></div>
+                    <div class="cell past"><span>26</span></div>
+                    <div class="cell past"><span>27</span></div>
+                    <div class="cell past"><span>28</span></div>
+                    <div class="cell past"><span>29</span></div>
+                    <div class="cell past"><span>31</span></div>
+                    <div class="cell clickable"><span>1</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>2</span></div>
+                    <div class="cell clickable"><span>3</span></div>
+                    <div class="cell clickable"><span>4</span></div>
+                    <div class="cell clickable"><span>5</span></div>
+                    <div class="cell clickable"><span>6</span></div>
+                    <div class="cell clickable"><span>7</span></div>
+                    <div class="cell clickable"><span>8</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>9</span></div>
+                    <div class="cell clickable"><span>10</span></div>
+                    <div class="cell clickable"><span>11</span></div>
+                    <div class="cell clickable"><span>12</span></div>
+                    <div class="cell clickable"><span>13</span></div>
+                    <div class="cell clickable"><span>14</span></div>
+                    <div class="cell clickable"><span>15</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>16</span></div>
+                    <div class="cell clickable"><span>17</span></div>
+                    <div class="cell clickable"><span>18</span></div>
+                    <div class="cell clickable"><span>19</span></div>
+                    <div class="cell clickable"><span>20</span></div>
+                    <div class="cell clickable"><span>21</span></div>
+                    <div class="cell clickable"><span>22</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>23</span></div>
+                    <div class="cell clickable"><span>24</span></div>
+                    <div class="cell clickable"><span>25</span></div>
+                    <div class="cell clickable"><span>26</span></div>
+                    <div class="cell clickable"><span>27</span></div>
+                    <div class="cell clickable"><span>28</span></div>
+                    <div class="cell past"><span>1</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>2</span></div>
+                    <div class="cell past"><span>3</span></div>
+                    <div class="cell past"><span>4</span></div>
+                    <div class="cell past"><span>5</span></div>
+                    <div class="cell past"><span>6</span></div>
+                    <div class="cell past"><span>7</span></div>
+                    <div class="cell past"><span>8</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MONTH MAR -->
+        <div id="mar-month" class="view-month">
+            <div class="title active transition">
+                <div class="go-back-month transition"><span></span></div>
+                <span class="month-name">March</span>
+                <span class="date-year">2015</span>
+            </div>
+            <div class="grid">
+                <!-- WEEK ROW -->
+                <div class="row week">
+                    <div class="cell"><span>M</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>W</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>F</span></div>
+                    <div class="cell"><span>S</span></div>
+                    <div class="cell"><span>S</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>23</span></div>
+                    <div class="cell past"><span>24</span></div>
+                    <div class="cell past"><span>25</span></div>
+                    <div class="cell past"><span>26</span></div>
+                    <div class="cell past"><span>27</span></div>
+                    <div class="cell past"><span>28</span></div>
+                    <div class="cell clickable"><span>1</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>2</span></div>
+                    <div class="cell clickable"><span>3</span></div>
+                    <div class="cell clickable"><span>4</span></div>
+                    <div class="cell clickable"><span>5</span></div>
+                    <div class="cell clickable"><span>6</span></div>
+                    <div class="cell clickable"><span>7</span></div>
+                    <div class="cell clickable"><span>8</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>9</span></div>
+                    <div class="cell clickable"><span>10</span></div>
+                    <div class="cell clickable"><span>11</span></div>
+                    <div class="cell clickable"><span>12</span></div>
+                    <div class="cell clickable"><span>13</span></div>
+                    <div class="cell clickable"><span>14</span></div>
+                    <div class="cell clickable"><span>15</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>16</span></div>
+                    <div class="cell clickable"><span>17</span></div>
+                    <div class="cell clickable"><span>18</span></div>
+                    <div class="cell clickable"><span>19</span></div>
+                    <div class="cell clickable"><span>20</span></div>
+                    <div class="cell clickable"><span>21</span></div>
+                    <div class="cell clickable"><span>22</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>23</span></div>
+                    <div class="cell clickable"><span>24</span></div>
+                    <div class="cell clickable"><span>25</span></div>
+                    <div class="cell clickable"><span>26</span></div>
+                    <div class="cell clickable"><span>27</span></div>
+                    <div class="cell clickable"><span>28</span></div>
+                    <div class="cell past"><span>29</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>30</span></div>
+                    <div class="cell clickable"><span>31</span></div>
+                    <div class="cell past"><span>1</span></div>
+                    <div class="cell past"><span>2</span></div>
+                    <div class="cell past"><span>3</span></div>
+                    <div class="cell past"><span>4</span></div>
+                    <div class="cell past"><span>5</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MONTH APR -->
+        <div id="apr-month" class="view-month">
+            <div class="title active transition">
+                <div class="go-back-month transition"><span></span></div>
+                <span class="month-name">April</span>
+                <span class="date-year">2015</span>
+            </div>
+            <div class="grid">
+                <!-- WEEK ROW -->
+                <div class="row week">
+                    <div class="cell"><span>M</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>W</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>F</span></div>
+                    <div class="cell"><span>S</span></div>
+                    <div class="cell"><span>S</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>30</span></div>
+                    <div class="cell past"><span>31</span></div>
+                    <div class="cell clickable"><span>1</span></div>
+                    <div class="cell clickable"><span>2</span></div>
+                    <div class="cell clickable"><span>3</span></div>
+                    <div class="cell clickable"><span>4</span></div>
+                    <div class="cell clickable"><span>5</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>6</span></div>
+                    <div class="cell clickable"><span>7</span></div>
+                    <div class="cell clickable"><span>8</span></div>
+                    <div class="cell clickable"><span>9</span></div>
+                    <div class="cell clickable"><span>10</span></div>
+                    <div class="cell clickable"><span>11</span></div>
+                    <div class="cell clickable"><span>12</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>13</span></div>
+                    <div class="cell clickable"><span>14</span></div>
+                    <div class="cell clickable"><span>15</span></div>
+                    <div class="cell clickable"><span>16</span></div>
+                    <div class="cell clickable"><span>17</span></div>
+                    <div class="cell clickable"><span>18</span></div>
+                    <div class="cell clickable"><span>19</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>20</span></div>
+                    <div class="cell clickable"><span>21</span></div>
+                    <div class="cell clickable"><span>22</span></div>
+                    <div class="cell clickable"><span>23</span></div>
+                    <div class="cell clickable"><span>24</span></div>
+                    <div class="cell clickable"><span>25</span></div>
+                    <div class="cell clickable"><span>26</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>27</span></div>
+                    <div class="cell clickable"><span>28</span></div>
+                    <div class="cell clickable"><span>29</span></div>
+                    <div class="cell clickable"><span>30</span></div>
+                    <div class="cell past"><span>1</span></div>
+                    <div class="cell past"><span>2</span></div>
+                    <div class="cell past"><span>3</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>4</span></div>
+                    <div class="cell past"><span>5</span></div>
+                    <div class="cell past"><span>6</span></div>
+                    <div class="cell past"><span>7</span></div>
+                    <div class="cell past"><span>8</span></div>
+                    <div class="cell past"><span>9</span></div>
+                    <div class="cell past"><span>10</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MONTH MAY -->
+        <div id="may-month" class="view-month">
+            <div class="title active transition">
+                <div class="go-back-month transition"><span></span></div>
+                <span class="month-name">May</span>
+                <span class="date-year">2015</span>
+            </div>
+            <div class="grid">
+                <!-- WEEK ROW -->
+                <div class="row week">
+                    <div class="cell"><span>M</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>W</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>F</span></div>
+                    <div class="cell"><span>S</span></div>
+                    <div class="cell"><span>S</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>27</span></div>
+                    <div class="cell past"><span>28</span></div>
+                    <div class="cell past"><span>29</span></div>
+                    <div class="cell past"><span>30</span></div>
+                    <div class="cell clickable"><span>1</span></div>
+                    <div class="cell clickable"><span>2</span></div>
+                    <div class="cell clickable"><span>3</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>4</span></div>
+                    <div class="cell clickable"><span>5</span></div>
+                    <div class="cell clickable"><span>6</span></div>
+                    <div class="cell clickable"><span>7</span></div>
+                    <div class="cell clickable"><span>8</span></div>
+                    <div class="cell clickable"><span>9</span></div>
+                    <div class="cell clickable"><span>10</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>11</span></div>
+                    <div class="cell clickable"><span>12</span></div>
+                    <div class="cell clickable"><span>13</span></div>
+                    <div class="cell clickable"><span>14</span></div>
+                    <div class="cell clickable"><span>15</span></div>
+                    <div class="cell clickable"><span>16</span></div>
+                    <div class="cell clickable"><span>17</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>18</span></div>
+                    <div class="cell clickable"><span>19</span></div>
+                    <div class="cell clickable"><span>20</span></div>
+                    <div class="cell clickable"><span>21</span></div>
+                    <div class="cell clickable"><span>22</span></div>
+                    <div class="cell clickable"><span>23</span></div>
+                    <div class="cell clickable"><span>24</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>25</span></div>
+                    <div class="cell clickable"><span>26</span></div>
+                    <div class="cell clickable"><span>27</span></div>
+                    <div class="cell clickable"><span>28</span></div>
+                    <div class="cell clickable"><span>29</span></div>
+                    <div class="cell clickable"><span>30</span></div>
+                    <div class="cell clickable"><span>31</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>1</span></div>
+                    <div class="cell past"><span>2</span></div>
+                    <div class="cell past"><span>3</span></div>
+                    <div class="cell past"><span>4</span></div>
+                    <div class="cell past"><span>5</span></div>
+                    <div class="cell past"><span>6</span></div>
+                    <div class="cell past"><span>7</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MONTH JUN -->
+        <div id="jun-month" class="view-month">
+            <div class="title active transition">
+                <div class="go-back-month transition"><span></span></div>
+                <span class="month-name">June</span>
+                <span class="date-year">2015</span>
+            </div>
+            <div class="grid">
+                <!-- WEEK ROW -->
+                <div class="row week">
+                    <div class="cell"><span>M</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>W</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>F</span></div>
+                    <div class="cell"><span>S</span></div>
+                    <div class="cell"><span>S</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>1</span></div>
+                    <div class="cell clickable"><span>2</span></div>
+                    <div class="cell clickable"><span>3</span></div>
+                    <div class="cell clickable"><span>4</span></div>
+                    <div class="cell clickable"><span>5</span></div>
+                    <div class="cell clickable"><span>6</span></div>
+                    <div class="cell clickable"><span>7</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>8</span></div>
+                    <div class="cell clickable"><span>9</span></div>
+                    <div class="cell clickable"><span>10</span></div>
+                    <div class="cell clickable"><span>11</span></div>
+                    <div class="cell clickable"><span>12</span></div>
+                    <div class="cell clickable"><span>13</span></div>
+                    <div class="cell clickable"><span>14</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>15</span></div>
+                    <div class="cell clickable"><span>16</span></div>
+                    <div class="cell clickable"><span>17</span></div>
+                    <div class="cell clickable"><span>18</span></div>
+                    <div class="cell clickable"><span>19</span></div>
+                    <div class="cell clickable"><span>20</span></div>
+                    <div class="cell clickable"><span>21</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>22</span></div>
+                    <div class="cell clickable"><span>23</span></div>
+                    <div class="cell clickable"><span>24</span></div>
+                    <div class="cell clickable"><span>25</span></div>
+                    <div class="cell clickable"><span>26</span></div>
+                    <div class="cell clickable"><span>27</span></div>
+                    <div class="cell clickable"><span>28</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>29</span></div>
+                    <div class="cell clickable"><span>30</span></div>
+                    <div class="cell past"><span>1</span></div>
+                    <div class="cell past"><span>2</span></div>
+                    <div class="cell past"><span>3</span></div>
+                    <div class="cell past"><span>4</span></div>
+                    <div class="cell past"><span>5</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>6</span></div>
+                    <div class="cell past"><span>7</span></div>
+                    <div class="cell past"><span>8</span></div>
+                    <div class="cell past"><span>9</span></div>
+                    <div class="cell past"><span>10</span></div>
+                    <div class="cell past"><span>11</span></div>
+                    <div class="cell past"><span>12</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MONTH JUL -->
+        <div id="jul-month" class="view-month">
+            <div class="title active transition">
+                <div class="go-back-month transition"><span></span></div>
+                <span class="month-name">July</span>
+                <span class="date-year">2015</span>
+            </div>
+            <div class="grid">
+                <!-- WEEK ROW -->
+                <div class="row week">
+                    <div class="cell"><span>M</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>W</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>F</span></div>
+                    <div class="cell"><span>S</span></div>
+                    <div class="cell"><span>S</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>30</span></div>
+                    <div class="cell past"><span>31</span></div>
+                    <div class="cell clickable"><span>1</span></div>
+                    <div class="cell clickable"><span>2</span></div>
+                    <div class="cell clickable"><span>3</span></div>
+                    <div class="cell clickable"><span>4</span></div>
+                    <div class="cell clickable"><span>5</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>6</span></div>
+                    <div class="cell clickable"><span>7</span></div>
+                    <div class="cell clickable"><span>8</span></div>
+                    <div class="cell clickable"><span>9</span></div>
+                    <div class="cell clickable"><span>10</span></div>
+                    <div class="cell clickable"><span>11</span></div>
+                    <div class="cell clickable"><span>12</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>13</span></div>
+                    <div class="cell clickable"><span>14</span></div>
+                    <div class="cell clickable"><span>15</span></div>
+                    <div class="cell clickable"><span>16</span></div>
+                    <div class="cell clickable"><span>17</span></div>
+                    <div class="cell clickable"><span>18</span></div>
+                    <div class="cell clickable"><span>19</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>20</span></div>
+                    <div class="cell clickable"><span>21</span></div>
+                    <div class="cell clickable"><span>22</span></div>
+                    <div class="cell clickable"><span>23</span></div>
+                    <div class="cell clickable"><span>24</span></div>
+                    <div class="cell clickable"><span>25</span></div>
+                    <div class="cell clickable"><span>26</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>27</span></div>
+                    <div class="cell clickable"><span>28</span></div>
+                    <div class="cell clickable"><span>29</span></div>
+                    <div class="cell clickable"><span>30</span></div>
+                    <div class="cell clickable"><span>31</span></div>
+                    <div class="cell past"><span>1</span></div>
+                    <div class="cell past"><span>2</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>3</span></div>
+                    <div class="cell past"><span>4</span></div>
+                    <div class="cell past"><span>5</span></div>
+                    <div class="cell past"><span>6</span></div>
+                    <div class="cell past"><span>7</span></div>
+                    <div class="cell past"><span>8</span></div>
+                    <div class="cell past"><span>9</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MONTH AUG -->
+        <div id="aug-month" class="view-month">
+            <div class="title active transition">
+                <div class="go-back-month transition"><span></span></div>
+                <span class="month-name">August</span>
+                <span class="date-year">2015</span>
+            </div>
+            <div class="grid">
+                <!-- WEEK ROW -->
+                <div class="row week">
+                    <div class="cell"><span>M</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>W</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>F</span></div>
+                    <div class="cell"><span>S</span></div>
+                    <div class="cell"><span>S</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>27</span></div>
+                    <div class="cell past"><span>28</span></div>
+                    <div class="cell past"><span>29</span></div>
+                    <div class="cell past"><span>30</span></div>
+                    <div class="cell past"><span>31</span></div>
+                    <div class="cell clickable"><span>1</span></div>
+                    <div class="cell clickable"><span>2</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>3</span></div>
+                    <div class="cell clickable"><span>4</span></div>
+                    <div class="cell clickable"><span>5</span></div>
+                    <div class="cell clickable"><span>6</span></div>
+                    <div class="cell clickable"><span>7</span></div>
+                    <div class="cell clickable"><span>8</span></div>
+                    <div class="cell clickable"><span>9</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>10</span></div>
+                    <div class="cell clickable"><span>11</span></div>
+                    <div class="cell clickable"><span>12</span></div>
+                    <div class="cell clickable"><span>13</span></div>
+                    <div class="cell clickable"><span>14</span></div>
+                    <div class="cell clickable"><span>15</span></div>
+                    <div class="cell clickable"><span>16</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>17</span></div>
+                    <div class="cell clickable"><span>18</span></div>
+                    <div class="cell clickable"><span>19</span></div>
+                    <div class="cell clickable"><span>20</span></div>
+                    <div class="cell clickable"><span>21</span></div>
+                    <div class="cell clickable"><span>22</span></div>
+                    <div class="cell clickable"><span>23</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>24</span></div>
+                    <div class="cell clickable"><span>25</span></div>
+                    <div class="cell clickable"><span>26</span></div>
+                    <div class="cell clickable"><span>27</span></div>
+                    <div class="cell clickable"><span>28</span></div>
+                    <div class="cell clickable"><span>29</span></div>
+                    <div class="cell clickable"><span>30</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>31</span></div>
+                    <div class="cell past"><span>1</span></div>
+                    <div class="cell past"><span>2</span></div>
+                    <div class="cell past"><span>3</span></div>
+                    <div class="cell past"><span>4</span></div>
+                    <div class="cell past"><span>5</span></div>
+                    <div class="cell past"><span>6</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MONTH SEP -->
+        <div id="sep-month" class="view-month">
+            <div class="title active transition">
+                <div class="go-back-month transition"><span></span></div>
+                <span class="month-name">September</span>
+                <span class="date-year">2015</span>
+            </div>
+            <div class="grid">
+                <!-- WEEK ROW -->
+                <div class="row week">
+                    <div class="cell"><span>M</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>W</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>F</span></div>
+                    <div class="cell"><span>S</span></div>
+                    <div class="cell"><span>S</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>31</span></div>
+                    <div class="cell clickable"><span>1</span></div>
+                    <div class="cell clickable"><span>2</span></div>
+                    <div class="cell clickable"><span>3</span></div>
+                    <div class="cell clickable"><span>4</span></div>
+                    <div class="cell clickable"><span>5</span></div>
+                    <div class="cell clickable"><span>6</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>7</span></div>
+                    <div class="cell clickable"><span>8</span></div>
+                    <div class="cell clickable"><span>9</span></div>
+                    <div class="cell clickable"><span>10</span></div>
+                    <div class="cell clickable"><span>11</span></div>
+                    <div class="cell clickable"><span>12</span></div>
+                    <div class="cell clickable"><span>13</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>14</span></div>
+                    <div class="cell clickable"><span>15</span></div>
+                    <div class="cell clickable"><span>16</span></div>
+                    <div class="cell clickable"><span>17</span></div>
+                    <div class="cell clickable"><span>18</span></div>
+                    <div class="cell clickable"><span>19</span></div>
+                    <div class="cell clickable"><span>20</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>21</span></div>
+                    <div class="cell clickable"><span>22</span></div>
+                    <div class="cell clickable"><span>23</span></div>
+                    <div class="cell clickable"><span>24</span></div>
+                    <div class="cell clickable"><span>25</span></div>
+                    <div class="cell clickable"><span>26</span></div>
+                    <div class="cell clickable"><span>27</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>28</span></div>
+                    <div class="cell clickable"><span>29</span></div>
+                    <div class="cell clickable"><span>30</span></div>
+                    <div class="cell past"><span>1</span></div>
+                    <div class="cell past"><span>2</span></div>
+                    <div class="cell past"><span>3</span></div>
+                    <div class="cell past"><span>4</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>5</span></div>
+                    <div class="cell past"><span>6</span></div>
+                    <div class="cell past"><span>7</span></div>
+                    <div class="cell past"><span>8</span></div>
+                    <div class="cell past"><span>9</span></div>
+                    <div class="cell past"><span>10</span></div>
+                    <div class="cell past"><span>11</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MONTH OCT -->
+        <div id="oct-month" class="view-month">
+            <div class="title active transition">
+                <div class="go-back-month transition"><span></span></div>
+                <span class="month-name">October</span>
+                <span class="date-year">2015</span>
+            </div>
+            <div class="grid">
+                <!-- WEEK ROW -->
+                <div class="row week">
+                    <div class="cell"><span>M</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>W</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>F</span></div>
+                    <div class="cell"><span>S</span></div>
+                    <div class="cell"><span>S</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>28</span></div>
+                    <div class="cell past"><span>29</span></div>
+                    <div class="cell past"><span>30</span></div>
+                    <div class="cell clickable"><span>1</span></div>
+                    <div class="cell clickable"><span>2</span></div>
+                    <div class="cell clickable"><span>3</span></div>
+                    <div class="cell clickable"><span>4</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>5</span></div>
+                    <div class="cell clickable"><span>6</span></div>
+                    <div class="cell clickable"><span>7</span></div>
+                    <div class="cell clickable"><span>8</span></div>
+                    <div class="cell clickable"><span>9</span></div>
+                    <div class="cell clickable"><span>10</span></div>
+                    <div class="cell clickable"><span>11</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>12</span></div>
+                    <div class="cell clickable"><span>12</span></div>
+                    <div class="cell clickable"><span>14</span></div>
+                    <div class="cell clickable"><span>15</span></div>
+                    <div class="cell clickable"><span>16</span></div>
+                    <div class="cell clickable"><span>17</span></div>
+                    <div class="cell clickable"><span>18</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>19</span></div>
+                    <div class="cell clickable"><span>20</span></div>
+                    <div class="cell clickable"><span>21</span></div>
+                    <div class="cell clickable"><span>22</span></div>
+                    <div class="cell clickable"><span>23</span></div>
+                    <div class="cell clickable"><span>24</span></div>
+                    <div class="cell clickable"><span>25</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>26</span></div>
+                    <div class="cell clickable"><span>27</span></div>
+                    <div class="cell clickable"><span>28</span></div>
+                    <div class="cell clickable"><span>29</span></div>
+                    <div class="cell clickable"><span>30</span></div>
+                    <div class="cell clickable"><span>31</span></div>
+                    <div class="cell past"><span>1</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>2</span></div>
+                    <div class="cell past"><span>3</span></div>
+                    <div class="cell past"><span>4</span></div>
+                    <div class="cell past"><span>5</span></div>
+                    <div class="cell past"><span>6</span></div>
+                    <div class="cell past"><span>7</span></div>
+                    <div class="cell past"><span>8</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MONTH NOV -->
+        <div id="nov-month" class="view-month">
+            <div class="title active transition">
+                <div class="go-back-month transition"><span></span></div>
+                <span class="month-name">November</span>
+                <span class="date-year">2015</span>
+            </div>
+            <div class="grid">
+                <!-- WEEK ROW -->
+                <div class="row week">
+                    <div class="cell"><span>M</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>W</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>F</span></div>
+                    <div class="cell"><span>S</span></div>
+                    <div class="cell"><span>S</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>26</span></div>
+                    <div class="cell past"><span>27</span></div>
+                    <div class="cell past"><span>28</span></div>
+                    <div class="cell past"><span>29</span></div>
+                    <div class="cell past"><span>30</span></div>
+                    <div class="cell past"><span>31</span></div>
+                    <div class="cell clickable"><span>1</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>2</span></div>
+                    <div class="cell clickable"><span>3</span></div>
+                    <div class="cell clickable"><span>4</span></div>
+                    <div class="cell clickable"><span>5</span></div>
+                    <div class="cell clickable"><span>6</span></div>
+                    <div class="cell clickable"><span>7</span></div>
+                    <div class="cell clickable"><span>8</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>9</span></div>
+                    <div class="cell clickable"><span>10</span></div>
+                    <div class="cell clickable"><span>11</span></div>
+                    <div class="cell clickable"><span>12</span></div>
+                    <div class="cell clickable"><span>13</span></div>
+                    <div class="cell clickable"><span>14</span></div>
+                    <div class="cell clickable"><span>15</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>16</span></div>
+                    <div class="cell clickable"><span>17</span></div>
+                    <div class="cell clickable"><span>18</span></div>
+                    <div class="cell clickable"><span>19</span></div>
+                    <div class="cell clickable"><span>20</span></div>
+                    <div class="cell clickable"><span>21</span></div>
+                    <div class="cell clickable"><span>22</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>23</span></div>
+                    <div class="cell clickable"><span>24</span></div>
+                    <div class="cell clickable"><span>25</span></div>
+                    <div class="cell clickable"><span>26</span></div>
+                    <div class="cell clickable"><span>27</span></div>
+                    <div class="cell clickable"><span>28</span></div>
+                    <div class="cell clickable"><span>29</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>30</span></div>
+                    <div class="cell past"><span>1</span></div>
+                    <div class="cell past"><span>2</span></div>
+                    <div class="cell past"><span>3</span></div>
+                    <div class="cell past"><span>4</span></div>
+                    <div class="cell past"><span>5</span></div>
+                    <div class="cell past"><span>6</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MONTH DEC -->
+        <div id="dec-month" class="view-month">
+            <div class="title active transition">
+                <div class="go-back-month transition"><span></span></div>
+                <span class="month-name">December</span>
+                <span class="date-year">2015</span>
+            </div>
+            <div class="grid">
+                <!-- WEEK ROW -->
+                <div class="row week">
+                    <div class="cell"><span>M</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>W</span></div>
+                    <div class="cell"><span>T</span></div>
+                    <div class="cell"><span>F</span></div>
+                    <div class="cell"><span>S</span></div>
+                    <div class="cell"><span>S</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>30</span></div>
+                    <div class="cell clickable"><span>1</span></div>
+                    <div class="cell clickable"><span>2</span></div>
+                    <div class="cell clickable"><span>3</span></div>
+                    <div class="cell clickable"><span>4</span></div>
+                    <div class="cell clickable"><span>5</span></div>
+                    <div class="cell clickable"><span>6</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>7</span></div>
+                    <div class="cell clickable"><span>8</span></div>
+                    <div class="cell clickable"><span>9</span></div>
+                    <div class="cell clickable"><span>10</span></div>
+                    <div class="cell clickable"><span>11</span></div>
+                    <div class="cell clickable"><span>12</span></div>
+                    <div class="cell clickable"><span>13</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>14</span></div>
+                    <div class="cell clickable"><span>15</span></div>
+                    <div class="cell clickable"><span>16</span></div>
+                    <div class="cell clickable"><span>17</span></div>
+                    <div class="cell clickable"><span>18</span></div>
+                    <div class="cell clickable"><span>19</span></div>
+                    <div class="cell clickable"><span>20</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>21</span></div>
+                    <div class="cell clickable"><span>22</span></div>
+                    <div class="cell clickable"><span>23</span></div>
+                    <div class="cell clickable"><span>24</span></div>
+                    <div class="cell clickable"><span>25</span></div>
+                    <div class="cell clickable"><span>26</span></div>
+                    <div class="cell clickable"><span>27</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell clickable"><span>28</span></div>
+                    <div class="cell clickable"><span>29</span></div>
+                    <div class="cell clickable"><span>30</span></div>
+                    <div class="cell clickable"><span>31</span></div>
+                    <div class="cell past"><span>1</span></div>
+                    <div class="cell past"><span>2</span></div>
+                    <div class="cell past"><span>3</span></div>
+                </div>
+                <div class="row">
+                    <div class="cell past"><span>4</span></div>
+                    <div class="cell past"><span>5</span></div>
+                    <div class="cell past"><span>6</span></div>
+                    <div class="cell past"><span>7</span></div>
+                    <div class="cell past"><span>8</span></div>
+                    <div class="cell past"><span>9</span></div>
+                    <div class="cell past"><span>10</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </div>
+
+
+
+
+</div>
+
+
+
+
+<!-- script for the calendar -->
+
+
+    <!-- SCRIPT -->
+    <script>
+        $('.month-item').click(function(e){ 
+            var month = '#' + $(this).attr('id') + '-month';
+            
+            // janero l'effetto tocco material
+            var parent, ink, d, x, y;
+            parent = $('.view-year');
+            //creo elemento .ink se non esiste
+            if(parent.find(".ink").length == 0)
+                parent.prepend("<span style='background:" + $(month).children('.title').css('background-color') + "' class='ink'></span>");
+                
+            ink = parent.find(".ink");
+            //incase of quick double clicks stop the previous animation
+            //ink.removeClass("animate");
+            
+            //setto dimensioni di .ink
+            if(!ink.height() && !ink.width())
+            {
+                //use parent's width or height whichever is larger for the diameter to make a circle which can cover the entire element.
+                d = Math.max(parent.outerWidth(), parent.outerHeight());
+                ink.css({height: d, width: d});
+            }
+            
+            //get click coordinates
+            //logic = click coordinates relative to page - parent's position relative to page - half of self height/width to make it controllable from the center;
+            x = e.pageX - parent.offset().left - ink.width()/2;
+            y = e.pageY - parent.offset().top - ink.height()/2;
+            
+            //set the position and add class .animate
+            ink.css({top: y+'px', left: x+'px'}).addClass("animate");
+            
+            $(month).delay(200).fadeIn();
+            setTimeout(function(){
+                $(month).children('.title').removeClass('active');
+            }, 200);
+            
+        });
+        
+        
+        $('.clickable').click(function(e){  
+            var month = $(this).parent().parent().parent().children('.title').children('.month-name').text();
+            var day = $(this).text();
+            
+            // janero l'effetto tocco material
+            var parent, ink, d, x, y;
+            parent = $(this).parent().parent().parent('.view-month');
+            //creo elemento .ink se non esiste
+            if(parent.find(".ink").length == 0)
+                parent.prepend("<span style='background-color:" + $(this).parent().parent().parent().children('.title').css('background-color') + "' class='ink'></span>");
+                
+            ink = parent.find(".ink");
+            //incase of quick double clicks stop the previous animation
+            //ink.removeClass("animate");
+            
+            //setto dimensioni di .ink
+            if(!ink.height() && !ink.width())
+            {
+                //use parent's width or height whichever is larger for the diameter to make a circle which can cover the entire element.
+                d = Math.max(parent.outerWidth(), parent.outerHeight());
+                ink.css({height: d, width: d});
+            }
+            
+            //get click coordinates
+            //logic = click coordinates relative to page - parent's position relative to page - half of self height/width to make it controllable from the center;
+            x = e.pageX - parent.offset().left - ink.width()/2;
+            y = e.pageY - parent.offset().top - ink.height()/2;
+            
+            //set the position and add class .animate
+            ink.css({top: y+'px', left: x+'px'}).addClass("animate");
+            
+            
+            //hard coded in events to certain dates
+            var hashtable = {};
+
+            hashtable['February3'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td> 12:00 to 12:00 </td><td>More Events</td></tr><tr><td>All Day</td><td>Things to do.</td></tr></table>';;
+            hashtable['March1'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td> 12:00 to 12:00 </td><td>More Events</td></tr><tr><td>All Day</td><td>Things to do.</td></tr></table>';;
+            hashtable['July20'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td> 12:00 to 12:00 </td><td>More Events</td></tr><tr><td>All Day</td><td>Things to do.</td></tr></table>';;
+            hashtable['July21'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td> 12:00 to 12:00 </td><td>More Events</td></tr><tr><td>All Day</td><td>Things to do.</td></tr></table>';;
+            hashtable['July22'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td> 12:00 to 12:00 </td><td>More Events</td></tr><tr><td>All Day</td><td>Things to do.</td></tr></table>';;
+            hashtable['July23'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td> 12:00 to 12:00 </td><td>More Events</td></tr><tr><td>All Day</td><td>Things to do.</td></tr></table>';;
+            hashtable['July24'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td> 12:00 to 12:00 </td><td>More Events</td></tr><tr><td>All Day</td><td>Things to do.</td></tr></table>';;
+            hashtable['July25'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td> 12:00 to 12:00 </td><td>Beach Party</td></tr><tr><td>All Day</td><td>Sunny Day</td></tr></table>';;
+            hashtable['July26'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td>All Day </td><td>Holiday Abroad</td></tr></table>';
+            hashtable['August3'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td>9:00am-18:00pm </td><td>Hack Day 1</td></tr></table>';
+            hashtable['August4'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td>9:00am-18:00pm </td><td>Hack Day 2</td></tr><tr><td>18:00-Late</td><td>MD Dinner</td></tr></table>';
+
+            hashtable['August5'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td>9:00am-18:00pm </td><td>Hack Day 3</td></tr></table>';
+
+
+
+
+            var crush = ""+month+day;
+
+            var result = hashtable[crush];
+
+            $('.view-month').prepend("<div class='view-day'><div class='title active transition'><div onclick='gobackDay();' class='go-back-day transition'><span></span></div>" + "<span class='day-name'>" + day + "</span> " + "<span class='month-name small'>" + month + "</span>" + " <span class='date-year'>2015</span></div><div class='grid'><p class='centred'>" 
+                + result +"</p></div></div>");
+
+            
+            $('.view-day').delay(200).fadeIn();
+            setTimeout(function(){
+                $('.view-day').children('.title').removeClass('active');
+            }, 200);
+            
+        });
+        
+        function gobackDay(){
+            $('.go-back-day').parent().parent('.view-day').fadeOut();
+            setTimeout(function(){
+                $('.view-day').children('.title').addClass('active');
+            }, 500);
+            setTimeout(function(){
+                $('.view-month').children('.ink').removeClass('animate');
+                $('.view-day').remove();
+            }, 500);
+            setTimeout(function(){
+                $('.view-month').children('.ink').remove();
+            }, 1000);
+        }
+                
+        $('.go-back-month').click(function(e){
+            $(this).parent().parent('.view-month').fadeOut();
+            setTimeout(function(){
+                $('.view-month').children('.title').addClass('active');
+            }, 500);
+            setTimeout(function(){
+                $('.view-year').children('.ink').removeClass('animate');
+            }, 500);
+            setTimeout(function(){
+                $('.view-year').children('.ink').remove();
+            }, 1000);
+        });     
+                
+    </script>
+
+
+</body>
+</html>
