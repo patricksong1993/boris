@@ -5,9 +5,9 @@
     'use strict';
     angular
         .module('MyApp')
-        .controller('SearchCtrl', DemoCtrl);
+        .controller('SearchCtrl', ['$timeout','$q','$log','$http',DemoCtrl]);
 
-    function DemoCtrl ($timeout, $q, $log) {
+    function DemoCtrl ($timeout, $q, $log,$http) {
         var self = this;
 
         self.simulateQuery = false;
@@ -51,20 +51,31 @@
          * Build `states` list of key/value pairs
          */
         function loadAll() {
-            var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
-              Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana,\
-              Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana,\
-              Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina,\
-              North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina,\
-              South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia,\
-              Wisconsin, Wyoming';
-
-            return allStates.split(/, +/g).map( function (state) {
-                return {
-                    value: state.toLowerCase(),
-                    display: state
-                };
-            });
+        	var allTechnologies = []	;
+        	$http.get('/boris/technologies').success(function(response) {
+        		angular.forEach(response, function(value, key) {
+        			var technology = {};
+        			technology.id = value.refId;
+        			technology.title = value.title;
+        			allTechnologies.push(technology);
+        			});
+        		
+        		var result = []	;
+        		angular.forEach(allTechnologies, function(value, key) {
+        			if( value.title != null){
+        			var toAdd =  {
+                            value: value.title.toLowerCase(),
+                            display: value.title
+                        };
+        			result.push(toAdd);
+        			}
+        			});
+        		self.states = result;
+        		
+        		}).error(function(data, status, headers, config) {
+                    alert(status);
+                });
+         
         }
 
         /**

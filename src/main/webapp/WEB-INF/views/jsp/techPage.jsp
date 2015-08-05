@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 <head>
-    <script src="/boris/resources/resources/core/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/boris/resources/resources/core/bower_components/material-design-lite/material.js"></script>
-    <link rel="stylesheet" href="/boris/resources/resources/core/bower_components/angular-material/angular-material.css">
-    <link rel="stylesheet" href="/boris/resources/resources/core/bower_components/material-design-lite/material.css">
+    <script src="/boris/resources/core/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/boris/resources/core/bower_components/material-design-lite/material.js"></script>
+    <link rel="stylesheet" href="/boris/resources/core/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/boris/resources/core/bower_components/material-design-lite/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.blue-deep_purple.min.css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -12,9 +12,9 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <script src="/boris/resources/resources/core/js/searchJ.js"></script>
+    <script src="/boris/resources/core/js/searchJ.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-    <link rel="stylesheet" href="/boris/resources/resources/core/css/boris.css">
+    <link rel="stylesheet" href="/boris/resources/core/css/boris.css">
     <meta charset="UTF-8">
     <title>Bower</title>
 </head>
@@ -23,7 +23,7 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-            <img src="/boris/resources/resources/core/img/logo_white.png" alt="Boris_logo" style="height: 30px;">
+            <img src="/boris/resources/core/img/logo_white.png" alt="Boris_logo" style="height: 30px;">
 
             <div class="mdl-layout-spacer"></div>
 
@@ -67,7 +67,7 @@
 
             <div class="mdl-card mdl-shadow--8dp">
                 <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text mdl-card__title-text-tech"> Cassandra</h2>
+                    <h2 class="mdl-card__title-text mdl-card__title-text-tech"> ${technology.title}</h2>
                 </div>
                 <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="hideTech()">
@@ -79,11 +79,7 @@
                 </div>
                 <div id="tech" style=" display: initial;">
                 <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech">
-                            Apache Cassandra is an open source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. Cassandra offers robust support for clusters spanning multiple datacenters, with asynchronous masterless replication allowing low latency operations for all clients.
-                            Cassandra also places a high value on performance. In 2012, University of Toronto researchers studying NoSQL systems concluded that "In terms of scalability, there is a clear winner throughout our experiments. Cassandra achieves the highest throughput for the maximum number of nodes in all experiments" although "this comes at the price of high write and read latencies."
-                            Cassandra's data model is a partitioned row store with tunable consistency. Rows are organized into tables; the first component of a table's primary key is the partition key; within a partition, rows are clustered by the remaining columns of the key.[4] Other columns may be indexed separately from the primary key.
-                            Tables may be created, dropped, and altered at runtime without blocking updates and queries.Cassandra does not support joins or subqueries. Rather, Cassandra emphasizes denormalization through features like collections.
-                </div>
+                            ${technology.description}                </div>
                 <div class="mdl-card__actions mdl-card--border">
                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  style="float: right;">
                         More...
@@ -106,32 +102,24 @@
                         <i class="material-icons mdl-js-ripple-effect">mode_edit</i>
                     </button>
                 </div>
-                <div id="Teams" style="display: none;">
+                <div id="Teams">
+         
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;background-color: whitesmoke;margin-bottom:8px;">
                     <tbody>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">APG-CTP-Compliance</td>
+                   <c:forEach  items="${technology.teamsUsingTechnology}" var="team">
+                           <tr>
+                        <td class="mdl-data-table__cell--non-numeric">${team.name}</td>
                         <td class="mdl-data-table__cell">
 			      	<span>
 			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">chat</a>
 			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">description</a>
 						<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">info</a>
-
 			      	</span>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">APG-CCP-CDI</td>
-                        <td class="mdl-data-table__cell">
-			      	<span>
-			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">chat</a>
-			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">description</a>
-						<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">info</a>
-
-			      	</span>
-                        </td>
-                    </tr>
-                    </tbody>
+				</c:forEach >
+                
+                   
                 </table>
                 <div class="mdl-card__actions mdl-card--border">
                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="float: right;">
