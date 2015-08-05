@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class PageDownloader {
 
-    public Document fetch(String url) {
+    public static Document fetch(String url) {
         Document doc = null;
 
         try {

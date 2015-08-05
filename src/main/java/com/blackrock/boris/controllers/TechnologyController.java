@@ -37,8 +37,10 @@ public class TechnologyController {
 
     @RequestMapping(value = "/technologies", method = RequestMethod.POST)
     @ResponseBody
-    public void postTechnology(@RequestBody Technology technology) throws BorisInternalException {
+    public Technology postTechnology(@RequestBody Technology technology) throws BorisInternalException {
         technologyService.postTechnology(technology);
+
+        return technology;
     }
 
     public void setTechnologyService(TechnologyService technologyService) {

@@ -33,9 +33,14 @@
 
     <bean id="articleService" class="com.blackrock.boris.services.ArticleService">
         <property name="articlesDao" ref="articlesDao" />
+        <property name="notificationDao" ref="notificationDao" />
     </bean>
 
     <bean id="articlesDao" class="com.blackrock.boris.dao.ArticlesDao">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="notificationDao" class="com.blackrock.boris.dao.NotificationDao">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
