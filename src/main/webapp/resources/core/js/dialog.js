@@ -1,3 +1,5 @@
+
+
 angular.module('MyApp')
 
     .controller('accountSetControl', function($scope, $mdDialog) {
@@ -136,7 +138,6 @@ angular.module('MyApp')
 
     .controller('addCalendarControl', function($scope, $mdDialog) {
         $scope.alert = '';
-
         //$scope.showAlert = function(ev) {
         //    // Appending dialog to document.body to cover sidenav in docs app
         //    // Modal dialogs should fully cover application
@@ -183,7 +184,7 @@ angular.module('MyApp')
                     $scope.alert = 'You cancelled the dialog.';
                 });
         };
-        $scope.templateUrl = "loadCalendar.js";
+
 
     });
 
@@ -200,6 +201,6 @@ function DialogController($scope, $mdDialog) {
         $mdDialog.hide(answer);
     };
 
-    $scope.templateUrl = "loadCalendar.js";
 }
+
 
