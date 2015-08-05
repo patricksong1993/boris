@@ -101,7 +101,7 @@
                 </div>
                 <div id="Teams">
          
-                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;background-color: whitesmoke;margin-bottom:8px;">
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;margin-bottom:8px;">
                     <tbody>
                    <c:forEach  items="${technology.teamsUsingTechnology}" var="team">
                            <tr>
@@ -142,7 +142,7 @@
                 </div>
                 <div id="Events">
                 
-                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;background-color: whitesmoke;margin-bottom:8px;">
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;<!-- background-color: whitesmoke; -->margin-bottom:8px;">
                     <tbody>
                    <c:forEach  items="${technology.eventsForTechnology}" var="event">
                     

@@ -1,0 +1,156 @@
+.mdl-layout__content {
+    background-color: #202020;
+}
+
+.mdl-card {
+    min-height: 45px;
+    width: 100%;
+    margin-top: 14px;
+    background-color: #323232;
+}
+
+.mdl-card__supporting-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+.mdl-card__title {
+    color: white;
+}
+
+.material-icons-header{
+    font-size: 38px;
+
+}
+
+.mdl-layout__header-row .mdl-navigation__link{
+    padding: 0 3px;
+}
+
+.mdl-data-table {
+    background-color: #404040;
+    
+    color: rgb(37, 142, 224);
+}
+
+.mdl-data-table td{
+    font-size: 15px;
+    height: 24px;
+    padding: 4px 4px 0;
+    vertical-align: inherit;
+
+}
+
+.mdl-data-table tbody tr{
+    height: 24px;
+}
+
+.material-icons{
+    color:rgb(78, 192, 72);
+}
+
+.mainContainer {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@media (min-width:600px) {
+    .cardContainer {
+        margin-top: 10px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        width: 100%;
+        /*overflow: scroll;*/
+    }
+
+    .cardColumnContainer {
+        width: 32%;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom: 20px;
+    }
+
+    .cardColumnContainer-tech {
+        width: 48%;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom: 20px;
+    }
+
+    .cardColumnContainer-tech > .mdl-card{
+        background-color: #404040;
+    }
+}
+
+@media (max-width:599px) {
+    .cardContainer {
+        margin-top: 10px;
+        width: 100%;
+        overflow: scroll;
+    }
+
+    .cardColumnContainer {
+        width: 95%;
+        margin:auto;
+    }
+}
+
+.mdl-card__title-text-tech{
+    font-size: 20px;
+    font-weight: 400;
+    margin-right: 7%;
+}
+
+.mdl-card__supporting-text-tech{
+
+    margin: auto;
+    font-size: 14px;
+
+}
+
+
+/*Search Bar*/
+
+.mdl-card-searchBar {
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    height:70px;
+    margin-top: 15px;
+}
+.mdl-textfield-index {
+    padding: 0px 0;
+    width: 98%;
+    margin:auto;
+}
+
+.mdl-textfield__input-index {
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    height: 30px;
+    font-size: 26px;
+    color: #111111;
+    text-align: center;
+}
+
+.mdl-textfield__label-index {
+    height: 40px;
+    top: 20px;
+    font-size: 26px;
+    text-align: center;
+}
+
+
+.md-toolbar-tools {
+    background: grey;
+}
+
+.mdl-menu--notification{
+    width: 400px;
+    padding: 3px;
+    /*overflow: auto;*/
+    height: 400px;
+    background-color: #404040;
+}

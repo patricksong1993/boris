@@ -1,0 +1,76 @@
+2015-08-05 16:49:00 ERROR SchemaUpdate:236 - HHH000388: Unsuccessful: alter table team_technology add constraint FK_26uh5yn9enhw7tofc9xhh83rd foreign key (technology_ref_id) references teams (ref_id)
+2015-08-05 16:49:00 ERROR SchemaUpdate:237 - Cannot add or update a child row: a foreign key constraint fails (`heroku_3e5881aab503961`.`#sql-11b2_b58fc6b`, CONSTRAINT `FK_26uh5yn9enhw7tofc9xhh83rd` FOREIGN KEY (`technology_ref_id`) REFERENCES `teams` (`ref_id`))
+2015-08-05 17:14:55 ERROR SchemaUpdate:236 - HHH000388: Unsuccessful: alter table team_technology add constraint FK_26uh5yn9enhw7tofc9xhh83rd foreign key (technology_ref_id) references teams (ref_id)
+2015-08-05 17:14:55 ERROR SchemaUpdate:237 - Cannot add or update a child row: a foreign key constraint fails (`heroku_3e5881aab503961`.`#sql-11b2_b59ee9b`, CONSTRAINT `FK_26uh5yn9enhw7tofc9xhh83rd` FOREIGN KEY (`technology_ref_id`) REFERENCES `teams` (`ref_id`))
+2015-08-05 18:36:36 ERROR SchemaUpdate:236 - HHH000388: Unsuccessful: alter table team_technology add constraint FK_26uh5yn9enhw7tofc9xhh83rd foreign key (technology_ref_id) references teams (ref_id)
+2015-08-05 18:36:36 ERROR SchemaUpdate:237 - Cannot add or update a child row: a foreign key constraint fails (`heroku_3e5881aab503961`.`#sql-11b2_b5cf4cb`, CONSTRAINT `FK_26uh5yn9enhw7tofc9xhh83rd` FOREIGN KEY (`technology_ref_id`) REFERENCES `teams` (`ref_id`))
+2015-08-05 18:45:40 ERROR SchemaUpdate:236 - HHH000388: Unsuccessful: alter table team_technology add constraint FK_26uh5yn9enhw7tofc9xhh83rd foreign key (technology_ref_id) references teams (ref_id)
+2015-08-05 18:45:40 ERROR SchemaUpdate:237 - Cannot add or update a child row: a foreign key constraint fails (`heroku_3e5881aab503961`.`#sql-11b2_b5d4a5d`, CONSTRAINT `FK_26uh5yn9enhw7tofc9xhh83rd` FOREIGN KEY (`technology_ref_id`) REFERENCES `teams` (`ref_id`))
+2015-08-05 18:51:39 ERROR SchemaUpdate:236 - HHH000388: Unsuccessful: alter table team_technology add constraint FK_26uh5yn9enhw7tofc9xhh83rd foreign key (technology_ref_id) references teams (ref_id)
+2015-08-05 18:51:39 ERROR SchemaUpdate:237 - Cannot add or update a child row: a foreign key constraint fails (`heroku_3e5881aab503961`.`#sql-11b2_b5d82e0`, CONSTRAINT `FK_26uh5yn9enhw7tofc9xhh83rd` FOREIGN KEY (`technology_ref_id`) REFERENCES `teams` (`ref_id`))
+2015-08-05 19:05:27 ERROR SchemaUpdate:236 - HHH000388: Unsuccessful: alter table team_technology add constraint FK_26uh5yn9enhw7tofc9xhh83rd foreign key (technology_ref_id) references teams (ref_id)
+2015-08-05 19:05:27 ERROR SchemaUpdate:237 - Cannot add or update a child row: a foreign key constraint fails (`heroku_3e5881aab503961`.`#sql-11b2_b5dff36`, CONSTRAINT `FK_26uh5yn9enhw7tofc9xhh83rd` FOREIGN KEY (`technology_ref_id`) REFERENCES `teams` (`ref_id`))
+2015-08-05 19:15:52 ERROR SchemaUpdate:236 - HHH000388: Unsuccessful: alter table team_technology add constraint FK_26uh5yn9enhw7tofc9xhh83rd foreign key (technology_ref_id) references teams (ref_id)
+2015-08-05 19:15:52 ERROR SchemaUpdate:237 - Cannot add or update a child row: a foreign key constraint fails (`heroku_3e5881aab503961`.`#sql-11b2_b5e6177`, CONSTRAINT `FK_26uh5yn9enhw7tofc9xhh83rd` FOREIGN KEY (`technology_ref_id`) REFERENCES `teams` (`ref_id`))
+2015-08-05 19:23:25 ERROR SchemaUpdate:236 - HHH000388: Unsuccessful: alter table team_technology add constraint FK_26uh5yn9enhw7tofc9xhh83rd foreign key (technology_ref_id) references teams (ref_id)
+2015-08-05 19:23:25 ERROR SchemaUpdate:237 - Cannot add or update a child row: a foreign key constraint fails (`heroku_3e5881aab503961`.`#sql-11b2_b5eab60`, CONSTRAINT `FK_26uh5yn9enhw7tofc9xhh83rd` FOREIGN KEY (`technology_ref_id`) REFERENCES `teams` (`ref_id`))
+2015-08-05 19:28:46 ERROR SchemaUpdate:236 - HHH000388: Unsuccessful: alter table team_technology add constraint FK_26uh5yn9enhw7tofc9xhh83rd foreign key (technology_ref_id) references teams (ref_id)
+2015-08-05 19:28:46 ERROR SchemaUpdate:237 - Cannot add or update a child row: a foreign key constraint fails (`heroku_3e5881aab503961`.`#sql-11b2_b5edb48`, CONSTRAINT `FK_26uh5yn9enhw7tofc9xhh83rd` FOREIGN KEY (`technology_ref_id`) REFERENCES `teams` (`ref_id`))
+2015-08-05 20:06:28 ERROR SchemaUpdate:236 - HHH000388: Unsuccessful: alter table team_technology add constraint FK_26uh5yn9enhw7tofc9xhh83rd foreign key (technology_ref_id) references teams (ref_id)
+2015-08-05 20:06:28 ERROR SchemaUpdate:237 - Cannot add or update a child row: a foreign key constraint fails (`heroku_3e5881aab503961`.`#sql-11b2_b603ae2`, CONSTRAINT `FK_26uh5yn9enhw7tofc9xhh83rd` FOREIGN KEY (`technology_ref_id`) REFERENCES `teams` (`ref_id`))
+2015-08-05 20:39:11 ERROR SqlExceptionHelper:146 - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2015-08-05 20:56:09 ERROR SqlExceptionHelper:146 - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2015-08-05 20:59:28 ERROR SchemaUpdate:236 - HHH000388: Unsuccessful: alter table team_technology add constraint FK_26uh5yn9enhw7tofc9xhh83rd foreign key (technology_ref_id) references teams (ref_id)
+2015-08-05 20:59:28 ERROR SchemaUpdate:237 - Cannot add or update a child row: a foreign key constraint fails (`heroku_3e5881aab503961`.`#sql-11b2_b622a55`, CONSTRAINT `FK_26uh5yn9enhw7tofc9xhh83rd` FOREIGN KEY (`technology_ref_id`) REFERENCES `teams` (`ref_id`))
+2015-08-05 21:18:29 ERROR SchemaUpdate:236 - HHH000388: Unsuccessful: alter table team_technology add constraint FK_26uh5yn9enhw7tofc9xhh83rd foreign key (technology_ref_id) references teams (ref_id)
+2015-08-05 21:18:29 ERROR SchemaUpdate:237 - Cannot add or update a child row: a foreign key constraint fails (`heroku_3e5881aab503961`.`#sql-11b2_b62db27`, CONSTRAINT `FK_26uh5yn9enhw7tofc9xhh83rd` FOREIGN KEY (`technology_ref_id`) REFERENCES `teams` (`ref_id`))
+2015-08-05 23:03:02 ERROR SqlExceptionHelper:146 - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2015-08-05 23:03:02 ERROR SqlExceptionHelper:146 - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2015-08-05 23:03:02 ERROR TechnologyDao:44 - Couldnít roll back transaction
+java.lang.NullPointerException
+	at com.blackrock.boris.dao.TechnologyDao.getTrendingTechnologies(TechnologyDao.java:42)
+	at com.blackrock.boris.services.TechnologyService.getTrendingTechnologies(TechnologyService.java:18)
+	at com.blackrock.boris.controllers.TechnologyController.getTopTechnologies(TechnologyController.java:36)
+	at sun.reflect.GeneratedMethodAccessor41.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:749)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:689)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:83)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:938)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:870)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:852)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:837)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
