@@ -1,5 +1,16 @@
 body.ng-scope{
-    background-color: rgb(86, 58, 136);
+    background-color: #C1B5B5;
+}
+
+.mdl-card.mdl-shadow--8dp {
+    background-color: rgba(255, 255, 255, 0.90);
+}
+
+
+
+h2.mdl-card__title-text {
+
+    margin-left: 5px;
 }
 
 .mdl-card {
@@ -30,7 +41,7 @@ body.ng-scope{
 }
 
 .material-icons{
-    color:rgb(86, 58, 136);
+    color:rgb(34, 51, 146);
 }
 
 
@@ -79,7 +90,7 @@ body.ng-scope{
 }
 
 .mdl-card__title-text-tech{
-    font-size: 20px;
+    font-size: 34px;
     font-weight: 400;
     margin-right: 7%;
 }
