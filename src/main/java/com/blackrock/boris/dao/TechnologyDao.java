@@ -1,5 +1,6 @@
 package com.blackrock.boris.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -124,15 +125,47 @@ public class TechnologyDao {
             List<Technology> result = criteria.list();
 
             tx.commit();
+
             return result;
-        }catch(RuntimeException e){
+        } catch(RuntimeException e) {
             tx.rollback();
-        }finally{
+        } finally {
             if(session!=null){
                 session.close();
             }
         }
 
-        return null;
+        return new ArrayList<Technology>();
+    }
+
+    public Technology getTechnology(long id) throws BorisInternalException {
+        Session session = null;
+        Transaction tx = null;
+
+        try{
+            session = sessionFactory.openSession();
+            tx = session.beginTransaction();
+            tx.setTimeout(5);
+
+            Criteria criteria = session.createCriteria(Technology.class);
+
+            criteria.add(Restrictions.eq("refId", id));
+
+            Technology result = (Technology) criteria.uniqueResult();
+
+            tx.commit();
+            return result;
+        }catch(RuntimeException e){
+            try{
+                tx.rollback();
+            }catch(RuntimeException rbe){
+                log.error("Couldnít roll back transaction", rbe);
+            }
+            throw new BorisInternalException(e);
+        }finally{
+            if(session!=null){
+                session.close();
+            }
+        }
     }
 }

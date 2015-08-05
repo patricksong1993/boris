@@ -27,8 +27,23 @@ public class TechnologyService {
         return technology;
     }
 
+    public Technology getTechnology(String id) throws BorisInternalException {
+        return technologyDao.getTechnology(Long.parseLong(id));
+    }
+
     public void setTechnologyDao(TechnologyDao technologyDao) {
         this.technologyDao = technologyDao;
     }
 
+    public void postTechnology(String title, String description) throws BorisInternalException {
+        Technology technology = new Technology();
+        technology.setTitle(title);
+        technology.setDescription(description);
+
+        technologyDao.addTechnology(technology);
+    }
+
+    public void postTechnology(Technology technology) throws BorisInternalException {
+        technologyDao.addTechnology(technology);
+    }
 }

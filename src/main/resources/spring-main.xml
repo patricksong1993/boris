@@ -30,4 +30,16 @@
     <bean id="articlesDao" class="com.blackrock.boris.dao.ArticlesDao">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
+
+    <bean id="teamController" class="com.blackrock.boris.controllers.TeamController">
+        <property name="teamService" ref="teamService" />
+    </bean>
+
+    <bean id="teamService" class="com.blackrock.boris.services.TeamService">
+        <property name="teamDao" ref="teamDao" />
+    </bean>
+
+    <bean id="teamDao" class="com.blackrock.boris.dao.TeamDao">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
 </beans>

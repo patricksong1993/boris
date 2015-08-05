@@ -23,7 +23,6 @@ public class TeamDao {
 
             Criteria criteria = session.createCriteria(Team.class);
 
-            @SuppressWarnings("unchecked")
             List<Team> result = criteria.list();
 
             tx.commit();
