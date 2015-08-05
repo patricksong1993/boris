@@ -27,7 +27,27 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
+    <bean id="articleController" class="com.blackrock.boris.controllers.ArticleController">
+        <property name="articleService" ref="articleService" />
+    </bean>
+
+    <bean id="articleService" class="com.blackrock.boris.services.ArticleService">
+        <property name="articlesDao" ref="articlesDao" />
+    </bean>
+
     <bean id="articlesDao" class="com.blackrock.boris.dao.ArticlesDao">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="eventController" class="com.blackrock.boris.controllers.EventController">
+        <property name="eventService" ref="eventService" />
+    </bean>
+
+    <bean id="eventService" class="com.blackrock.boris.services.EventService">
+        <property name="eventDao" ref="eventDao" />
+    </bean>
+
+    <bean id="eventDao" class="com.blackrock.boris.dao.EventDao">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 

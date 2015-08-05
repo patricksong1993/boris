@@ -51,6 +51,7 @@
          * Build `states` list of key/value pairs
          */
         function loadAll() {
+<<<<<<< HEAD
         	var allTechnologies = []	;
         	$http.get('/boris/technologies').success(function(response) {
         		angular.forEach(response, function(value, key) {
@@ -76,6 +77,16 @@
                     alert(status);
                 });
          
+=======
+            var allStates = 'AngularJS, Material Design, Polymer, JAVA 8, ZooKeeper, D3, Guava, JQuery';
+
+            return allStates.split(/, +/g).map( function (state) {
+                return {
+                    value: state.toLowerCase(),
+                    display: state
+                };
+            });
+>>>>>>> a2db1687aa910797e86d1e7466e442231f5c13c7
         }
 
         /**
