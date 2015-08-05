@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 + JQUERY "Material Design" Calendar</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/calendar/style.css"/>
+    <link rel="stylesheet" href="css/calendar/animate.css"/>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1">
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
 <!-- CALENDAR CONTAINER -->
 <div class="calendar-container transition">
     <!-- YEAR -->
@@ -999,6 +1011,10 @@
 
         //hard coded in events to certain dates
         var hashtable = {};
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4e4b6d5157b1c6c8d489bb5daac37b425a2bd733
         hashtable['February3'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td> 12:00 to 12:00 </td><td>More Events</td></tr><tr><td>All Day</td><td>Things to do.</td></tr></table>';;
         hashtable['March1'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td> 12:00 to 12:00 </td><td>More Events</td></tr><tr><td>All Day</td><td>Things to do.</td></tr></table>';;
         hashtable['July20'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td> 12:00 to 12:00 </td><td>More Events</td></tr><tr><td>All Day</td><td>Things to do.</td></tr></table>';;
@@ -1010,12 +1026,29 @@
         hashtable['July26'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td>All Day </td><td>Holiday Abroad</td></tr></table>';
         hashtable['August3'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td>9:00am-18:00pm </td><td>Hack Day 1</td></tr></table>';
         hashtable['August4'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td>9:00am-18:00pm </td><td>Hack Day 2</td></tr><tr><td>18:00-Late</td><td>MD Dinner</td></tr></table>';
+<<<<<<< HEAD
         hashtable['August5'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td>9:00am-18:00pm </td><td>Hack Day 3</td></tr></table>';
         var crush = ""+month+day;
         var result = hashtable[crush];
         $('.view-month').prepend("<div class='view-day'><div class='title active transition'><div onclick='gobackDay();' class='go-back-day transition'><span></span></div>" + "<span class='day-name'>" + day + "</span> " + "<span class='month-name small'>" + month + "</span>" + " <span class='date-year'>2015</span></div><div class='grid'><p class='centred'>"
                 + result +"</p></div></div>");
 
+=======
+
+        hashtable['August5'] = '<table style="width:50%; position:absolute; left:27%; top:38%;" align="center"><tr><td>9:00am-18:00pm </td><td>Hack Day 3</td></tr></table>';
+
+
+
+
+        var crush = ""+month+day;
+
+        var result = hashtable[crush];
+
+        $('.view-month').prepend("<div class='view-day'><div class='title active transition'><div onclick='gobackDay();' class='go-back-day transition'><span></span></div>" + "<span class='day-name'>" + day + "</span> " + "<span class='month-name small'>" + month + "</span>" + " <span class='date-year'>2015</span></div><div class='grid'><p class='centred'>"
+                + result +"</p></div></div>");
+
+
+>>>>>>> 4e4b6d5157b1c6c8d489bb5daac37b425a2bd733
         $('.view-day').delay(200).fadeIn();
         setTimeout(function(){
             $('.view-day').children('.title').removeClass('active');
@@ -1051,3 +1084,7 @@
     });
 
 </script>
+
+
+</body>
+</html>
