@@ -154,7 +154,7 @@ function DialogController($scope, $mdDialog) {
 
 angular.module('MyApp')
 
-    .controller('notificationControl', function($scope, $mdDialog) {
+    .controller('addNewArticleControl', function($scope, $mdDialog) {
         $scope.alert = '';
 
         //$scope.showAlert = function(ev) {
@@ -193,7 +193,7 @@ angular.module('MyApp')
         $scope.showAdvanced = function(ev) {
             $mdDialog.show({
                 controller: DialogController,
-                templateUrl: 'dialog3.tmpl.html',
+                templateUrl: 'dialog4.tmpl.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
             })

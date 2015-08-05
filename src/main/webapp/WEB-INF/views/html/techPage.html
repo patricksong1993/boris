@@ -1413,9 +1413,66 @@
                     <h2 class="mdl-card__title-text" style="font-size: 34px;">Articles </h2>
                 </div>
                 <div class="mdl-card__menu">
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                        <i class="material-icons mdl-js-ripple-effect">mode_edit</i>
-                    </button>
+                    <div ng-controller="addNewArticleControl" class="">
+                        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="showAdvanced($event)">
+                            <i class="material-icons mdl-js-ripple-effect">mode_edit</i>
+                        </button>
+                    </div>
+                    <script type="text/ng-template" id="dialog4.tmpl.html"><md-dialog aria-label="Mango (Fruit)" style="width: 90%">
+                    <form>
+                        <md-toolbar>
+                            <div class="md-toolbar-tools">
+                                <h2>Add New Article</h2>
+                                <span flex></span>
+                                <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                                </md-button>
+                            </div>
+                        </md-toolbar>
+                        <md-dialog-content>
+                            <div>
+                                <div>
+                                    <md-content class="md-padding">
+                                        <md-content class="md-padding">
+                                            <div ng-controller="DemoCtrl" layout="column" class="inputdemoBasicUsage" ng-app="MyApp">
+
+
+
+                                                <md-content layout-padding="">
+                                                    <form name="userForm">
+
+
+
+                                                        <div layout="" layout-sm="column" style="display: flex; flex-flow: column;">
+                                                            <md-input-container flex="">
+                                                                <label>Link</label>
+                                                                <input ng-model="user.firstName" class="add-tech-title">
+                                                            </md-input-container>
+
+                                                        </div>
+
+                                                    </form>
+                                                </md-content>
+
+                                            </div>
+
+
+
+                                        </md-content>
+                                </div>
+                            </div>
+                        </md-dialog-content>
+                        <div class="md-actions" layout="row">
+
+                            <md-button ng-click="answer('useful')" class="md-primary">
+                                Add
+                            </md-button>
+                        </div>
+                    </form>
+                    </md-dialog>
+                    </script>
+
+
                 </div>
                 <div class="cardContainer">
                     <div class="cardColumnContainer-tech">
