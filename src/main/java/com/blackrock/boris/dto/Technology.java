@@ -32,7 +32,7 @@ public class Technology {
 	private String title;
 
 	@Column(name = "description")
-	private byte[] description;
+	private String description;
 	
 	@Transient
 	private String readableDescription;
@@ -68,10 +68,10 @@ public class Technology {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public byte[] getDescription() {
+	public String getDescription() {
 		return description;
 	}
-	public void setDescription(byte[] description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 	public List<Article> getRelatedArticles() {

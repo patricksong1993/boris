@@ -4,9 +4,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.jboss.logging.annotations.ValidIdRange;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.blackrock.boris.dto.Technology;
@@ -24,7 +27,6 @@ public class TechnologyController {
 		ModelAndView modelAndView = new ModelAndView("techPage");
 		Technology technology = technologyService.getTechnology(id);
 		modelAndView.addObject("technology", technology);
-		modelAndView.addObject("technologyDescr", new String(technology.getDescription(), StandardCharsets.UTF_8));
 		return modelAndView;
 	}
 	

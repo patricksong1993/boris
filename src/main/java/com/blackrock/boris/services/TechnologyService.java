@@ -17,10 +17,6 @@ public class TechnologyService {
 			throws BorisInternalException {
 		List<Technology> trendingTech = technologyDao.getTrendingTechnologies();
 
-		for (Technology technology : trendingTech) {
-			technology.setReadableDescription(new String(technology
-					.getDescription(), StandardCharsets.UTF_8));
-		}
 		return trendingTech;
 	}
 
@@ -60,7 +56,7 @@ public class TechnologyService {
 			throws BorisInternalException {
 		Technology technology = new Technology();
 		technology.setTitle(title);
-		technology.setDescription(description.getBytes());
+		technology.setDescription(description);
 
 		technologyDao.addTechnology(technology);
 	}
