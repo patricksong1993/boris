@@ -29,7 +29,7 @@ public class TechnologyDao {
 
             Criteria criteria = session.createCriteria(Technology.class);
 
-            criteria.setMaxResults(10);
+            criteria.setMaxResults(9);
 
             @SuppressWarnings("unchecked")
             List<Technology> result = criteria.list();
