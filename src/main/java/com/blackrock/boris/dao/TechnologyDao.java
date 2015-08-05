@@ -110,4 +110,27 @@ public class TechnologyDao {
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
+
+    public List<Technology> getTechnologies() {
+        Session session = null;
+        Transaction tx = null;
+
+        try{
+            session = sessionFactory.openSession();
+            tx = session.beginTransaction();
+            tx.setTimeout(5);
+
+            Criteria criteria = session.createCriteria(Technology.class);
+            List<Technology> result = criteria.list();
+
+            tx.commit();
+            return result;
+        }catch(RuntimeException e){
+            tx.rollback();
+        }finally{
+            if(session!=null){
+                session.close();
+            }
+        }
+    }
 }
