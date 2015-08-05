@@ -79,7 +79,7 @@
                 </div>
                 <div id="tech" style=" display: initial;">
                 <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech">
-                            ${technologyDescr}                </div>
+                            ${technology.description}               </div>
                 <div class="mdl-card__actions mdl-card--border">
                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  style="float: right;">
                         More...
