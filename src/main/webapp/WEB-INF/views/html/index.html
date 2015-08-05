@@ -40,7 +40,7 @@
                     <form>
                         <md-toolbar>
                             <div class="md-toolbar-tools">
-                                <h2>Add</h2>
+                                <h2>Add New Technology</h2>
                                 <span flex></span>
                                 <md-button class="md-icon-button" ng-click="answer('not applicable')">
                                     <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
@@ -52,54 +52,11 @@
 
                                 <div>
                                     <md-content class="md-padding">
-                                        <md-tabs md-dynamic-height md-border-bottom>
-                                            <md-tab label="add technology">
-                                                <md-content class="md-padding">
-                                                    <div ng-controller="DemoCtrl" layout="column" class="inputdemoBasicUsage" ng-app="MyApp">
+                                        <md-content class="md-padding">
+                                            <div ng-controller="DemoCtrl" layout="column" class="inputdemoBasicUsage" ng-app="MyApp">
 
 
 
-                                                        <md-content layout-padding="">
-                                                            <form name="userForm">
-
-
-
-                                                                <div layout="" layout-sm="column" style="display: flex; flex-flow: column;">
-                                                                    <md-input-container flex="">
-                                                                        <label>Title</label>
-                                                                        <input ng-model="user.firstName">
-                                                                    </md-input-container>
-
-
-                                                                    <md-input-container flex>
-                                                                        <label>Description</label>
-                                                                        <textarea ng-model="user.biography"></textarea>
-                                                                    </md-input-container>
-
-
-                                                                    <div ng-controller="CustomInputDemoCtrl as ctrl"    class="chipsdemoCustomInputs" ng-app="MyApp">
-                                                                        <md-chips ng-model="ctrl.selectedVegetables" md-autocomplete-snap="" md-require-match="">
-                                                                            <md-autocomplete md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" placeholder="Add a category">
-                                                                                <span md-highlight-text="ctrl.searchText">{{item.name}}</span>
-                                                                            </md-autocomplete>
-                                                                            <md-chip-template>
-                                                                                        <span>
-                                                                                          <strong>{{$chip.name}}</strong>
-                                                                                        </span>
-                                                                            </md-chip-template>
-                                                                        </md-chips>
-                                                                    </div>
-                                                                </div>
-
-                                                            </form>
-                                                        </md-content>
-
-                                                    </div>
-
-
-                                                </md-content>
-                                            </md-tab>
-                                            <md-tab label="Add Article">
                                                 <md-content layout-padding="">
                                                     <form name="userForm">
 
@@ -108,13 +65,13 @@
                                                         <div layout="" layout-sm="column" style="display: flex; flex-flow: column;">
                                                             <md-input-container flex="">
                                                                 <label>Title</label>
-                                                                <input ng-model="user.firstName">
+                                                                <input ng-model="user.firstName" class="add-tech-title">
                                                             </md-input-container>
 
 
                                                             <md-input-container flex>
                                                                 <label>Description</label>
-                                                                <textarea ng-model="user.biography"></textarea>
+                                                                <textarea ng-model="user.biography" class="add-tech-desc"></textarea>
                                                             </md-input-container>
 
 
@@ -134,19 +91,13 @@
 
                                                     </form>
                                                 </md-content>
+
                                 </div>
 
 
-                                </md-content>
-                                </md-tab>
-                                <md-tab label="Add Event">
-                                    <md-content class="md-padding">
-                                        <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+
                                     </md-content>
-                                </md-tab>
-                                </md-tabs>
-                                </md-content>
-                            </div>
+                                </div>
                             </div>
                         </md-dialog-content>
                         <div class="md-actions" layout="row">
