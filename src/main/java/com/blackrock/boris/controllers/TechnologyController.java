@@ -3,7 +3,6 @@ package com.blackrock.boris.controllers;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,7 +26,7 @@ public class TechnologyController {
 
     @RequestMapping(value = "/technologies", method = RequestMethod.GET)
     public Technology getTechnologies() throws BorisInternalException {
-        
+        return null;
     }
 
     public void setTechnologyService(TechnologyService technologyService) {

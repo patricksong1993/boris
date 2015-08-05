@@ -132,5 +132,7 @@ public class TechnologyDao {
                 session.close();
             }
         }
+
+        return null;
     }
 }
