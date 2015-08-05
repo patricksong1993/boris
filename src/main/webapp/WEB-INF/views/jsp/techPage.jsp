@@ -6,13 +6,9 @@
     <link rel="stylesheet" href="/boris/resources/core/bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="/boris/resources/core/bower_components/material-design-lite/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.blue-deep_purple.min.css" />
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-purple.min.css" /> 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <script src="/boris/resources/core/js/searchJ.js"></script>
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="/boris/resources/core/css/boris.css">
     <meta charset="UTF-8">
@@ -67,6 +63,7 @@
 
             <div class="mdl-card mdl-shadow--8dp">
                 <div class="mdl-card__title">
+                <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px;">developer_board</span>
                     <h2 class="mdl-card__title-text mdl-card__title-text-tech"> ${technology.title}</h2>
                 </div>
                 <div class="mdl-card__menu">
@@ -79,7 +76,7 @@
                 </div>
                 <div id="tech" style=" display: initial;">
                 <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech">
-                            ${technology.description}               </div>
+                            ${technologyDescr}                </div>
                 <div class="mdl-card__actions mdl-card--border">
                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  style="float: right;">
                         More...
@@ -215,6 +212,13 @@
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-messages.min.js'></script>
 <script src='http://cdn.rawgit.com/angular/bower-material/v0.10.0/angular-material.js'></script>
 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js'></script>
-<script src="../../../resources/core/js/autocompleteSearch.js"></script>
+
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="/boris/resources/core/js/searchJ.js"></script>
+    <script src="/boris/resources/core/js/autocompleteSearch.js"></script>
 </body>
 </html>
