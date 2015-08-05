@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/boris/resources/core/bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="/boris/resources/core/bower_components/material-design-lite/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.blue-deep_purple.min.css" />
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-purple.min.css" /> 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -39,7 +39,7 @@
                         ' <h2 class="mdl-card__title-text" >'+value.title+'</h2>'+
                       '</div>'+
                      ' <div class="mdl-card__supporting-text">'+
-                       value.description+
+                       value.readableDescription+
                      ' </div>'+
                      ' <div class="mdl-card__actions mdl-card--border">'+
                         '  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>'+
