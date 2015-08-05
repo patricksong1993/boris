@@ -1,3 +1,7 @@
+body.ng-scope{
+    background-color: rgb(86, 58, 136);
+}
+
 .mdl-card {
     min-height: 45px;
     width: 100%;
@@ -26,7 +30,7 @@
 }
 
 .material-icons{
-    color:grey;
+    color:rgb(86, 58, 136);
 }
 
 
@@ -44,7 +48,6 @@
         flex-flow: row wrap;
         justify-content: space-between;
         width: 100%;
-        overflow: scroll;
     }
 
     .cardColumnContainer {
