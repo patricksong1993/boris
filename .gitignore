@@ -5,3 +5,4 @@ database.property
 
 *.class
 api/.settings/*
+/target/
