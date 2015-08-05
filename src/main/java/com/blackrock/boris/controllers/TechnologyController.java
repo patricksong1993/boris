@@ -1,5 +1,6 @@
 package com.blackrock.boris.controllers;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -23,7 +24,7 @@ public class TechnologyController {
 		ModelAndView modelAndView = new ModelAndView("techPage");
 		Technology technology = technologyService.getTechnology(id);
 		modelAndView.addObject("technology", technology);
-		
+		modelAndView.addObject("technologyDescr", new String(technology.getDescription(), StandardCharsets.UTF_8));
 		return modelAndView;
 	}
 	

@@ -79,7 +79,7 @@
                 </div>
                 <div id="tech" style=" display: initial;">
                 <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech">
-                            ${technology.description}                </div>
+                            ${technologyDescr}                </div>
                 <div class="mdl-card__actions mdl-card--border">
                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  style="float: right;">
                         More...
@@ -143,11 +143,14 @@
                         <i class="material-icons mdl-js-ripple-effect">insert_invitation</i>
                     </button>
                 </div>
-                <div id="Events" style="display: none;">
+                <div id="Events">
+                
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;background-color: whitesmoke;margin-bottom:8px;">
                     <tbody>
+                   <c:forEach  items="${technology.eventsForTechnology}" var="event">
+                    
                     <tr>
-                        <td class="mdl-data-table__cell--non-numeric">Geek Weekly| Talk on Technology |Draper's Garden FL 01-C02</td>
+                        <td class="mdl-data-table__cell--non-numeric">${event.name}|${event.place}|${event.readableDate}</td>
                         <td class="mdl-data-table__cell">
 			      	<span>
 			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">event</a>
@@ -155,15 +158,7 @@
 			      	</span>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">Sophia Carson</td>
-                        <td class="mdl-data-table__cell">
-			      	<span>
-			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">event</a>
-			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">people</a>
-                        </td>
-                    </tr>
-
+                    </c:forEach >
                     </tbody>
                 </table>
                 <div class="mdl-card__actions mdl-card--border">

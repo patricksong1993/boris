@@ -1,49 +1,72 @@
 package com.blackrock.boris.services;
 
+import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import com.blackrock.boris.dao.TechnologyDao;
+import com.blackrock.boris.dto.Event;
 import com.blackrock.boris.dto.Technology;
 import com.blackrock.boris.exceptions.BorisInternalException;
 
 public class TechnologyService {
 
-    TechnologyDao technologyDao;
+	TechnologyDao technologyDao;
 
-    public List<Technology> getTrendingTechnologies() throws BorisInternalException {
-        List<Technology> trendingTech = technologyDao.getTrendingTechnologies();
-        return trendingTech;
-    }
+	public List<Technology> getTrendingTechnologies()
+			throws BorisInternalException {
+		List<Technology> trendingTech = technologyDao.getTrendingTechnologies();
 
-    public List<Technology> getTechnologies() throws BorisInternalException {
-        List<Technology> technologies = technologyDao.getTechnologies();
+		for (Technology technology : trendingTech) {
+			technology.setReadableDescription(new String(technology
+					.getDescription(), StandardCharsets.UTF_8));
+		}
+		return trendingTech;
+	}
 
-        return technologies;
-    }
+	public List<Technology> getTechnologies() throws BorisInternalException {
+		List<Technology> technologies = technologyDao.getTechnologies();
 
-    public Technology getTechnologyForName(String technologyName) throws BorisInternalException {
-        Technology technology = technologyDao.getTechnologyForName(technologyName);
+		return technologies;
+	}
 
-        return technology;
-    }
+	public Technology getTechnologyForName(String technologyName)
+			throws BorisInternalException {
+		Technology technology = technologyDao
+				.getTechnologyForName(technologyName);
 
-    public Technology getTechnology(String id) throws BorisInternalException {
-        return technologyDao.getTechnology(Long.parseLong(id));
-    }
+		return technology;
+	}
 
-    public void setTechnologyDao(TechnologyDao technologyDao) {
-        this.technologyDao = technologyDao;
-    }
+	public Technology getTechnology(String id) throws BorisInternalException {
+		Technology technology = technologyDao.getTechnology(Long.parseLong(id));
 
-    public void postTechnology(String title, String description) throws BorisInternalException {
-        Technology technology = new Technology();
-        technology.setTitle(title);
-        technology.setDescription(description.getBytes());
+		List<Event> techEvents = technology.getEventsForTechnology();
 
-        technologyDao.addTechnology(technology);
-    }
+		for (Event event : techEvents) {
+			SimpleDateFormat dateFormatter = new SimpleDateFormat(
+					"dd-M-yyyy hh:mm:ss");
+			event.setReadableDate(dateFormatter.format(event.getDate()));
+		}
 
-    public void postTechnology(Technology technology) throws BorisInternalException {
-        technologyDao.addTechnology(technology);
-    }
+		return technology;
+	}
+
+	public void setTechnologyDao(TechnologyDao technologyDao) {
+		this.technologyDao = technologyDao;
+	}
+
+	public void postTechnology(String title, String description)
+			throws BorisInternalException {
+		Technology technology = new Technology();
+		technology.setTitle(title);
+		technology.setDescription(description.getBytes());
+
+		technologyDao.addTechnology(technology);
+	}
+
+	public void postTechnology(Technology technology)
+			throws BorisInternalException {
+		technologyDao.addTechnology(technology);
+	}
 }
