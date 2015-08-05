@@ -18,51 +18,56 @@
 
     <meta charset="UTF-8">
     <title>Boris</title>
+    
    	<script type="text/javascript">
-	$(document).ready(function() {
-		 $.ajax( {
-			 url: 'technologies/trending',
-			 type: 'GET',
-		      success: function(data) {
-		    	  var columnCount = 0;
-		    	  var htmlToAppend = "";
-		    	  $.each(data, function( index, value ) {
-		    		  if(index % 3 == 0){
-		    			  htmlToAppend +=   ' <div class="cardColumnContainer">';
-		    			  columnCount +=1;
-		    		  }
-		    		  htmlToAppend += '<div class="mdl-card mdl-shadow--8dp">'+
-                     '<div class="" style="padding-left: 10px">'+
-                        '<a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>'+
-                     ' </div>'+
-                      '<div class="mdl-card__title" style="padding-top:0px">'+
-                        ' <h2 class="mdl-card__title-text" >'+value.title+'</h2>'+
-                      '</div>'+
-                     ' <div class="mdl-card__supporting-text">'+
-                       value.readableDescription+
-                     ' </div>'+
-                     ' <div class="mdl-card__actions mdl-card--border">'+
-                        '  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>'+
-                      '</div>'+
-                      '<div class="mdl-card__menu">'+
-                         ' <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">'+
-                            ' <i class="material-icons">favorite_border</i>'+
-                          '</button> </div> </div>';
-                          if(index % 3 ==2){
-                     htmlToAppend +="</div>";
-		    	  $("#cardContainer").append(htmlToAppend);
-		    	  htmlToAppend = "";
-                          }
-		    		});
-		      },
-		      error: function() {
-		         alert("didnt work")
-		      }
-		   });
-	});
-	</script>
+	// $(document).ready(function() {
+	// 	 $.ajax( {
+	// 		 url: 'technologies/trending',
+	// 		 type: 'GET',
+	// 	      success: function(data) {
+	// 	    	  var columnCount = 0;
+	// 	    	  var htmlToAppend = "";
+	// 	    	  $.each(data, function( index, value ) {
+	// 	    		  if(index % 3 == 0){
+	// 	    			  htmlToAppend +=   ' <div class="cardColumnContainer">';
+	// 	    			  columnCount +=1;
+	// 	    		  }
+	// 	    		  htmlToAppend += '<div class="mdl-card mdl-shadow--8dp">'+
+ //                     '<div class="" style="padding-left: 10px">'+
+ //                        '<a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>'+
+ //                     ' </div>'+
+ //                      '<div class="mdl-card__title" style="padding-top:0px">'+
+ //                        ' <h2 class="mdl-card__title-text" >'+value.title+'</h2>'+
+ //                      '</div>'+
+ //                     ' <div class="mdl-card__supporting-text">'+
+ //                       value.readableDescription+
+ //                     ' </div>'+
+ //                     ' <div class="mdl-card__actions mdl-card--border">'+
+ //                        '  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>'+
+ //                      '</div>'+
+ //                      '<div class="mdl-card__menu">'+
+ //                         ' <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">'+
+ //                            ' <i class="material-icons">favorite_border</i>'+
+ //                          '</button> </div> </div>';
+ //                          if(index % 3 ==2){
+ //                     htmlToAppend +="</div>";
+	// 	    	  $("#cardContainer").append(htmlToAppend);
+	// 	    	  htmlToAppend = "";
+ //                          }
+	// 	    		});
+	// 	      },
+	// 	      error: function() {
+	// 	         alert("didnt work")
+	// 	      }
+	// 	   });
+	// });
+	// </script>
 </head>
 <body ng-app="MyApp">
+
+<script>
+   
+        </script>
 
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
@@ -75,7 +80,7 @@
                 <div class="mdl-tooltip" for="add">
                     Add Article/Event
                 </div>
-                <a id="subscriptionFeed" class="mdl-navigation__link material-icons material-icons-header" href="">assignment</a>
+                <button id="subscriptionFeed" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="myFilter = {subscribed:true}">assignment</button>
                 <div class="mdl-tooltip" for="subscriptionFeed">
                     Subscription Feed
                 </div>
@@ -253,9 +258,92 @@
 
             <!--</div>-->
 
-            <div class="cardContainer" id="cardContainer">
-
+            <div class="cardContainer" id="cardContainer" ng-controller="AJAXCtrl">
+            
+            
+                <div class="cardColumnContainer">
+                    <div class="mdl-card mdl-shadow--8dp" ng-repeat="value in myData | filter:myFilter" ng-if="$index< 3">
+                      <div class="" style="padding-left: 10px">
+                         <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
+                      </div>
+                                       
+                        <div class="mdl-card__title" style="padding-top:0px">
+                             <h2 class="mdl-card__title-text" >{{value.title}}</h2>
+                        </div>
+                                          
+                      <div class="mdl-card__supporting-text">
+                           {{value.description}}
+                      </div>
+                                          
+                      <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>
+                      </div>
+                                          
+                      <div class="mdl-card__menu">
+                        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub($index)">
+                            <i class="material-icons" ng-if="value.subscribed == true">favorite</i>
+                            <i class="material-icons" ng-if="value.subscribed == false">favorite_border</i>
+                        </button> 
+                      </div> 
+                      
+                    </div>
                 </div>
+
+                <div class="cardColumnContainer">
+                    <div class="mdl-card mdl-shadow--8dp" ng-repeat="value in myData | filter:myFilter" ng-if="$index > 2 && $index < 6">
+                      <div class="" style="padding-left: 10px">
+                         <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
+                      </div>
+                                       
+                        <div class="mdl-card__title" style="padding-top:0px">
+                             <h2 class="mdl-card__title-text" >{{value.title}}</h2>
+                        </div>
+                                          
+                      <div class="mdl-card__supporting-text">
+                           {{value.description}}
+                      </div>
+                                          
+                      <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>
+                      </div>
+                                          
+                      <div class="mdl-card__menu">
+                        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub($index)">
+                            <i class="material-icons" ng-if="value.subscribed == true">favorite</i>
+                            <i class="material-icons" ng-if="value.subscribed == false">favorite_border</i>
+                        </button> 
+                      </div> 
+                    </div>
+                </div>
+
+                <div class="cardColumnContainer">
+                    <div class="mdl-card mdl-shadow--8dp" ng-repeat="value in myData | filter:myFilter" ng-if="$index > 5 ">
+                      <div class="" style="padding-left: 10px">
+                         <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
+                      </div>
+                                       
+                        <div class="mdl-card__title" style="padding-top:0px">
+                             <h2 class="mdl-card__title-text" >{{value.title}}</h2>
+                        </div>
+                                          
+                      <div class="mdl-card__supporting-text">
+                           {{value.description}}
+                      </div>
+                                          
+                      <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>
+                      </div>
+                                          
+                      <div class="mdl-card__menu">
+                        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub($index)">
+                            <i class="material-icons" ng-if="value.subscribed == true">favorite</i>
+                            <i class="material-icons" ng-if="value.subscribed == false">favorite_border</i>
+                        </button> 
+                      </div> 
+                    </div>
+                </div>
+
+            </div>
         </div>
     </main>
 
@@ -272,6 +360,7 @@
 <script src="/boris/resources/core/js/add.js"></script>
 <script src="/boris/resources/core/js/tag.js"></script>
 <script src="/boris/resources/core/js/autocompleteSearch.js"></script>
+<script src="/boris/resources/core/js/test.js"></script>
 
 
 </body>
