@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-purple.min.css" /> 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -243,7 +245,7 @@
                     <!--<label class="mdl-textfield__label mdl-textfield__label-index" for="sample1"></label>-->
                 <!--</div>-->
 
-            <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="margin-top: 15px">
+            <!-- <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="margin-top: 15px">
                         <form ng-submit="$event.preventDefault()">
                             <md-autocomplete  ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
                                 <md-item-template>
@@ -258,7 +260,7 @@
 
             <!--</div>-->
 
-            <div class="cardContainer" id="cardContainer" ng-controller="AJAXCtrl">
+            <!-- <div class="cardContainer" id="cardContainer" ng-controller="AJAXCtrl">
             
             
                 <div class="cardColumnContainer">
@@ -344,8 +346,63 @@
                 </div>
 
             </div>
+        </div> --> 
+
+            <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="margin-top: 15px">
+                        <form ng-submit="$event.preventDefault()">
+                            <md-autocomplete  ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
+                                <md-item-template>
+                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    No matches found for "{{ctrl.searchText}}".
+                                </md-not-found>
+                            </md-autocomplete>
+                        </form>
+                </div>
+
+            <!--</div>-->
+            
+            <div class="cardContainer" id="cardContainer" ng-controller="AJAXCtrl">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col" ng-repeat="value in myData | filter:myFilter">
+                        <div class="mdl-card mdl-shadow--8dp" >
+                          <div class="" style="padding-left: 10px">
+                             <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
+                          </div>
+                                           
+                            <div class="mdl-card__title" style="padding-top:0px">
+                                 <h2 class="mdl-card__title-text" >{{value.title}}</h2>
+                            </div>
+                                              
+                          <div class="mdl-card__supporting-text">
+                               {{value.description}}
+                          </div>
+                                              
+                          <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>
+                          </div>
+                                              
+                          <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub($index)">
+                                <i class="material-icons" ng-if="value.subscribed == true">favorite</i>
+                                <i class="material-icons" ng-if="value.subscribed == false">favorite_border</i>
+                            </button> 
+                          </div> 
+                          
+                        </div>
+                    </div> 
+                          
+                </div>
+
+
+            </div>
         </div>
-    </main>
+
+
+
+
+</main>
 
 </div>
 
