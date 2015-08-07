@@ -21,51 +21,9 @@
     <meta charset="UTF-8">
     <title>Boris</title>
     
-   	<script type="text/javascript">
-	// $(document).ready(function() {
-	// 	 $.ajax( {
-	// 		 url: 'technologies/trending',
-	// 		 type: 'GET',
-	// 	      success: function(data) {
-	// 	    	  var columnCount = 0;
-	// 	    	  var htmlToAppend = "";
-	// 	    	  $.each(data, function( index, value ) {
-	// 	    		  if(index % 3 == 0){
-	// 	    			  htmlToAppend +=   ' <div class="cardColumnContainer">';
-	// 	    			  columnCount +=1;
-	// 	    		  }
-	// 	    		  htmlToAppend += '<div class="mdl-card mdl-shadow--8dp">'+
- //                     '<div class="" style="padding-left: 10px">'+
- //                        '<a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>'+
- //                     ' </div>'+
- //                      '<div class="mdl-card__title" style="padding-top:0px">'+
- //                        ' <h2 class="mdl-card__title-text" >'+value.title+'</h2>'+
- //                      '</div>'+
- //                     ' <div class="mdl-card__supporting-text">'+
- //                       value.readableDescription+
- //                     ' </div>'+
- //                     ' <div class="mdl-card__actions mdl-card--border">'+
- //                        '  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>'+
- //                      '</div>'+
- //                      '<div class="mdl-card__menu">'+
- //                         ' <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">'+
- //                            ' <i class="material-icons">favorite_border</i>'+
- //                          '</button> </div> </div>';
- //                          if(index % 3 ==2){
- //                     htmlToAppend +="</div>";
-	// 	    	  $("#cardContainer").append(htmlToAppend);
-	// 	    	  htmlToAppend = "";
- //                          }
-	// 	    		});
-	// 	      },
-	// 	      error: function() {
-	// 	         alert("didnt work")
-	// 	      }
-	// 	   });
-	// });
-	// </script>
+   	
 </head>
-<body ng-app="MyApp">
+<body ng-app="MyApp" ng-controller="AJAXCtrl">
 
 <script>
    
@@ -81,8 +39,9 @@
 
                 <div class="mdl-tooltip" for="add">
                     Add Article/Event
-                </div>
-                <button id="subscriptionFeed" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="myFilter = {subscribed:true}">assignment</button>
+                </div><!-- 
+                <div ng-controller="AJAXCtrl"> -->
+                <button id="subscriptionFeed" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="filterTrending()">A</button><!-- </div> -->
                 <div class="mdl-tooltip" for="subscriptionFeed">
                     Subscription Feed
                 </div>
@@ -239,115 +198,6 @@
     <main class="mdl-layout__content">
         <div class="mainContainer">
 
-            <!--<div class="mdl-card mdl-card&#45;&#45;border mdl-shadow&#45;&#45;8dp mdl-card-searchBar">-->
-                <!--<div id="searchBar" class="mdl-textfield mdl-js-textfield mdl-textfield-index" onclick="searchPop()" >-->
-                    <!--<input id="tags" class="mdl-textfield__input mdl-textfield__input-index" type="text" id="sample1"/>-->
-                    <!--<label class="mdl-textfield__label mdl-textfield__label-index" for="sample1"></label>-->
-                <!--</div>-->
-
-            <!-- <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="margin-top: 15px">
-                        <form ng-submit="$event.preventDefault()">
-                            <md-autocomplete  ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
-                                <md-item-template>
-                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
-                                </md-item-template>
-                                <md-not-found>
-                                    No matches found for "{{ctrl.searchText}}".
-                                </md-not-found>
-                            </md-autocomplete>
-                        </form>
-                </div>
-
-            <!--</div>-->
-
-            <!-- <div class="cardContainer" id="cardContainer" ng-controller="AJAXCtrl">
-            
-            
-                <div class="cardColumnContainer">
-                    <div class="mdl-card mdl-shadow--8dp" ng-repeat="value in myData | filter:myFilter" ng-if="$index< 3">
-                      <div class="" style="padding-left: 10px">
-                         <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
-                      </div>
-                                       
-                        <div class="mdl-card__title" style="padding-top:0px">
-                             <h2 class="mdl-card__title-text" >{{value.title}}</h2>
-                        </div>
-                                          
-                      <div class="mdl-card__supporting-text">
-                           {{value.description}}
-                      </div>
-                                          
-                      <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>
-                      </div>
-                                          
-                      <div class="mdl-card__menu">
-                        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub($index)">
-                            <i class="material-icons" ng-if="value.subscribed == true">favorite</i>
-                            <i class="material-icons" ng-if="value.subscribed == false">favorite_border</i>
-                        </button> 
-                      </div> 
-                      
-                    </div>
-                </div>
-
-                <div class="cardColumnContainer">
-                    <div class="mdl-card mdl-shadow--8dp" ng-repeat="value in myData | filter:myFilter" ng-if="$index > 2 && $index < 6">
-                      <div class="" style="padding-left: 10px">
-                         <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
-                      </div>
-                                       
-                        <div class="mdl-card__title" style="padding-top:0px">
-                             <h2 class="mdl-card__title-text" >{{value.title}}</h2>
-                        </div>
-                                          
-                      <div class="mdl-card__supporting-text">
-                           {{value.description}}
-                      </div>
-                                          
-                      <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>
-                      </div>
-                                          
-                      <div class="mdl-card__menu">
-                        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub($index)">
-                            <i class="material-icons" ng-if="value.subscribed == true">favorite</i>
-                            <i class="material-icons" ng-if="value.subscribed == false">favorite_border</i>
-                        </button> 
-                      </div> 
-                    </div>
-                </div>
-
-                <div class="cardColumnContainer">
-                    <div class="mdl-card mdl-shadow--8dp" ng-repeat="value in myData | filter:myFilter" ng-if="$index > 5 ">
-                      <div class="" style="padding-left: 10px">
-                         <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
-                      </div>
-                                       
-                        <div class="mdl-card__title" style="padding-top:0px">
-                             <h2 class="mdl-card__title-text" >{{value.title}}</h2>
-                        </div>
-                                          
-                      <div class="mdl-card__supporting-text">
-                           {{value.description}}
-                      </div>
-                                          
-                      <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>
-                      </div>
-                                          
-                      <div class="mdl-card__menu">
-                        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub($index)">
-                            <i class="material-icons" ng-if="value.subscribed == true">favorite</i>
-                            <i class="material-icons" ng-if="value.subscribed == false">favorite_border</i>
-                        </button> 
-                      </div> 
-                    </div>
-                </div>
-
-            </div>
-        </div> --> 
-
             <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="margin-top: 15px">
                         <form ng-submit="$event.preventDefault()">
                             <md-autocomplete  ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
@@ -363,15 +213,12 @@
 
             <!--</div>-->
             
-            <div class="cardContainer" id="cardContainer" ng-controller="AJAXCtrl">
+            <div class="cardContainer" id="cardContainer" >
                 <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--4-col" ng-repeat="value in myData | filter:myFilter">
+                    <div class="mdl-cell mdl-cell--4-col" ng-repeat="value in myData | filter:{subscribed:subFilter}">
                         <div class="mdl-card mdl-shadow--8dp" >
-                          <div class="" style="padding-left: 10px">
-                             <a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>
-                          </div>
-                                           
-                            <div class="mdl-card__title" style="padding-top:0px">
+                                                                    
+                            <div class="mdl-card__title" style="padding-top: 16px; border-bottom-width: 15px; border-color: black">
                                  <h2 class="mdl-card__title-text" >{{value.title}}</h2>
                             </div>
                                               
@@ -385,8 +232,8 @@
                                               
                           <div class="mdl-card__menu">
                             <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub($index)">
-                                <i class="material-icons" ng-if="value.subscribed == true">favorite</i>
-                                <i class="material-icons" ng-if="value.subscribed == false">favorite_border</i>
+                                <i class="material-icons" ng-if="value.subscribed == 'true'">favorite</i>
+                                <i class="material-icons" ng-if="value.subscribed == 'false'">favorite_border</i>
                             </button> 
                           </div> 
                           
