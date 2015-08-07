@@ -1,0 +1,8 @@
+com/blackrock/boris/dto/User.class
+com/blackrock/boris/dto/Division.class
+com/blackrock/boris/dto/Event.class
+com/blackrock/boris/dto/Technology.class
+com/blackrock/boris/dto/Article.class
+com/blackrock/boris/utilities/technologies/TechnologyImporter.class
+com/blackrock/boris/dto/Team.class
+com/blackrock/boris/dao/ArticlesDao.class
