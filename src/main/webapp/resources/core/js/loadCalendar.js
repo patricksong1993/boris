@@ -1,8 +1,6 @@
 /**
  * Created by anantatray on 04/08/15.
  */
-<!-- SCRIPT -->
-
 
 $('.month-item').click(function(e){
     var month = '#' + $(this).attr('id') + '-month';
