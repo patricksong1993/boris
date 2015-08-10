@@ -5,6 +5,8 @@ import javax.persistence.*;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "articles")
 public class Article {
@@ -58,7 +60,8 @@ public class Article {
     public void setTechnologyRelatedTo(Technology technologyRelatedTo) {
         this.technologyRelatedTo = technologyRelatedTo;
     }
-
+    
+    @JsonIgnore
     public Technology getTechnologyRelatedTo() {
         return technologyRelatedTo;
     }

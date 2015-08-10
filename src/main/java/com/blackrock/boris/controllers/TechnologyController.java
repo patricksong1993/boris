@@ -1,9 +1,7 @@
 package com.blackrock.boris.controllers;
 
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +17,6 @@ import com.blackrock.boris.services.TechnologyService;
 @Controller
 public class TechnologyController {
 
-    private static final Logger logger = Logger.getLogger(TechnologyController.class);
     private TechnologyService technologyService;
     
 	@RequestMapping(value = "/technology/{id}", method = RequestMethod.GET)

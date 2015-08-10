@@ -184,13 +184,13 @@
                     <div class="cardColumnContainer">
                          <div class="mdl-card mdl-shadow--8dp">
                             <div class="mdl-card__title">
-                                <h2 class="mdl-card__title-text">article.title</h2>
+                                <h2 class="mdl-card__title-text">${article.title}</h2>
                             </div>
                             <div class="mdl-card__supporting-text">
-                            article.summary
+                            ${article.summary}
                             </div>
                             <div class="mdl-card__actions mdl-card--border">
-                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="${article.link}">
                                     More Info...
                                 </a>
                             </div>

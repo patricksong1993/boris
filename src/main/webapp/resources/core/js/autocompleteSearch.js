@@ -3,11 +3,25 @@
  */
 (function () {
     'use strict';
-    angular
-        .module('MyApp')
-        .controller('SearchCtrl', ['$timeout','$q','$log','$http',DemoCtrl]);
+    var app = angular
+        .module('MyApp');
+    
+    app.directive('ngEnter', function () {
+        return function (scope, element, attrs) {
+            element.bind("keydown keypress", function (event) {
+                if(event.which === 13) {
+                    scope.$apply(function (){
+                        scope.$eval(attrs.ngEnter);
+                    });
 
-    function DemoCtrl ($timeout, $q, $log,$http) {
+                    event.preventDefault();
+                }
+            });
+        };
+    });
+        app.controller('SearchCtrl', ['$timeout','$q','$log','$http','$scope','$window',DemoCtrl]);
+
+    function DemoCtrl ($timeout, $q, $log,$http,$scope,$window) {
         var self = this;
 
         self.simulateQuery = false;
@@ -18,7 +32,18 @@
         self.querySearch   = querySearch;
         self.selectedItemChange = selectedItemChange;
         self.searchTextChange   = searchTextChange;
-
+        self.inputValue = "";
+        $scope.myFunct = function(keyEvent) {
+        	  if (keyEvent.which === 13){
+        		  var id ;
+              		angular.forEach(self.states , function(technology , key) {
+              			if(technology.value == self.inputValue){
+              				id = technology.id;
+              			}
+              		});
+              		$window.location.href = '/boris/technology/'+  id ;
+        	  }
+        	}
         // ******************************
         // Internal methods
         // ******************************
@@ -40,11 +65,11 @@
         }
 
         function searchTextChange(text) {
-            $log.info('Text changed to ' + text);
+        	 self.inputValue = text;
         }
 
         function selectedItemChange(item) {
-            $log.info('Item changed to ' + JSON.stringify(item));
+        	self.inputValue = item.value;
         }
 
         /**
@@ -65,7 +90,8 @@
         			if( value.title != null){
         			var toAdd =  {
                             value: value.title.toLowerCase(),
-                            display: value.title
+                            display: value.title,
+                            id: value.id
                         };
         			result.push(toAdd);
         			}
@@ -88,6 +114,13 @@
                 return (state.value.indexOf(lowercaseQuery) === 0);
             };
 
+        }
+        
+        function gogo(keyEvent) {
+        	 alert("GJ");
+        	}
+        function goToTechPage(){
+        	alert("success");
         }
     }
 })();

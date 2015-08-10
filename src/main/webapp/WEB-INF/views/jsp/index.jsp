@@ -42,7 +42,7 @@
                        value.description+
                      ' </div>'+
                      ' <div class="mdl-card__actions mdl-card--border">'+
-                        '  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>'+
+                        '  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="technology/'+value.refId+'">  See More ...</a>'+
                       '</div>'+
                       '<div class="mdl-card__menu">'+
                          ' <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">'+
@@ -240,9 +240,9 @@
 
             <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="margin-top: 15px">
                         <form ng-submit="$event.preventDefault()">
-                            <md-autocomplete  ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
+                            <md-autocomplete ng-keypress="myFunct($event)" ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
                                 <md-item-template>
-                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i" ui-keypress="ctrl.gogo($event)">{{item.display}}</span>
                                 </md-item-template>
                                 <md-not-found>
                                     No matches found for "{{ctrl.searchText}}".

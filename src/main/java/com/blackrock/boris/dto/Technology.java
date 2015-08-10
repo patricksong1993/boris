@@ -1,6 +1,7 @@
 package com.blackrock.boris.dto;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,6 +19,8 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table( name = "technology")
@@ -44,13 +47,12 @@ public class Technology {
 	@OneToMany( mappedBy = "technologyOrganizedFor")
 	private List<Event> eventsForTechnology;
 	
-	@LazyCollection(LazyCollectionOption.FALSE)
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
 	@JoinTable(name = "team_technology", joinColumns = { 
-			@JoinColumn(name = "team_ref_id", nullable = false, updatable = false) },
-			inverseJoinColumns = { @JoinColumn(name = "technology_ref_id",
+			@JoinColumn(name = "technology_ref_id", nullable = false, updatable = false) },
+			inverseJoinColumns = { @JoinColumn(name = "team_ref_id",
 					nullable = false, updatable = false) })
-	private List<Team> teamsUsingTechnology;
+	private Set<Team> teamsUsingTechnology;
 	
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(mappedBy = "technologiesSubscribedTo")
@@ -74,6 +76,7 @@ public class Technology {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	@JsonIgnore
 	public List<Article> getRelatedArticles() {
 		return relatedArticles;
 	}
@@ -86,10 +89,11 @@ public class Technology {
 	public void setEventsForTechnology(List<Event> eventsForTechnology) {
 		this.eventsForTechnology = eventsForTechnology;
 	}
-	public List<Team> getTeamsUsingTechnology() {
+	@JsonIgnore
+	public Set<Team> getTeamsUsingTechnology() {
 		return teamsUsingTechnology;
 	}
-	public void setTeamsUsingTechnology(List<Team> teamsUsingTechnology) {
+	public void setTeamsUsingTechnology(Set<Team> teamsUsingTechnology) {
 		this.teamsUsingTechnology = teamsUsingTechnology;
 	}
 	public String getReadableDescription() {

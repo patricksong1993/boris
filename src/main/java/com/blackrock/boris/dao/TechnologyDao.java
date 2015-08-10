@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import com.blackrock.boris.dto.Technology;
@@ -29,14 +30,18 @@ public class TechnologyDao {
             tx.setTimeout(5);
 
             Criteria criteria = session.createCriteria(Technology.class);
-
-            criteria.setMaxResults(9);
+            criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 
             @SuppressWarnings("unchecked")
             List<Technology> result = criteria.list();
 
             tx.commit();
-            return result;
+            
+            List<Technology> toReturn = new ArrayList<Technology>();
+            for (int i = 0; i < 10; i++) {
+				toReturn.add(result.get(i));
+			}
+            return toReturn;
         }catch(RuntimeException e){
             try{
                 tx.rollback();
@@ -60,7 +65,7 @@ public class TechnologyDao {
             tx = session.beginTransaction();
             tx.setTimeout(5);
 
-            session.save(technology);
+            session.saveOrUpdate(technology);
 
             tx.commit();
         }catch(RuntimeException e){
@@ -122,6 +127,7 @@ public class TechnologyDao {
             tx.setTimeout(5);
 
             Criteria criteria = session.createCriteria(Technology.class);
+            criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
             List<Technology> result = criteria.list();
 
             tx.commit();

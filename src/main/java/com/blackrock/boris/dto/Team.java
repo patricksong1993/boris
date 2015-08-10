@@ -1,6 +1,7 @@
 package com.blackrock.boris.dto;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,6 +19,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "teams")
 public class Team {
@@ -33,9 +36,8 @@ public class Team {
 	@OneToMany(mappedBy = "team")
 	private List<User> teamMembers;
 	
-	@LazyCollection(LazyCollectionOption.FALSE)
-	@ManyToMany( mappedBy = "teamsUsingTechnology")
-	private List<Technology> technologiesUsed;
+	@ManyToMany( fetch = FetchType.EAGER,mappedBy = "teamsUsingTechnology")
+	private Set<Technology> technologiesUsed;
 	
 	@ManyToOne(cascade=CascadeType.ALL) 
 	@JoinColumn(name="division_ref_id", nullable=false)
@@ -59,10 +61,11 @@ public class Team {
 	public void setTeamMembers(List<User> teamMembers) {
 		this.teamMembers = teamMembers;
 	}
-	public List<Technology> getTechnologiesUsed() {
+	@JsonIgnore
+	public Set<Technology> getTechnologiesUsed() {
 		return technologiesUsed;
 	}
-	public void setTechnologiesUsed(List<Technology> technologiesUsed) {
+	public void setTechnologiesUsed(Set<Technology> technologiesUsed) {
 		this.technologiesUsed = technologiesUsed;
 	}
 	public Division getDivisionTeamWorksIn() {
