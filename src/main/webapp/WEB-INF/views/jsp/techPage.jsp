@@ -177,28 +177,37 @@
                     </button>
                 </div>
                 <div class="cardContainer">
+                    <div class="mdl-grid">
+
                       <c:forEach  items="${technology.relatedArticles}" var="article">
-                    <div class="cardColumnContainer">
-                         <div class="mdl-card mdl-shadow--8dp">
-                            <div class="mdl-card__title">
-                                <h2 class="mdl-card__title-text">${article.title}</h2>
-                            </div>
-                            <div class="mdl-card__supporting-text">
-                            ${article.summary}
-                            </div>
-                            <div class="mdl-card__actions mdl-card--border">
-                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="${article.link}">
-                                    More Info...
-                                </a>
-                            </div>
-                            <div class="mdl-card__menu">
-                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                                    <i class="material-icons mdl-js-ripple-effect">favorite_border</i>
-                                </button>
+                        <div class="mdl-cell mdl-cell--4-col">
+                             <div class="mdl-card mdl-shadow--8dp">
+                                <div class="mdl-card__title">
+                                    
+                                    <div style="width:90%">
+                                        <h2 class="mdl-card__title-text ">${article.title}</h2>
+                                    </div>
+                                    <div style="width:10%" ng-controller="subCtrl">
+                                        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub = !sub">
+                                            <i class="material-icons mdl-js-ripple-effect" ng-show="!sub">favorite_border</i>
+                                            <i class="material-icons mdl-js-ripple-effect" ng-show="sub">favorite</i>
+                                        </button>
+                                    </div>
+                                    
+                                </div> 
+
+                                <div class="mdl-card__supporting-text">
+                                ${article.summary}
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="${article.link}">
+                                        More Info...
+                                    </a>
+                                </div>
                             </div>
                         </div>
-					</div>
-                      </c:forEach>
+					   </c:forEach>
+                   </div>
 			</div>
         </div>
 	</div>
@@ -219,6 +228,8 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script src="/boris/resources/core/js/searchJ.js"></script>
+
+    <script src="/boris/resources/core/js/techSubCtrl.js"></script>
     <script src="/boris/resources/core/js/autocompleteSearch.js"></script>
 </body>
 </html>

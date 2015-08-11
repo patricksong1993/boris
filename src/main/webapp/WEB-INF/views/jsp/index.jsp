@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="/boris/resources/core/bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="/boris/resources/core/bower_components/material-design-lite/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.blue-deep_purple.min.css" />
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-purple.min.css" /> 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -18,51 +20,14 @@
 
     <meta charset="UTF-8">
     <title>Boris</title>
-   	<script type="text/javascript">
-	$(document).ready(function() {
-		 $.ajax( {
-			 url: 'technologies/trending',
-			 type: 'GET',
-		      success: function(data) {
-		    	  var columnCount = 0;
-		    	  var htmlToAppend = "";
-		    	  $.each(data, function( index, value ) {
-		    		  if(index % 3 == 0){
-		    			  htmlToAppend +=   ' <div class="cardColumnContainer">';
-		    			  columnCount +=1;
-		    		  }
-		    		  htmlToAppend += '<div class="mdl-card mdl-shadow--8dp">'+
-                     '<div class="" style="padding-left: 10px">'+
-                        '<a class=" mdl-button mdl-js-button mdl-js-ripple-effect" style="font-weight: 400;color: darkgray; margin: 0">Web Components</a>'+
-                     ' </div>'+
-                      '<div class="mdl-card__title" style="padding-top:0px">'+
-                        ' <h2 class="mdl-card__title-text" >'+value.title+'</h2>'+
-                      '</div>'+
-                     ' <div class="mdl-card__supporting-text">'+
-                       value.description+
-                     ' </div>'+
-                     ' <div class="mdl-card__actions mdl-card--border">'+
-                        '  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="technology/'+value.refId+'">  See More ...</a>'+
-                      '</div>'+
-                      '<div class="mdl-card__menu">'+
-                         ' <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">'+
-                            ' <i class="material-icons">favorite_border</i>'+
-                          '</button> </div> </div>';
-                          if(index % 3 ==2){
-                     htmlToAppend +="</div>";
-		    	  $("#cardContainer").append(htmlToAppend);
-		    	  htmlToAppend = "";
-                          }
-		    		});
-		      },
-		      error: function() {
-		         alert("didnt work")
-		      }
-		   });
-	});
-	</script>
+    
+   	
 </head>
-<body ng-app="MyApp">
+<body ng-app="MyApp" ng-controller="AJAXCtrl">
+
+<script>
+   
+        </script>
 
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
@@ -74,8 +39,9 @@
 
                 <div class="mdl-tooltip" for="add">
                     Add Article/Event
-                </div>
-                <a id="subscriptionFeed" class="mdl-navigation__link material-icons material-icons-header" href="">assignment</a>
+                </div><!-- 
+                <div ng-controller="AJAXCtrl"> -->
+                <button id="subscriptionFeed" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="filterTrending()">A</button><!-- </div> -->
                 <div class="mdl-tooltip" for="subscriptionFeed">
                     Subscription Feed
                 </div>
@@ -232,17 +198,11 @@
     <main class="mdl-layout__content">
         <div class="mainContainer">
 
-            <!--<div class="mdl-card mdl-card&#45;&#45;border mdl-shadow&#45;&#45;8dp mdl-card-searchBar">-->
-                <!--<div id="searchBar" class="mdl-textfield mdl-js-textfield mdl-textfield-index" onclick="searchPop()" >-->
-                    <!--<input id="tags" class="mdl-textfield__input mdl-textfield__input-index" type="text" id="sample1"/>-->
-                    <!--<label class="mdl-textfield__label mdl-textfield__label-index" for="sample1"></label>-->
-                <!--</div>-->
-
             <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="margin-top: 15px">
                         <form ng-submit="$event.preventDefault()">
-                            <md-autocomplete ng-keypress="myFunct($event)" ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
+                            <md-autocomplete  ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
                                 <md-item-template>
-                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i" ui-keypress="ctrl.gogo($event)">{{item.display}}</span>
+                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
                                 </md-item-template>
                                 <md-not-found>
                                     No matches found for "{{ctrl.searchText}}".
@@ -252,12 +212,44 @@
                 </div>
 
             <!--</div>-->
-
-            <div class="cardContainer" id="cardContainer">
-
+            
+            <div class="cardContainer" id="cardContainer" >
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col" ng-repeat="value in myData | filter:{subscribed:subFilter}">
+                        <div class="mdl-card mdl-shadow--8dp" >
+                                                                    
+                            <div class="mdl-card__title" style="padding-top: 16px; border-bottom-width: 15px; border-color: black">
+                                 <h2 class="mdl-card__title-text" >{{value.title}}</h2>
+                            </div>
+                                              
+                          <div class="mdl-card__supporting-text">
+                               {{value.description}}
+                          </div>
+                                              
+                          <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>
+                          </div>
+                                              
+                          <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub($index)">
+                                <i class="material-icons" ng-if="value.subscribed == 'true'">favorite</i>
+                                <i class="material-icons" ng-if="value.subscribed == 'false'">favorite_border</i>
+                            </button> 
+                          </div> 
+                          
+                        </div>
+                    </div> 
+                          
                 </div>
+
+
+            </div>
         </div>
-    </main>
+
+
+
+
+</main>
 
 </div>
 
@@ -272,6 +264,7 @@
 <script src="/boris/resources/core/js/add.js"></script>
 <script src="/boris/resources/core/js/tag.js"></script>
 <script src="/boris/resources/core/js/autocompleteSearch.js"></script>
+<script src="/boris/resources/core/js/test.js"></script>
 
 
 </body>
