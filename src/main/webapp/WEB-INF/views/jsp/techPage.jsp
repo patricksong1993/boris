@@ -11,8 +11,11 @@
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="/boris/resources/core/css/boris.css">
+    <link rel="stylesheet" href="/boris/resources/core/css/style.css">
+    <link rel="stylesheet" href="/boris/resources/core/css/animate.css">
+
     <meta charset="UTF-8">
-    <title>Bower</title>
+    <title>Technology</title>
 </head>
 <body ng-app="MyApp">
 
@@ -58,6 +61,51 @@
             </nav>
         </div>
     </header>
+
+
+
+<!--This is where the code needed for the dialogs is kept -->
+
+<script type="text/ng-template" id="dialog1.tmpl.html">
+    <md-dialog aria-label="Calendar" style="width:50%">
+        <form>
+            <div ng-controller="subCtrl">
+                <md-toolbar>
+                    <div class="md-toolbar-tools" style="background-color: rgb(63,81,181);" ng-init="populateTemp()">
+                        
+                        <button ng-click="changeView()">Change View</button>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content style="overflow:hidden">  
+                    <div class="grid" ng-show="!currentView">
+                        <div class="month-item transition" ng-repeat="month in months" id="{{month}}" >
+                            <span class="centred" ng-click="changeMonth(month)">{{month}}</span>
+                        </div>   
+                    </div>
+
+                    <div class="grid" ng-show="currentView">
+                        <!-- WEEK ROW -->
+                        <div class="row week">
+                            <div class="cell" ng-repeat="title in weekDays"><span>{{title}}</span></div>
+                        </div>
+
+                        <div class="row" ng-repeat="week in currentWeeks">
+                            <div class="cell clickable" ng-repeat="day in temp | filter:{week:week}"><span>{{day.date}}</span></div>
+                        </div>
+                    </div>
+
+                    {{temp}}
+                </md-dialog-content>
+            </div>
+        </form>
+    </md-dialog>
+</script>
+
+
     <main class="mdl-layout__content">
         <div class="mainContainer">
 
@@ -70,13 +118,14 @@
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="hideTech()">
                         <i id="techButton" class="material-icons mdl-js-ripple-effect">keyboard_arrow_down</i>
                     </button>
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" >
-                        <i  class="material-icons mdl-js-ripple-effect">favorite_border</i>
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub = !sub">
+                        <i class="material-icons mdl-js-ripple-effect" ng-show="!sub">favorite_border</i>
+                        <i class="material-icons mdl-js-ripple-effect" ng-show="sub">favorite</i>
                     </button>
                 </div>
                 <div id="tech" style=" display: initial;">
                 <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech">
-                            ${technologyDescr}                </div>
+                            ${technology.description}                </div>
                 <div class="mdl-card__actions mdl-card--border">
                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  style="float: right;">
                         More...
@@ -92,14 +141,15 @@
                     <h2 class="mdl-card__title-text" style="font-size: 34px;">Teams </h2>
                 </div>
                 <div class="mdl-card__menu">
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="hideTeams()">
-                        <i id="teamButton" class="material-icons mdl-js-ripple-effect">keyboard_arrow_left</i>
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="teamBool = !teamBool">
+                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="teamBool">keyboard_arrow_left</i>
+                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="!teamBool">keyboard_arrow_down</i>
                     </button>
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
                         <i class="material-icons mdl-js-ripple-effect">mode_edit</i>
                     </button>
                 </div>
-                <div id="Teams">
+                <div id="Teams" ng-show="teamBool">
          
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;margin-bottom:8px;">
                     <tbody>
@@ -132,15 +182,24 @@
                     <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px;">event</span>
                     <h2 class="mdl-card__title-text" style="font-size: 34px;">Events</h2>
                 </div>
-                <div class="mdl-card__menu">
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="hideEvents()" >
-                        <i id="eventButton" class="material-icons mdl-js-ripple-effect">keyboard_arrow_left</i>
+                <div class="mdl-card__menu" ng-controller="accountSetControl">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="eventBool = !eventBool" >
+                        <i id="eventButton" class="material-icons mdl-js-ripple-effect" ng-show="eventBool">keyboard_arrow_left</i>
+                        <i id="eventButton" class="material-icons mdl-js-ripple-effect" ng-show="!eventBool">keyboard_arrow_down</i>
                     </button>
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+
+                    <!-- <div ng-controller="accountSetControl" class="">
+                    <a id="accountSet" class="material-icons material-icons-header mdl-navigation__link" ng-click="showAdvanced($event)" flex flex-md="100">
+                        account_circle
+                    </a>
+
+                    </div> -->
+
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="showAdvanced($event)">
                         <i class="material-icons mdl-js-ripple-effect">insert_invitation</i>
                     </button>
                 </div>
-                <div id="Events">
+                <div id="Events" ng-show="eventBool">
                 
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;<!-- background-color: whitesmoke; -->margin-bottom:8px;">
                     <tbody>
@@ -150,7 +209,7 @@
                         <td class="mdl-data-table__cell--non-numeric">${event.name}|${event.place}|${event.readableDate}</td>
                         <td class="mdl-data-table__cell">
 			      	<span>
-			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">event</a>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;" ng-click="">event</a>
 			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">people</a>
 			      	</span>
                         </td>
@@ -187,7 +246,7 @@
                                     <div style="width:90%">
                                         <h2 class="mdl-card__title-text ">${article.title}</h2>
                                     </div>
-                                    <div style="width:10%" ng-controller="subCtrl">
+                                    <div style="width:10%">
                                         <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub = !sub">
                                             <i class="material-icons mdl-js-ripple-effect" ng-show="!sub">favorite_border</i>
                                             <i class="material-icons mdl-js-ripple-effect" ng-show="sub">favorite</i>
@@ -211,7 +270,8 @@
 			</div>
         </div>
 	</div>
-    </main>
+
+</main>
 
 </div>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js'></script>
@@ -229,6 +289,7 @@
 
     <script src="/boris/resources/core/js/searchJ.js"></script>
 
+    <script src="/boris/resources/core/js/dialog.js"></script>
     <script src="/boris/resources/core/js/techSubCtrl.js"></script>
     <script src="/boris/resources/core/js/autocompleteSearch.js"></script>
 </body>
