@@ -1,4 +1,38 @@
+angular.module('MyApp')
+.controller('NotificationCtrl', function DemoCtrl($scope,$mdDialog) {
+    var originatorEv;
 
+    this.openMenu = function($mdOpenMenu, ev) {
+      originatorEv = ev;
+      $mdOpenMenu(ev);
+    };
+
+    this.notificationsEnabled = true;
+    this.toggleNotifications = function() {
+      this.notificationsEnabled = !this.notificationsEnabled;
+    };
+
+    this.redial = function() {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .targetEvent(originatorEv)
+          .clickOutsideToClose(true)
+          .parent('body')
+          .title('Suddenly, a redial')
+          .content('You just called a friend; who told you the most amazing story. Have a cookie!')
+          .ok('That was easy')
+      );
+
+
+
+
+      originatorEv = null;
+    };
+
+    this.checkVoicemail = function() {
+      // This never happens.
+    };
+  });
 
 angular.module('MyApp')
 
@@ -19,6 +53,57 @@ angular.module('MyApp')
                 });
         };
     });
+
+    angular.module('MyApp')
+
+    .controller('godControl', function($scope, $mdDialog) {
+        $scope.alert = '';
+
+        $scope.showGod = function(ev) {
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'dialog.tmpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+            })
+                .then(function(answer) {
+                    $scope.alert = 'You said the information was "' + answer + '".';
+                }, function() {
+                    $scope.alert = 'You cancelled the dialog.';
+                });
+        };
+
+        $scope.god = [{
+      division: 'Technology Helpdesk',
+      team: 'Client Side Helpdesk',
+      technologies: " AngularJs, Cassandra, Docker, Spark, Mesos, Hadoop, Rest, Hazelcast, Node.js, Solr"
+    },
+    {
+      division: 'Technology Helpdesk',
+      team: 'In House Helpdesk',
+      technologies: " AngularJs, Cassandra, Docker, Spark, Mesos, Hadoop, Rest, Hazelcast, Node.js, Solr"
+    },
+    
+    {
+      division: 'Technology Helpdesk',
+      team: 'Batch Job Support',
+      technologies: " AngularJs, Cassandra, Docker, Spark, Mesos, Hadoop, Rest, Hazelcast, Node.js, Solr"
+    },
+    
+    {
+      division: 'Technology Helpdesk',
+      team: 'Web Support',
+      technologies: " AngularJs, Cassandra, Docker, Spark, Mesos, Hadoop, Rest, Hazelcast, Node.js, Solr"
+    },
+    
+    {
+      division: 'Tools Developers',
+      team: 'Documentation Tools',
+      technologies: " AngularJs, Cassandra, Docker, Spark, Mesos, Hadoop, Rest, Hazelcast, Node.js, Solr"
+    }];
+
+    });
+
 
 angular.module('MyApp')
 
@@ -72,6 +157,8 @@ function DialogController($scope, $mdDialog) {
     };
 }
 
+
+
 angular.module('MyApp')
 
     .controller('addCalendarControl', function($scope, $mdDialog) {
@@ -81,6 +168,20 @@ angular.module('MyApp')
             $mdDialog.show({
                 controller: DialogController,
                 templateUrl: 'dialog3.tmpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+            })
+                .then(function(answer) {
+                    $scope.alert = 'You said the information was "' + answer + '".';
+                }, function() {
+                    $scope.alert = 'You cancelled the dialog.';
+                });
+        };
+
+        $scope.addEvent = function(ev) {
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'dialog9.tmpl.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
             })

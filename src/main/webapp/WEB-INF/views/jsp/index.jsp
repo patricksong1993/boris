@@ -13,6 +13,8 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="/resources/core/css/boris.css">
+    <link rel="stylesheet" href="/resources/core/css/style.css">
+    <link rel="stylesheet" href="/resources/core/css/animate.css">
 
 
 
@@ -86,9 +88,6 @@
                     Subscription Feed
                 </div>
 
-                
-               
-
                 <div class="mdl-tooltip" for="godMode">
                     God Mode
                 </div>
@@ -103,6 +102,10 @@
                     <a id="godMode" class="material-icons material-icons-header mdl-navigation__link" ng-click="showGod($event)" flex flex-md="100">
                         flash_on
                     </a>
+                </div>
+                <a id="calendar" ng-controller="addCalendarControl" class="mdl-navigation__link material-icons material-icons-header" href="" ng-click="showAdvanced($event)">insert_invitation</a>
+                <div class="mdl-tooltip" for="calendar">
+                    Calendar
                 </div>
 
 
@@ -253,6 +256,24 @@
                 </form>
                 </md-dialog>
                 </script>
+
+                <script type="text/ng-template" id="dialog3.tmpl.html">
+                <md-dialog aria-label="Calendar" style="width:50%">
+                    <form>
+                            <md-dialog-content style="overflow:hidden">  
+                                <div ng-include="'../../../resources/core/calendar.html'">
+                                </div>
+
+                                <div class="md-actions" layout="row">
+                                    <md-button ng-click="answer('not useful')" class="md-primary">
+                                        Close
+                                    </md-button>
+                                </div>
+                            </md-dialog-content>
+                        </div>
+                    </form>
+                </md-dialog>
+            </script>
 
 
 

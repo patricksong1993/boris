@@ -1,18 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 <head>
-    <script src="/resources/core/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/resources/core/bower_components/material-design-lite/material.js"></script>
-    <link rel="stylesheet" href="/resources/core/bower_components/angular-material/angular-material.css">
-    <link rel="stylesheet" href="/resources/core/bower_components/material-design-lite/material.css">
+    <script src="../../../resources/core/bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../../resources/core/bower_components/material-design-lite/material.js"></script>
+    <link rel="stylesheet" href="../../../resources/core/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="../../../resources/core/bower_components/material-design-lite/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-purple.min.css" /> 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-    <link rel="stylesheet" href="/resources/core/css/boris.css">
-    <link rel="stylesheet" href="/resources/core/css/style.css">
-    <link rel="stylesheet" href="/resources/core/css/animate.css">
+    <link rel="stylesheet" href="../../../resources/core/css/boris.css">
+    <link rel="stylesheet" href="../../../resources/core/css/style.css">
+    <link rel="stylesheet" href="../../../resources/core/css/animate.css">
 
     <meta charset="UTF-8">
     <title>Technology</title>
@@ -50,13 +50,17 @@
                 <div class="mdl-tooltip" for="subscriptionFeed">
                     Subscription Feed
                 </div>
-                <a id="godMode" class="mdl-navigation__link material-icons material-icons-header" href="">flash_on</a>
+                <div ng-controller="godControl" class="">
+                    <a id="godMode" class="material-icons material-icons-header mdl-navigation__link" ng-click="showGod($event)" flex flex-md="100">
+                        flash_on
+                    </a>
+                </div>
                 <div class="mdl-tooltip" for="godMode">
                     God Mode
                 </div>
 
                 <a id="calendar" ng-controller="addCalendarControl" class="mdl-navigation__link material-icons material-icons-header" href="" ng-click="showAdvanced($event)">insert_invitation</a>
-                <div class="mdl-tooltip" for="godMode">
+                <div class="mdl-tooltip" for="calendar">
                     Calendar
                 </div>
 
@@ -107,48 +111,6 @@
                 </script>
 
 <!--This is where the code needed for the dialogs is kept -->
-
-<script type="text/ng-template" id="dialog3.tmpl.html">
-    <md-dialog aria-label="Calendar" style="width:50%">
-        <form>
-            <div ng-controller="subCtrl">
-                <md-toolbar>
-                    <div class="md-toolbar-tools" style="background-color: rgb(63,81,181);" ng-init="populateTemp()">
-                        
-                        <h2>Calendar - 2015</h2>
-                        <span flex></span>
-                        
-                        <md-button class="md-icon-button" ng-click="answer('not applicable')">
-                            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
-                        </md-button>
-                        
-
-                    </div>
-                </md-toolbar>
-                <md-dialog-content style="overflow:hidden">  
-                    <div class="grid" ng-show="!currentView">
-                        <div class="month-item transition" ng-repeat="month in months" id="{{month}}" >
-                            <span class="centred" ng-click="changeView()">{{month}}</span>
-                        </div>   
-                    </div>
-
-                    <div class="grid" ng-show="currentView">
-                        <!-- WEEK ROW -->
-                        <div class="row week">
-                            <div class="cell" ng-repeat="title in weekDays"><span>{{title}}</span></div>
-                        </div>
-
-                        <div class="row" ng-repeat="week in currentWeeks">
-                            <div class="cell clickable" ng-repeat="day in temp | filter:{week:week}"><span>{{day.date}}</span></div>
-                        </div>
-                    </div>
-
-                    {{temp}}
-                </md-dialog-content>
-            </div>
-        </form>
-    </md-dialog>
-</script>
 
 <script type="text/ng-template" id="dialog2.tmpl.html">
     <md-dialog aria-label="Calendar" style="width:50%">
@@ -406,6 +368,35 @@
         </form>
     </md-dialog>
 </script>
+<script type="text/ng-template" id="dialog.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools" >
+                
+                <h2>Full List of Teams and their Technologies</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+           <md-list ng-controller="godControl">
+             <md-list-item class="md-3-line" ng-repeat="item in god">
+             <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px; margin-right: 4px; color:#3F51B5;">account_box</span>
+                <div class="md-list-item-text">
+                  <h3>{{item.division}}</h3>
+                  <h4>{{item.team}}</h4>
+                  <p>{{item.technologies}}</p>
+                </div>
+                <md-divider ng-if="!$last"></md-divider>
+              </md-list-item>
+            </md-list>
+        </md-dialog-content>
+        </div>
+    </form>
+    </md-dialog>
+    </script>
 
     <main class="mdl-layout__content">
         <div class="mainContainer">
@@ -417,8 +408,8 @@
                 </div>
                 <div class="mdl-card__menu">
                      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="techBool = !techBool">
-                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="!techBool">keyboard_arrow_left</i>
-                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="techBool">keyboard_arrow_down</i>
+                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="techBool">keyboard_arrow_left</i>
+                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="!techBool">keyboard_arrow_down</i>
                     </button>
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub1 = !sub1">
                         <i class="material-icons mdl-js-ripple-effect" ng-show="!sub1">favorite_border</i>
@@ -426,7 +417,7 @@
                     </button>
                 </div>
                 <div id="tech" style=" display: initial;">
-                <div ng-show="techBool"> 
+                <div ng-show="!techBool"> 
                 <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech"> 
                             ${technology.description}                </div>
                 <div class="mdl-card__actions mdl-card--border">
@@ -529,8 +520,8 @@
                 </div>
                 <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="artBool = !artBool" >
-                        <i class="material-icons mdl-js-ripple-effect" ng-show="!artBool">keyboard_arrow_left</i>
-                        <i class="material-icons mdl-js-ripple-effect" ng-show="artBool">keyboard_arrow_down</i>
+                        <i class="material-icons mdl-js-ripple-effect" ng-show="artBool">keyboard_arrow_left</i>
+                        <i class="material-icons mdl-js-ripple-effect" ng-show="!artBool">keyboard_arrow_down</i>
                     </button>
 
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="showAdvanced($event)" >
@@ -538,7 +529,7 @@
                     </button>
 
                 </div>
-                <div class="cardContainer" ng-show="artBool">
+                <div class="cardContainer" ng-show="!artBool">
                     <div class="mdl-grid">
 
                       <c:forEach  items="${technology.relatedArticles}" var="article">
@@ -573,6 +564,23 @@
 			</div>
         </div>
 	</div>
+<script type="text/ng-template" id="dialog3.tmpl.html">
+    <md-dialog aria-label="Calendar" style="width:50%">
+        <form>
+                <md-dialog-content style="overflow:hidden">  
+                    <div ng-include="'../../../resources/core/calendar.html'">
+                    </div>
+
+                    <div class="md-actions" layout="row">
+                        <md-button ng-click="answer('not useful')" class="md-primary">
+                            Close
+                        </md-button>
+                    </div>
+                </md-dialog-content>
+            </div>
+        </form>
+    </md-dialog>
+</script>
 
 </main>
 
@@ -590,11 +598,11 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <script src="/resources/core/js/searchJ.js"></script>
-    <script src="/resources/core/js/add.js"></script>
-    <script src="/resources/core/js/tag.js"></script>
-    <script src="/resources/core/js/dialog.js"></script>
-    <script src="/resources/core/js/techSubCtrl.js"></script>
-    <script src="/resources/core/js/autocompleteSearch.js"></script>
+    <script src="../../../resources/core/js/searchJ.js"></script>
+    <script src="../../../resources/core/js/add.js"></script>
+    <script src="../../../resources/core/js/tag.js"></script>
+    <script src="../../../resources/core/js/dialog.js"></script>
+    <script src="../../../resources/core/js/techSubCtrl.js"></script>
+    <script src="../../../resources/core/js/autocompleteSearch.js"></script>
 </body>
 </html>
