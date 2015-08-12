@@ -70,8 +70,8 @@
         <script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
                 <form>
                     <md-toolbar>
-                        <div class="md-toolbar-tools">
-                            <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px; margin-right: 4px; color:#FFF">account_box</span>
+                        <div class="md-toolbar-tools" >
+                            <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px; margin-right: 4px; color:#FFF;">account_box</span>
                             <h2>User Information</h2>
                             <span flex></span>
                             <md-button class="md-icon-button" ng-click="answer('not applicable')">
@@ -264,6 +264,102 @@
     </md-dialog>
 </script>
 
+<script type="text/ng-template" id="dialog6.tmpl.html">
+    <md-dialog aria-label="Message" style="width:50%">
+        <form style="overflow: hidden;">
+            <div ng-controller="subCtrl">
+                <md-toolbar>
+                    <div class="md-toolbar-tools" style="background-color: rgb(63,81,181);" ng-init="populateTemp()">
+                        <h2>Contact Us</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content style="overflow:hidden">  
+                    <md-content class="md-padding">
+                        <div ng-controller="DemoCtrl" layout="column" class="inputdemoBasicUsage">
+                            <md-content layout-padding="">
+                                <form name="userForm">
+                                    <div layout="" layout-sm="column" style="display: flex; flex-flow: column;">
+                                        <md-input-container flex="">
+                                            <label>Team Name</label>
+                                            <input ng-model="user.firstName" class="add-tech-title">
+                                        </md-input-container>
+                                        <md-input-container flex="">
+                                            <label>Description of how your team uses this technology</label>
+                                            <input ng-model="user.firstName" class="add-tech-title">
+                                        </md-input-container>
+                                        <md-input-container flex="">
+                                            <label>Information about your team</label>
+                                            <input ng-model="user.firstName" class="add-tech-title">
+                                        </md-input-container>
+                                    </div>
+                                </form>
+                            </md-content>
+                        </div>
+                    </md-content>
+                    <div class="md-actions" layout="row">
+                        <md-button ng-click="answer('not useful')" class="md-primary">
+                            Cancel
+                        </md-button>
+                        <md-button ng-click="answer('useful')" class="md-primary">
+                            Submit
+                        </md-button>
+                    </div>
+                    </form>
+                </md-dialog-content>
+            </div>
+        </form>
+    </md-dialog>
+</script>
+
+<script type="text/ng-template" id="dialog7.tmpl.html">
+    <md-dialog aria-label="Message" style="width:50%">
+        <form style="overflow: hidden;">
+            <div ng-controller="subCtrl">
+                <md-toolbar>
+                    <div class="md-toolbar-tools" style="background-color: rgb(63,81,181);" ng-init="populateTemp()">
+                        <h2>How are we using this technology?</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content style="overflow:hidden">  
+                    <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech"> 
+                            Description goes here.
+                    </div>
+                </md-dialog-content>
+            </div>
+        </form>
+    </md-dialog>
+</script>
+<script type="text/ng-template" id="dialog8.tmpl.html">
+    <md-dialog aria-label="Message" style="width:50%">
+        <form style="overflow: hidden;">
+            <div ng-controller="subCtrl">
+                <md-toolbar>
+                    <div class="md-toolbar-tools" style="background-color: rgb(63,81,181);" ng-init="populateTemp()">
+                        <h2>Who are we?</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content style="overflow:hidden">  
+                
+                  <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech"> Team Info Goes Here
+                  </div>
+                
+                </md-dialog-content>
+            </div>
+        </form>
+    </md-dialog>
+</script>
 
     <main class="mdl-layout__content">
         <div class="mainContainer">
@@ -275,8 +371,8 @@
                 </div>
                 <div class="mdl-card__menu">
                      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="techBool = !techBool">
-                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="techBool">keyboard_arrow_left</i>
-                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="!techBool">keyboard_arrow_down</i>
+                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="!techBool">keyboard_arrow_left</i>
+                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="techBool">keyboard_arrow_down</i>
                     </button>
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub1 = !sub1">
                         <i class="material-icons mdl-js-ripple-effect" ng-show="!sub1">favorite_border</i>
@@ -297,21 +393,21 @@
 
             </div>
 
-            <div class="mdl-card mdl-card--border mdl-shadow--8dp" >
+            <div class="mdl-card mdl-card--border mdl-shadow--8dp" ng-controller="teamControl">
                 <div class="mdl-card__title">
                     <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px;">group</span>
                     <h2 class="mdl-card__title-text" style="font-size: 34px;">Teams </h2>
                 </div>
                 <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="teamBool = !teamBool">
-                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="teamBool">keyboard_arrow_left</i>
-                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="!teamBool">keyboard_arrow_down</i>
+                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="!teamBool">keyboard_arrow_left</i>
+                        <i id="teamButton" class="material-icons mdl-js-ripple-effect" ng-show="teamBool">keyboard_arrow_down</i>
                     </button>
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"ng-click="showAdd($event)">
                         <i class="material-icons mdl-js-ripple-effect">mode_edit</i>
                     </button>
                 </div>
-                <div id="Teams" ng-show="teamBool" ng-controller="messageControl">
+                <div id="Teams" ng-show="teamBool">
          
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 98%;margin: auto;margin-bottom:8px;">
                     <tbody>
@@ -320,9 +416,9 @@
                         <td class="mdl-data-table__cell--non-numeric">${team.name}</td>
                         <td class="mdl-data-table__cell">
 			      	<span>
-			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;" ng-click="showAdvanced($event)">chat</a>
-			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">description</a>
-						<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;">info</a>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;" ng-click="showMessage($event)">chat</a>
+			      		<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;" ng-click="showDesc($event)">description</a>
+						<a href="" class="material-icons mdl-js-ripple-effect" style="font-size: 30px;vertical-align: top;text-decoration: blink;" ng-click="showInfo($event)">info</a>
 			      	</span>
                         </td>
                     </tr>
@@ -346,8 +442,8 @@
                 </div>
                 <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="eventBool = !eventBool" >
-                        <i id="eventButton" class="material-icons mdl-js-ripple-effect" ng-show="eventBool">keyboard_arrow_left</i>
-                        <i id="eventButton" class="material-icons mdl-js-ripple-effect" ng-show="!eventBool">keyboard_arrow_down</i>
+                        <i id="eventButton" class="material-icons mdl-js-ripple-effect" ng-show="!eventBool">keyboard_arrow_left</i>
+                        <i id="eventButton" class="material-icons mdl-js-ripple-effect" ng-show="eventBool">keyboard_arrow_down</i>
                     </button>
 
                     <!-- <div ng-controller="accountSetControl" class="">
@@ -357,6 +453,10 @@
 
                     </div> -->
                     
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="showAdvanced($event)">
+                        <i class="material-icons mdl-js-ripple-effect">add_cirlce</i>
+                    </button>
+
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="showAdvanced($event)">
                         <i class="material-icons mdl-js-ripple-effect">insert_invitation</i>
                     </button>
@@ -394,8 +494,8 @@
                 </div>
                 <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="artBool = !artBool" >
-                        <i class="material-icons mdl-js-ripple-effect" ng-show="artBool">keyboard_arrow_left</i>
-                        <i class="material-icons mdl-js-ripple-effect" ng-show="!artBool">keyboard_arrow_down</i>
+                        <i class="material-icons mdl-js-ripple-effect" ng-show="!artBool">keyboard_arrow_left</i>
+                        <i class="material-icons mdl-js-ripple-effect" ng-show="artBool">keyboard_arrow_down</i>
                     </button>
 
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="showAdvanced($event)" >

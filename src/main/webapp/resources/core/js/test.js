@@ -45,6 +45,7 @@
                       $scope.myData[j].subscribed = 'false';
                       console.log($scope.myData[j].title);
                     }
+                    //console.log($scope.myData);
                     
                 }).error(function(data, status, headers, config) {
                     alert("AJAX failed!");

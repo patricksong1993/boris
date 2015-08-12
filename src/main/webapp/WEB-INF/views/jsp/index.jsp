@@ -10,13 +10,11 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <script src="/boris/resources/core/js/searchJ.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="/boris/resources/core/css/boris.css">
+
+
 
     <meta charset="UTF-8">
     <title>Boris</title>
@@ -39,12 +37,18 @@
 
                 <div class="mdl-tooltip" for="add">
                     Add Article/Event
-                </div><!-- 
-                <div ng-controller="AJAXCtrl"> -->
-                <button id="subscriptionFeed" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="filterTrending()">A</button><!-- </div> -->
+                </div>
+                <div >
+                    <a id="subscriptions" class="material-icons material-icons-header mdl-navigation__link" ng-click="filterTrending()" flex flex-md="100">
+                        dashboard
+                    </a>
+                </div>
                 <div class="mdl-tooltip" for="subscriptionFeed">
                     Subscription Feed
                 </div>
+
+                
+               
 
                 <div class="mdl-tooltip" for="godMode">
                     God Mode
@@ -200,8 +204,8 @@
             <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="margin-top: 15px">
                         <form ng-submit="$event.preventDefault()">
                             <md-autocomplete  ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
-                                <md-item-template href="/boris/technology/{{item.id}}">
-                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i" >{{item.display}}</span>
+                                <md-item-template>
+                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i"  >{{item.display}}</span>
                                 </md-item-template>
                                 <md-not-found>
                                     No matches found for "{{ctrl.searchText}}".
@@ -226,7 +230,7 @@
                           </div>
                                               
                           <div class="mdl-card__actions mdl-card--border">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">  Read More ...</a>
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="technology/{{value.refId}}">  Read More ...</a>
                           </div>
                                               
                           <div class="mdl-card__menu">
@@ -255,6 +259,12 @@
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-messages.min.js'></script>
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    
+
 <script src='http://cdn.rawgit.com/angular/bower-material/v0.10.0/angular-material.js'></script>
 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js'></script>
 <script src="/boris/resources/core/js/dialog.js"></script>
@@ -262,6 +272,7 @@
 <script src="/boris/resources/core/js/tag.js"></script>
 <script src="/boris/resources/core/js/autocompleteSearch.js"></script>
 <script src="/boris/resources/core/js/test.js"></script>
+<script src="/boris/resources/core/js/searchJ.js"></script>
 
 
 </body>

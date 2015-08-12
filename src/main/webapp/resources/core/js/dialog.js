@@ -96,10 +96,10 @@ angular.module('MyApp')
 
 angular.module('MyApp')
 
-    .controller('messageControl', function($scope, $mdDialog) {
+    .controller('teamControl', function($scope, $mdDialog) {
         $scope.alert = '';
 
-        $scope.showAdvanced = function(ev) {
+        $scope.showMessage = function(ev) {
             $mdDialog.show({
                 controller: DialogController,
                 templateUrl: 'dialog5.tmpl.html',
@@ -114,8 +114,59 @@ angular.module('MyApp')
         };
 
 
+        $scope.showAdd = function(ev) {
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'dialog6.tmpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+            })
+                .then(function(answer) {
+                    $scope.alert = 'You said the information was "' + answer + '".';
+                }, function() {
+                    $scope.alert = 'You cancelled the dialog.';
+                });
+        };
+
+        $scope.showDesc = function(ev) {
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'dialog7.tmpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+            })
+                .then(function(answer) {
+                    $scope.alert = 'You said the information was "' + answer + '".';
+                }, function() {
+                    $scope.alert = 'You cancelled the dialog.';
+                });
+        };
+
+        $scope.showInfo = function(ev) {
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'dialog8.tmpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+            })
+                .then(function(answer) {
+                    $scope.alert = 'You said the information was "' + answer + '".';
+                }, function() {
+                    $scope.alert = 'You cancelled the dialog.';
+                });
+        };
+
+
     });
 
+angular.module('MyApp')
+
+    .controller('teamAddControl', function($scope, $mdDialog) {
+        $scope.alert = '';
+
+
+
+    });
 
 angular.module('MyApp')
 
