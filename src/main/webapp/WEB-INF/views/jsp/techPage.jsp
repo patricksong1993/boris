@@ -283,7 +283,7 @@
                     </div>
                 </md-toolbar>
                 <md-dialog-content style="overflow:hidden">  
-                    <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech"> 
+                    <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech" style="color:#000"> 
                             This is where each team would put information about how they use this particular technology. How is it used in their business as usual here at BlackRock and/or  within Aladdin. This information is volunteered by the group. etc......
                     </div>
                 </md-dialog-content>
@@ -306,7 +306,7 @@
                 </md-toolbar>
                 <md-dialog-content style="overflow:hidden">  
                 
-                  <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech"> This is where each team would put information about themselves. What they do for BlackRock and/or Aladdin. Who they are and where they work. etc......
+                  <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech" style="color:#000"> This is where each team would put information about themselves. What they do for BlackRock and/or Aladdin. Who they are and where they work. etc......
                   </div>
                 
                 </md-dialog-content>
