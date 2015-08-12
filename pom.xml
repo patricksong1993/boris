@@ -146,7 +146,7 @@
 				<configuration>
 					<url>http://localhost:8080/manager</url>
 					<server>localhost</server>
-					<path>/boris</path>
+					<path>/</path>
 				</configuration>
 			</plugin>
 			<plugin>
