@@ -1,18 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 <head>
-    <script src="/boris/resources/core/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/boris/resources/core/bower_components/material-design-lite/material.js"></script>
-    <link rel="stylesheet" href="/boris/resources/core/bower_components/angular-material/angular-material.css">
-    <link rel="stylesheet" href="/boris/resources/core/bower_components/material-design-lite/material.css">
+    <script src="/resources/core/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/resources/core/bower_components/material-design-lite/material.js"></script>
+    <link rel="stylesheet" href="/resources/core/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/resources/core/bower_components/material-design-lite/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-purple.min.css" /> 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-    <link rel="stylesheet" href="/boris/resources/core/css/boris.css">
-    <link rel="stylesheet" href="/boris/resources/core/css/style.css">
-    <link rel="stylesheet" href="/boris/resources/core/css/animate.css">
+    <link rel="stylesheet" href="/resources/core/css/boris.css">
+    <link rel="stylesheet" href="/resources/core/css/style.css">
+    <link rel="stylesheet" href="/resources/core/css/animate.css">
 
     <meta charset="UTF-8">
     <title>Technology</title>
@@ -22,7 +22,7 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-            <img src="/boris/resources/core/img/logo_white.png" alt="Boris_logo" style="height: 30px;">
+            <img src="/resources/core/img/logo_white.png" alt="Boris_logo" style="height: 30px;">
 
             <div class="mdl-layout-spacer"></div>
 
@@ -555,11 +555,11 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <script src="/boris/resources/core/js/searchJ.js"></script>
-    <script src="/boris/resources/core/js/add.js"></script>
-    <script src="/boris/resources/core/js/tag.js"></script>
-    <script src="/boris/resources/core/js/dialog.js"></script>
-    <script src="/boris/resources/core/js/techSubCtrl.js"></script>
-    <script src="/boris/resources/core/js/autocompleteSearch.js"></script>
+    <script src="/resources/core/js/searchJ.js"></script>
+    <script src="/resources/core/js/add.js"></script>
+    <script src="/resources/core/js/tag.js"></script>
+    <script src="/resources/core/js/dialog.js"></script>
+    <script src="/resources/core/js/techSubCtrl.js"></script>
+    <script src="/resources/core/js/autocompleteSearch.js"></script>
 </body>
 </html>

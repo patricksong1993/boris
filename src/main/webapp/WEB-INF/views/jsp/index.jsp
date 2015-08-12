@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="/boris/resources/core/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/boris/resources/core/bower_components/material-design-lite/material.js"></script>
-    <link rel="stylesheet" href="/boris/resources/core/bower_components/angular-material/angular-material.css">
-    <link rel="stylesheet" href="/boris/resources/core/bower_components/material-design-lite/material.css">
+    <script src="/resources/core/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/resources/core/bower_components/material-design-lite/material.js"></script>
+    <link rel="stylesheet" href="/resources/core/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/resources/core/bower_components/material-design-lite/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-purple.min.css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -12,7 +12,7 @@
 
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-    <link rel="stylesheet" href="/boris/resources/core/css/boris.css">
+    <link rel="stylesheet" href="/resources/core/css/boris.css">
 
 
 
@@ -31,7 +31,7 @@
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
 
-            <img src="/boris/resources/core/img/logo_white.png" alt="Boris_logo" style="height: 30px;">
+            <img src="/resources/core/img/logo_white.png" alt="Boris_logo" style="height: 30px;">
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation ">
 
@@ -203,7 +203,7 @@
 
             <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="margin-top: 15px">
                         <form ng-submit="$event.preventDefault()">
-                            <md-autocomplete  ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
+                            <md-autocomplete  ng-keypress="myFunct($event)"ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
                                 <md-item-template>
                                     <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i"  >{{item.display}}</span>
                                 </md-item-template>
@@ -267,12 +267,12 @@
 
 <script src='http://cdn.rawgit.com/angular/bower-material/v0.10.0/angular-material.js'></script>
 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js'></script>
-<script src="/boris/resources/core/js/dialog.js"></script>
-<script src="/boris/resources/core/js/add.js"></script>
-<script src="/boris/resources/core/js/tag.js"></script>
-<script src="/boris/resources/core/js/autocompleteSearch.js"></script>
-<script src="/boris/resources/core/js/test.js"></script>
-<script src="/boris/resources/core/js/searchJ.js"></script>
+<script src="/resources/core/js/dialog.js"></script>
+<script src="/resources/core/js/add.js"></script>
+<script src="/resources/core/js/tag.js"></script>
+<script src="/resources/core/js/autocompleteSearch.js"></script>
+<script src="/resources/core/js/test.js"></script>
+<script src="/resources/core/js/searchJ.js"></script>
 
 
 </body>

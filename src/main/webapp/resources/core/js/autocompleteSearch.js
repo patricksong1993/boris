@@ -41,7 +41,7 @@
               				id = technology.id;
               			}
               		});
-              		$window.location.href = '/boris/technology/'+  id ;
+              		$window.location.href = '/technology/'+  id ;
         	  }
         	}
         // ******************************
@@ -77,7 +77,7 @@
          */
         function loadAll() {
         	var allTechnologies = []	;
-        	$http.get('/boris/technologies').success(function(response) {
+        	$http.get('/technologies').success(function(response) {
         		angular.forEach(response, function(value, key) {
         			var technology = {};
         			technology.id = value.refId;
