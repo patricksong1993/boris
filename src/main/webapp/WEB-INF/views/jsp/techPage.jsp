@@ -26,8 +26,8 @@
 
             <div class="mdl-layout-spacer"></div>
 
-            <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="width: 75%;">
-                <form ng-submit="$event.preventDefault()">
+            <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="width: 70%;padding-top: 15px;">
+                <form ng-submit="$event.preventDefault()" >
                     <md-autocomplete  ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
                         <md-item-template>
                             <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
@@ -54,6 +54,13 @@
                 <div class="mdl-tooltip" for="godMode">
                     God Mode
                 </div>
+
+                <a id="calendar" ng-controller="addCalendarControl" class="mdl-navigation__link material-icons material-icons-header" href="" ng-click="showAdvanced($event)">insert_invitation</a>
+                <div class="mdl-tooltip" for="godMode">
+                    Calendar
+                </div>
+
+
                 
                 <div ng-controller="accountSetControl" class="">
                     <a id="accountSet" class="material-icons material-icons-header mdl-navigation__link" ng-click="showAdvanced($event)" flex flex-md="100">
@@ -110,9 +117,12 @@
                         
                         <h2>Calendar - 2015</h2>
                         <span flex></span>
+                        
                         <md-button class="md-icon-button" ng-click="answer('not applicable')">
                             <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
                         </md-button>
+                        
+
                     </div>
                 </md-toolbar>
                 <md-dialog-content style="overflow:hidden">  
@@ -164,25 +174,10 @@
                                             <input ng-model="user.firstName" class="add-tech-title">
                                         </md-input-container>
 
-
                                         <md-input-container flex>
-                                            <label>Description</label>
+                                            <label>Link <i class="material-icons" style="font-size: 18px;color:rgba(0, 0, 0, 0.258824);">link</i></label>
                                             <textarea ng-model="user.biography" class="add-tech-desc"></textarea>
                                         </md-input-container>
-
-
-                                        <div ng-controller="CustomInputDemoCtrl as ctrl"    class="chipsdemoCustomInputs" ng-app="MyApp">
-                                            <md-chips ng-model="ctrl.selectedVegetables" md-autocomplete-snap="" md-require-match="">
-                                                <md-autocomplete md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name" placeholder="Add a category">
-                                                    <span md-highlight-text="ctrl.searchText">{{item.name}}</span>
-                                                </md-autocomplete>
-                                                <md-chip-template>
-                                                    <span>
-                                                      <strong>{{$chip.name}}</strong>
-                                                    </span>
-                                                </md-chip-template>
-                                            </md-chips>
-                                        </div>
                                     </div>
 
                                 </form>
@@ -361,6 +356,57 @@
     </md-dialog>
 </script>
 
+<script type="text/ng-template" id="dialog9.tmpl.html">
+    <md-dialog aria-label="Message" style="width:50%">
+        <form style="overflow: hidden;">
+            <div ng-controller="subCtrl">
+                <md-toolbar>
+                    <div class="md-toolbar-tools" style="background-color: rgb(63,81,181);" ng-init="populateTemp()">
+                        <h2>Contact Us</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content style="overflow:hidden">  
+                    <md-content class="md-padding">
+                        <div ng-controller="DemoCtrl" layout="column" class="inputdemoBasicUsage">
+                            <md-content layout-padding="">
+                                <form name="userForm">
+                                    <div layout="" layout-sm="column" style="display: flex; flex-flow: column;">
+                                        <md-input-container flex="">
+                                            <label>Team Name</label>
+                                            <input ng-model="user.firstName" class="add-tech-title">
+                                        </md-input-container>
+                                        <md-input-container flex="">
+                                            <label>Description of how your team uses this technology</label>
+                                            <input ng-model="user.firstName" class="add-tech-title">
+                                        </md-input-container>
+                                        <md-input-container flex="">
+                                            <label>Information about your team</label>
+                                            <input ng-model="user.firstName" class="add-tech-title">
+                                        </md-input-container>
+                                    </div>
+                                </form>
+                            </md-content>
+                        </div>
+                    </md-content>
+                    <div class="md-actions" layout="row">
+                        <md-button ng-click="answer('not useful')" class="md-primary">
+                            Cancel
+                        </md-button>
+                        <md-button ng-click="answer('useful')" class="md-primary">
+                            Submit
+                        </md-button>
+                    </div>
+                    </form>
+                </md-dialog-content>
+            </div>
+        </form>
+    </md-dialog>
+</script>
+
     <main class="mdl-layout__content">
         <div class="mainContainer">
 
@@ -446,19 +492,8 @@
                         <i id="eventButton" class="material-icons mdl-js-ripple-effect" ng-show="eventBool">keyboard_arrow_down</i>
                     </button>
 
-                    <!-- <div ng-controller="accountSetControl" class="">
-                    <a id="accountSet" class="material-icons material-icons-header mdl-navigation__link" ng-click="showAdvanced($event)" flex flex-md="100">
-                        account_circle
-                    </a>
-
-                    </div> -->
-                    
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="showAdvanced($event)">
-                        <i class="material-icons mdl-js-ripple-effect">add_cirlce</i>
-                    </button>
-
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="showAdvanced($event)">
-                        <i class="material-icons mdl-js-ripple-effect">insert_invitation</i>
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="addEvent($event)">
+                        <i class="material-icons mdl-js-ripple-effect">mode_edit</i>
                     </button>
                 </div>
                 <div id="Events" ng-show="eventBool">

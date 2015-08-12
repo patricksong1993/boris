@@ -1,16 +1,26 @@
 body.ng-scope{
     background-color: #C1B5B5;
+    overflow-y:hidden;
 }
 
 .mdl-card.mdl-shadow--8dp {
     background-color: rgba(255, 255, 255, 0.90);
 }
 
+.material-icons .notification-icon {
+
+    font-size:34px;
+    color:#3F51B5;;
+    padding-right:7px;
+}
 
 
-h2.mdl-card__title-text {
+
+.mdl-card__title-text {
 
     margin-left: 5px;
+    font-size: 38px;
+
 }
 
 .mdl-card {

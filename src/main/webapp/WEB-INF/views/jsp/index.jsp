@@ -35,6 +35,45 @@
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation ">
 
+
+                <!-- Notifications and menue -->
+                <div class="md-menu-demo menudemoBasicUsage" ng-controller="NotificationCtrl as ctrl" ng-app="MyApp">
+
+                  <div class="menu-demo-container" layout-align="center center" layout="column" style="top:58px;left:430px;">
+                    <md-menu>
+                      <a aria-label="Open phone interactions menu" class="material-icons material-icons-header mdl-navigation__link" ng-click="ctrl.openMenu($mdOpenMenu, $event)">
+                        notifications</a>
+                      </md-button>
+
+                      <md-menu-content width="4">
+
+                        <md-menu-item>
+                          <md-button ng-click="item.function">
+                            <i class="material-icons notification-icon">group</i>
+                            New AngularJs Team link!
+                          </md-button>
+                        </md-menu-item>
+
+                        <md-menu-item>
+                          <md-button ng-click="item.function">
+                            <i class="material-icons notification-icon">event</i>
+                            New AngularJs Event added!
+                          </md-button>
+                        </md-menu-item>
+
+                        <md-menu-item>
+                          <md-button ng-click="item.function">
+                            <i class="material-icons notification-icon">subtitles</i>
+                            New AngularJs Article added
+                          </md-button>
+                        </md-menu-item>
+
+                      </md-menu-content>
+                    </md-menu>
+                  </div>
+                </div>
+
+                <!-- rest of the toolbar -->
                 <div class="mdl-tooltip" for="add">
                     Add Article/Event
                 </div>
@@ -60,8 +99,8 @@
                     </a>
                 </div>
 
-                <div ng-controller="addArticleControl" class="">
-                    <a id="godMode" class="material-icons material-icons-header mdl-navigation__link" ng-click="showAdvanced($event)" flex flex-md="100">
+                <div ng-controller="godControl" class="">
+                    <a id="godMode" class="material-icons material-icons-header mdl-navigation__link" ng-click="showGod($event)" flex flex-md="100">
                         flash_on
                     </a>
                 </div>
@@ -73,10 +112,6 @@
                     </a>
 
                 </div>
-
-
-
-
 
                 <script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
                 <form>
@@ -104,6 +139,35 @@
 
 
                         </div>
+                    </md-dialog-content>
+                    </div>
+                </form>
+                </md-dialog>
+                </script>
+                <script type="text/ng-template" id="dialog.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
+                <form>
+                    <md-toolbar>
+                        <div class="md-toolbar-tools" >
+                            
+                            <h2>Full List of Teams and their Technologies</h2>
+                            <span flex></span>
+                            <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                                <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                            </md-button>
+                        </div>
+                    </md-toolbar>
+                    <md-dialog-content>
+                       <md-list ng-controller="godControl">
+                         <md-list-item class="md-3-line" ng-repeat="item in god">
+                         <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px; margin-right: 4px; color:#3F51B5;">account_box</span>
+                            <div class="md-list-item-text">
+                              <h3>{{item.division}}</h3>
+                              <h4>{{item.team}}</h4>
+                              <p>{{item.technologies}}</p>
+                            </div>
+                            <md-divider ng-if="!$last"></md-divider>
+                          </md-list-item>
+                        </md-list>
                     </md-dialog-content>
                     </div>
                 </form>
