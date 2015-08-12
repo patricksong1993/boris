@@ -94,6 +94,28 @@ angular.module('MyApp')
 
     });
 
+angular.module('MyApp')
+
+    .controller('messageControl', function($scope, $mdDialog) {
+        $scope.alert = '';
+
+        $scope.showAdvanced = function(ev) {
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'dialog5.tmpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+            })
+                .then(function(answer) {
+                    $scope.alert = 'You said the information was "' + answer + '".';
+                }, function() {
+                    $scope.alert = 'You cancelled the dialog.';
+                });
+        };
+
+
+    });
+
 
 angular.module('MyApp')
 

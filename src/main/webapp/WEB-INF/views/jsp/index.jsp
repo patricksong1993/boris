@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/boris/resources/core/bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="/boris/resources/core/bower_components/material-design-lite/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-purple.min.css" /> 
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-purple.min.css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 
@@ -78,7 +78,8 @@
                 <form>
                     <md-toolbar>
                         <div class="md-toolbar-tools">
-                            <h2>Mango (Fruit)</h2>
+                            <span class="material-icons mdl-js-ripple-effect" style="font-size: 42px; margin-right: 4px; color:#FFF">account_box</span>
+                            <h2>User Information</h2>
                             <span flex></span>
                             <md-button class="md-icon-button" ng-click="answer('not applicable')">
                                 <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
@@ -87,21 +88,19 @@
                     </md-toolbar>
                     <md-dialog-content>
                         <div>
+                        Username : sduncan
+                        <br>
+                        First Name: Siobhan
+                        <br>
+                        Last Name: Duncan
+                        <br>
+                        Department: CSO-DBA
+                        <br>
+                        Location: Edinburgh
+
 
                         </div>
                     </md-dialog-content>
-
-                    <div class="md-actions" layout="row">
-                        <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" hide show-md>
-                            More on Wikipedia
-                        </md-button>
-                        <span flex></span>
-                        <md-button ng-click="answer('not useful')" class="md-primary">
-                            Not Useful
-                        </md-button>
-                        <md-button ng-click="answer('useful')" class="md-primary">
-                            Useful
-                        </md-button>
                     </div>
                 </form>
                 </md-dialog>
@@ -201,8 +200,8 @@
             <div ng-controller="SearchCtrl as ctrl" layout="column" class="autocompletedemoBasicUsage" style="margin-top: 15px">
                         <form ng-submit="$event.preventDefault()">
                             <md-autocomplete  ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search">
-                                <md-item-template>
-                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                <md-item-template href="/boris/technology/{{item.id}}">
+                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i" >{{item.display}}</span>
                                 </md-item-template>
                                 <md-not-found>
                                     No matches found for "{{ctrl.searchText}}".
@@ -241,8 +240,6 @@
                     </div> 
                           
                 </div>
-
-
             </div>
         </div>
 

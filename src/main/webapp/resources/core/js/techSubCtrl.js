@@ -64,57 +64,58 @@
                         return temp;
             }
 
-            // $scope.currentMonth = function(month){
+            $scope.currentMonth = function(month){
 
-            //     var size = $scope.returnMonthSize(month);
-            //     var myArr = [];
-            //     var myDate = new Date();
-            //     myDate.setMonth(month);
-            //     myDate.setDate(0);
-            //     myDate.setFullYear(2015);
+                var size = $scope.returnMonthSize(month);
+                var myArr = [];
+                var myDate = new Date();
+                myDate.setMonth(month);
+                myDate.setDate(0);
+                myDate.setFullYear(2015);
 
-            //     //array storing all the weeks in the current month
-            //     $scope.currentWeeks = [];
-            //     var currentWeek = myDate.getWeek();
-            //     $scope.currentWeeks.push(currentWeek);
+                //array storing all the weeks in the current month
+                $scope.currentWeeks = [];
+                var currentWeek = myDate.getWeek();
+                $scope.currentWeeks.push(currentWeek);
 
-            //     //need to reset the month as previously erased it.
-            //     myDate.setMonth(month);
+                //need to reset the month as previously erased it.
+                myDate.setMonth(month);
 
-            //     for(var i=1; i<size; i++){
+                for(var i=1; i<size; i++){
 
 
-            //         myDate.setDate(i);
+                    myDate.setDate(i);
 
-            //         var dateObj = {};
-            //         dateObj["date"] = myDate.getDate();
-            //         dateObj["day"] = myDate.getDay();
-            //         dateObj["week"] = myDate.getWeek();
-            //         dateObj["month"] = myDate.getMonth();
-            //         dateObj["year"] = myDate.getFullYear();
+                    var dateObj = {};
+                    dateObj["date"] = myDate.getDate();
+                    dateObj["day"] = myDate.getDay();
+                    dateObj["week"] = myDate.getWeek();
+                    dateObj["month"] = myDate.getMonth();
+                    dateObj["year"] = myDate.getFullYear();
                    
-            //         myArr[i-1] = dateObj;
+                    myArr[i-1] = dateObj;
 
-            //         console.log(myDate.toDateString());
+                    console.log(myDate.toDateString());
 
-            //         //gets the value of the last week pushed to array
-            //         var lastWeek = viewLastElem($scope.currentWeeks);
-            //         //if onto a new week, push this week to the array
-            //         if(dateObj["week"] != lastWeek){
-            //                     $scope.currentWeeks.push(dateObj["week"]);
-            //         }
+                    //gets the value of the last week pushed to array
+                    var lastWeek = viewLastElem($scope.currentWeeks);
+                    //if onto a new week, push this week to the array
+                    if(dateObj["week"] != lastWeek){
+                                $scope.currentWeeks.push(dateObj["week"]);
+                    }
 
-            //     }
+                }
 
-            //         return myArr;
-            // }
+                    return myArr;
+            }
 
             // $scope.changeMonth = function(month){
 
             // 	$scope.temp = $scope.currentMonth(month);
 
             // }
-            
+
+            $scope.temp = $scope.currentMonth(7);
             // $scope.populateTemp = function(){
 
             // 	for(var i = 0; i< 12; i++){
