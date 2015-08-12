@@ -22,7 +22,7 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-            <img src="/resources/core/img/logo_white.png" alt="Boris_logo" style="height: 30px;">
+            <a href="../.."><img src="/resources/core/img/logo_white.png" alt="Boris_logo" style="height: 30px;"></a>
 
             <div class="mdl-layout-spacer"></div>
 
@@ -46,10 +46,7 @@
                 <div class="mdl-tooltip" for="add">
                     Add
                 </div>
-                <a id="subscriptionFeed" class="mdl-navigation__link material-icons material-icons-header" href="">dashboard</a>
-                <div class="mdl-tooltip" for="subscriptionFeed">
-                    Subscription Feed
-                </div>
+                
                 <div ng-controller="godControl" class="">
                     <a id="godMode" class="material-icons material-icons-header mdl-navigation__link" ng-click="showGod($event)" flex flex-md="100">
                         flash_on
@@ -287,7 +284,7 @@
                 </md-toolbar>
                 <md-dialog-content style="overflow:hidden">  
                     <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech"> 
-                            Description goes here.
+                            This is where each team would put information about how they use this particular technology. How is it used in their business as usual here at BlackRock and/or  within Aladdin. This information is volunteered by the group. etc......
                     </div>
                 </md-dialog-content>
             </div>
@@ -309,7 +306,7 @@
                 </md-toolbar>
                 <md-dialog-content style="overflow:hidden">  
                 
-                  <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech"> Team Info Goes Here
+                  <div  class="mdl-card__supporting-text mdl-card__supporting-text-tech"> This is where each team would put information about themselves. What they do for BlackRock and/or Aladdin. Who they are and where they work. etc......
                   </div>
                 
                 </md-dialog-content>
@@ -538,7 +535,7 @@
                                 <div class="mdl-card__title">
                                     
                                     <div style="width:90%">
-                                        <h2 class="mdl-card__title-text ">${article.title}</h2>
+                                        <h2 class="mdl-card__title-text" style="font-size:25px">${article.title}</h2>
                                     </div>
                                     <div style="width:10%">
                                         <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="sub = !sub">
